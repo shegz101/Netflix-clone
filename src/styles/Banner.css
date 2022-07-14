@@ -1,0 +1,45 @@
+.banner__image {
+    position: relative;
+    top: 0;
+    height: 448px;
+    color: white;
+    object-fit: contain;
+}
+
+.banner-contents {
+    padding-top: 130px;
+    padding-left: 20px;
+}
+
+.movie__name {
+    padding-bottom: 30px;
+}
+
+.buttons {
+    padding-bottom: 30px;
+}
+
+.button__play {
+    border-radius: 15px;
+    width: 80px;
+    height: 30px;
+    border: 1px solid #fff;
+    color: white;
+    background-color: black;
+    text-align: center;
+}
+
+.button__add {
+    border-radius: 15px;
+    width: 100px;
+    height: 30px;
+    border: 1px solid #fff;
+    color: white;
+    background-color: rgb(2, 2, 2);
+    margin-left: 20px;
+}
+
+.movie__description {
+    padding-top: 30px;
+    width: 45%;
+}
