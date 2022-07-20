@@ -5,7 +5,7 @@ import '../styles/Header.css';
 const Header = () => {
     const [showdark, setShowDark] = useState(false);
     const controlBlackNav = () => {
-        if(window.scrollY > 100) {
+        if(window.scrollY > 90) {
             setShowDark(true);
         } else {
             setShowDark(false);
@@ -21,15 +21,17 @@ const Header = () => {
     return (
         <div className={`header ${showdark && 'bg__dark'}`}>
             <div className="header-image">
-              <div><img className="header__logo" src={pic} alt=""/></div>
-              <nav>
-                <li style={{color:'white'}}>Home</li>
-                <li style={{color:'white'}}>Home</li>
-                <li style={{color:'white'}}>Home</li>
-                <li style={{color:'white'}}>Home</li>
-                <li style={{color:'white'}}>Home</li>
-                <li style={{color:'white'}}>Home</li>
-              </nav>
+              <div className='header__start__name'>
+                <img className="header__logo" src={pic} alt=""/>
+                <nav className='nav-links'>
+                  <li style={{color:'white', paddingLeft: '10px', opacity: '1',}}>Home</li>
+                  <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>Tv Shows</li>
+                  <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>Movies</li>
+                  <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>New & Popular</li>
+                  <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>My List</li>
+                </nav>
+              </div>
+              
               <div><img className="avatar__logo" src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt=""/></div>
             </div> 
         </div>

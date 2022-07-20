@@ -1,7 +1,11 @@
-
 .header-image {
     display: flex;
     justify-content: space-between;
+}
+
+.header__start__name {
+    display: flex;
+    flex-direction: row;
 }
 
 .bg__dark {
@@ -21,8 +25,40 @@
 .avatar__logo {
     position: fixed;
     object-fit: contain;
-    width: 40px;
+    width: 35px;
     right: 15px;
     padding-top: 10px;
     z-index: 10;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    list-style-type: none;
+    margin-top: 17px;
+    margin-left: 160px;
+    z-index: 10;
+    position: fixed;
+    cursor: pointer;
+}
+
+
+/*********Media Query for Mobile***********/
+@media only screen and (min-width:0px) and (max-width:320px) {
+    .nav-links {
+        display: none;
+    }
+} 
+
+@media only screen and (min-width:321px) and (max-width:376px) {
+    .nav-links {
+        display: none;
+    }
+}
+
+@media only screen and (min-width:377px) and (max-width:426px) {
+    .nav-links {
+        display: none;
+    }
 }
