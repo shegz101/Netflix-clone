@@ -22,8 +22,7 @@
     position: fixed;
     object-fit: contain;
     width: 40px;
-    right: 20px;
+    right: 15px;
     padding-top: 10px;
-    padding-right: 20px;
     z-index: 10;
 }

@@ -1,0 +1,28 @@
+.image-crop {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    padding: 20px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+}
+
+.image-crop::-webkit-scrollbar {
+    display: none;
+}
+
+.movie__div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.movie__poster {
+    border-radius: 30px;
+    height: 10px;
+    width: 30px;
+}
+

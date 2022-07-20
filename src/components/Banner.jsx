@@ -1,23 +1,31 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import '../styles/Banner.css';
+import axios_fetch from '../api/axios_fetch';
+import request_data from '../api/request_data';
 
 const Banner = () => {
+    const [bannermovie, setBannerMovie] = useState([]);
+    const fetch_movie = async () => {
+        const resp = await axios_fetch.get(request_data.NetflixOriginals);
+        setBannerMovie(resp.data.results[Math.floor(Math.random() * resp.data.results.length - 1)]);
+    }
+
+    useEffect(() => {
+        fetch_movie();
+    },[])
     return (
         <header className="banner__image" style={{backgroundSize: 'cover', 
-            backgroundImage: `url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8XCntNXZ45CX1H7I1368CI0ckJJmfQDIl2A&usqp=CAU')`,
+            backgroundImage: `url('https://image.tmdb.org/t/p/original/${bannermovie?.backdrop_path || bannermovie?.poster_path}')`,
             backgroundPosition: "center center",
             }}>
             
             <div className="banner-contents">
-                <h1 className='movie__name'>Movie Name</h1>
+                <h1 className='movie__name'>{bannermovie?.title || bannermovie?.name || bannermovie?.original_name}</h1>
                 <div className="buttons">
                     <button className='button__play'>Play</button>
                     <button className='button__add'>Add to List</button>
                 </div>
-                <p className='movie__description'>This is an interesting movie. 
-                This is an interesting movie. This is an interesting movie. This is an interesting movie.
-                This is an interesting movie.This is an interesting movie.This is an interesting movie.n
-                </p>
+                <p className='movie__description'>{bannermovie?.overview}</p>
             </div>
         </header>
     )

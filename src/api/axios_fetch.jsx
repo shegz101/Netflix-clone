@@ -1,5 +1,8 @@
 import axios from "axios";
 
-export const axios_fetch = axios.create({
-    baseURL:''
-})
+const axios_fetch = axios.create({
+    baseURL:'https://api.themoviedb.org/3',
+});
+
+export default axios_fetch;
+
