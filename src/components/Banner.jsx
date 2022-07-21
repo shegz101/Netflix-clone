@@ -25,12 +25,7 @@ const Banner = () => {
             <div className="banner-contents">
                 <Typewriter 
                     onInit={(typewriter)=> {
-  
-                    typewriter
-   
-                    .typeString(`<h1 className='movie__name'>${bannermovie?.title || bannermovie?.name || bannermovie?.original_name}</h1>`)
-
-                    .start();
+                    typewriter.typeString(`<h1 className='movie__name'>${bannermovie?.title || bannermovie?.name || bannermovie?.original_name}</h1>`).stop().start();
                 }}/>
                 {/* <h1 className='movie__name'>{bannermovie?.title || bannermovie?.name || bannermovie?.original_name}</h1> */}
                 <div className="buttons">
@@ -39,7 +34,7 @@ const Banner = () => {
                 </div>
                 <Typewriter 
                     onInit={(typewriter)=> {
-                    typewriter.typeString(`<p className='movie__name'>${movie_descr}</p>`).start();
+                    typewriter.typeString(`<p className='movie__name'>${movie_descr}</p>`).stop().start();
                 }}/>
                 {/* <p className='movie__description'>{bannermovie?.overview}</p> */}
             </div>
