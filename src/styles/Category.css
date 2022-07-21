@@ -1,7 +1,7 @@
 .image-crop {
     display: flex;
     flex-direction: row;
-    margin-left: 20px;
+    margin-left: -5px;
     padding: 20px;
     overflow-y: hidden;
     overflow-x: scroll;

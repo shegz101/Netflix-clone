@@ -4,7 +4,8 @@ import '../styles/Footer.css'
 const Footer = () => {
     return (
         <div className="footer-section">
-            <p style={{color:'white'}}>Built by segun, powered by Tmdb</p>
+            <p style={{color:'white'}}>Built by Segun, Powered by Tmdb API</p>
+            <p>Let's Connect </p>
         </div>
     )
 }

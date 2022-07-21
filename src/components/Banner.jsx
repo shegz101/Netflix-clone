@@ -1,4 +1,5 @@
 import React, {useState,useEffect} from 'react';
+import Typewriter from "typewriter-effect";
 import '../styles/Banner.css';
 import axios_fetch from '../api/axios_fetch';
 import request_data from '../api/request_data';
@@ -10,6 +11,8 @@ const Banner = () => {
         setBannerMovie(resp.data.results[Math.floor(Math.random() * resp.data.results.length - 1)]);
     }
     console.log(bannermovie);
+    const movie_title = `${bannermovie?.title || bannermovie?.name || bannermovie?.original_name}`;
+    const movie_descr = `${bannermovie?.overview}`;
     useEffect(() => {
         fetch_movie();
     },[])
@@ -20,12 +23,25 @@ const Banner = () => {
             }}>
             
             <div className="banner-contents">
-                <h1 className='movie__name'>{bannermovie?.title || bannermovie?.name || bannermovie?.original_name}</h1>
+                <Typewriter 
+                    onInit={(typewriter)=> {
+  
+                    typewriter
+   
+                    .typeString(`<h1 className='movie__name'>${bannermovie?.title || bannermovie?.name || bannermovie?.original_name}</h1>`)
+
+                    .start();
+                }}/>
+                {/* <h1 className='movie__name'>{bannermovie?.title || bannermovie?.name || bannermovie?.original_name}</h1> */}
                 <div className="buttons">
                     <button className='button__play'>Play</button>
                     <button className='button__add'>Add to List</button>
                 </div>
-                <p className='movie__description'>{bannermovie?.overview}</p>
+                <Typewriter 
+                    onInit={(typewriter)=> {
+                    typewriter.typeString(`<p className='movie__name'>${movie_descr}</p>`).start();
+                }}/>
+                {/* <p className='movie__description'>{bannermovie?.overview}</p> */}
             </div>
         </header>
     )

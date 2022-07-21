@@ -21,7 +21,7 @@ const Category =({ heading, url }) => {
                 moviecategory.map((movie) => (
                     <div className="movie__div">
                       <img clasName="movie__poster" style={{height: '130px', padding:'0 10px', borderRadius: '13px', }} src={`${img_url}/${movie.backdrop_path || movie.poster_path}`} alt="img post"/>
-                      <p style={{color:'white'}}>{movie.title || movie?.name || movie?.original_name}</p>
+                      <p style={{color:'white', paddingTop:'10px'}}>{movie.title || movie?.name || movie?.original_name}</p>
                     </div>
                 ))
             }
