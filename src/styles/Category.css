@@ -1,8 +1,8 @@
 .image-crop {
     display: flex;
     flex-direction: row;
-    margin-left: -5px;
-    padding: 20px;
+    margin-left: -10px;
+    padding: 20px 20px 20px 10px;
     overflow-y: hidden;
     overflow-x: scroll;
     -ms-overflow-style: none;  /* IE and Edge */

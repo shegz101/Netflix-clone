@@ -1,5 +1,6 @@
 import React,{useState, useEffect}from 'react';
-import pic from '../images/trailflix.png'
+import pic from '../images/trailflix.png';
+import { AiOutlineSearch } from 'react-icons/ai';
 import '../styles/Header.css';
 
 const Header = () => {
@@ -22,7 +23,7 @@ const Header = () => {
         <div className={`header ${showdark && 'bg__dark'}`}>
             <div className="header-image">
               <div className='header__start__name'>
-                <img className="header__logo" src={pic} alt=""/>
+                <img className="header__logo" src={pic} alt="web-app-logo"/>
                 <nav className='nav-links'>
                   <li style={{color:'white', paddingLeft: '10px', opacity: '1',}}>Home</li>
                   <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>Tv Shows</li>
@@ -32,7 +33,10 @@ const Header = () => {
                 </nav>
               </div>
               
-              <div><img className="avatar__logo" src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt=""/></div>
+              <div>
+                <AiOutlineSearch className='search-icon'  style={{color:'white'}}/>
+                <img className="avatar__logo" src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt="avatar-default-icon"/>
+              </div>
             </div> 
         </div>
     )
