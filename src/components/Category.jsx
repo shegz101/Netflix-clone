@@ -14,8 +14,8 @@ const Category =({ heading, url }) => {
         fetch_movie_category();
     },[])
     return (
-        <div>
-            <p style={{color:'white', paddingLeft:'10px'}}>{heading}</p>
+        <div className="category-section">
+            <p className="heading-info" style={{color:'white', paddingLeft:'10px',}}>{heading}</p>
             <div className="image-crop">
             {
                 moviecategory.map((movie) => (

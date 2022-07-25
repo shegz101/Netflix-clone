@@ -1,6 +1,7 @@
 .banner__image {
     position: relative;
     top: 0;
+    z-index: 2;
     height: 448px;
     color: white;
     object-fit: contain;

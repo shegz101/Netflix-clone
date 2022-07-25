@@ -34,8 +34,10 @@ const Header = () => {
               </div>
               
               <div>
-                <AiOutlineSearch className='search-icon'  style={{color:'white'}}/>
-                <img className="avatar__logo" src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt="avatar-default-icon"/>
+                <nav className='nav-icon'>
+                 <AiOutlineSearch className='search-icon'  style={{color:'white', paddingLeft:'10px'}}/>
+                 <img className="avatar__logo" style={{ paddingLeft:'10px' }} src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt="avatar-default-icon"/>
+                </nav>
               </div>
             </div> 
         </div>

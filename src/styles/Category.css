@@ -1,3 +1,11 @@
+.category-section {
+    margin-top: -2px;
+}
+
+.heading-info {
+    z-index: 10;
+}
+
 .image-crop {
     display: flex;
     flex-direction: row;

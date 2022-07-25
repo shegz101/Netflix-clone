@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react';
-import Typewriter from "typewriter-effect";
+// import Typewriter from "typewriter-effect";
 import '../styles/Banner.css';
 import axios_fetch from '../api/axios_fetch';
 import request_data from '../api/request_data';
@@ -21,19 +21,19 @@ const Banner = () => {
             }}>
             
             <div className="banner-contents">
-                <Typewriter 
+                {/* <Typewriter 
                     onInit={(typewriter)=> {
                     typewriter.typeString(`<h1 className='movie__name'>${bannermovie?.title || bannermovie?.name || bannermovie?.original_name}</h1>`).stop().start();
-                }}/>
+                }}/> */}
                 <h1 className='movie__name'>{bannermovie?.title || bannermovie?.name || bannermovie?.original_name}</h1>
                 <div className="buttons">
                     <button className='button__play'>Play</button>
                     <button className='button__add'>Add to List</button>
                 </div>
-                <Typewriter 
+                {/* <Typewriter 
                     onInit={(typewriter)=> {
                     typewriter.typeString(`<p className='movie__description'>${bannermovie?.overview}</p>`).stop().start();
-                }}/>
+                }}/> */}
                 <p className='movie__description'>{bannermovie?.overview}</p>
             </div>
         </header>
