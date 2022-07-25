@@ -17,7 +17,7 @@
     z-index: 10;
     left: 0;
     object-fit: contain;
-    padding-left: 20px;
+    padding-left: 13px;
     top:13px;
 }
 
@@ -55,7 +55,7 @@
     text-decoration: none;
     list-style-type: none;
     position: fixed;
-    margin-left: 1230px;
+    margin-left: 90%;
     z-index: 10;
     position: fixed;
 }
@@ -67,16 +67,54 @@
     .nav-links {
         display: none;
     }
+    
+    .header__logo {
+        padding-left: 15px;
+    }
+    
+    .nav-icon {
+        margin-left: 65%;
+    }
+
+    .search-icon {
+        padding-right: 25px;
+    }
 } 
 
 @media only screen and (min-width:321px) and (max-width:376px) {
     .nav-links {
         display: none;
     }
+
+    .nav-icon {
+        margin-left: 70%;
+    }
+
+    .search-icon {
+        padding-right: 25px;
+    }
 }
 
 @media only screen and (min-width:377px) and (max-width:426px) {
     .nav-links {
         display: none;
+    }
+
+    .nav-icon {
+        margin-left: 70%;
+    }
+
+    .search-icon {
+        padding-right: 25px;
+    }
+}
+
+@media only screen and (min-width:427px) and (max-width:769px){
+    .nav-icon {
+        margin-left: 85%;
+    }
+
+    .search-icon {
+        padding-right: 25px;
     }
 }
