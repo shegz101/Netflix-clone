@@ -21,11 +21,17 @@
     top:13px;
 }
 
+.floated-right-nav {
+    display: flex;
+    flex-direction: column;
+}
+
 .avatar__logo {
     object-fit: contain;
     width: 35px;
     right: 6px;
     padding-top: 10px;
+    cursor:pointer;
 }
 
 .search-icon {
@@ -36,6 +42,34 @@
     cursor:pointer;
 }
 
+.more-nav {
+    text-decoration: none;
+    list-style-type: none;
+    margin-left: 92.5%;
+    background-color: black;
+    border:2px solid black;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    padding-left: 5px;
+    width: 86px;
+    height: 40px;
+    margin-top: 4.5%;
+    z-index: 10;
+    position: fixed;
+}
+
+.more-nav::before {
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    right: 35px;
+    top: -12px;
+    border-style: solid;
+    border-width: 0px 8px 16px 8px;
+    border-color: transparent transparent black transparent;
+}
 
 .nav-links {
     display: flex;
@@ -73,11 +107,16 @@
     }
     
     .nav-icon {
-        margin-left: 65%;
+        margin-left: 62%;
     }
 
     .search-icon {
         padding-right: 25px;
+    }
+
+    .more-nav {
+        margin-left: 70%;
+        margin-top: 18%;
     }
 } 
 
@@ -87,11 +126,16 @@
     }
 
     .nav-icon {
-        margin-left: 70%;
+        margin-left: 67%;
     }
 
     .search-icon {
         padding-right: 25px;
+    }
+
+    .more-nav {
+        margin-left: 74%;
+        margin-top: 16%;
     }
 }
 
@@ -107,14 +151,39 @@
     .search-icon {
         padding-right: 25px;
     }
+
+    .more-nav {
+        margin-left: 77%;
+        margin-top: 14%;
+    }
 }
 
 @media only screen and (min-width:427px) and (max-width:769px){
     .nav-icon {
-        margin-left: 85%;
+        margin-left: 83%;
     }
 
     .search-icon {
         padding-right: 25px;
+    }
+
+    .more-nav {
+        margin-left: 86.8%;
+        margin-top: 8%;
+    }
+}
+
+@media only screen and (min-width:770px) and (max-width:1025px) {
+    .nav-icon {
+        margin-left: 87%;
+    }
+
+    .search-icon {
+        padding-right: 25px;
+    }
+
+    .more-nav {
+        margin-left: 89.8%;
+        margin-top: 5.5%;
     }
 }

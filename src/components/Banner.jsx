@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react';
 // import Typewriter from "typewriter-effect";
+import { TbPlayerPlay } from 'react-icons/tb';
 import '../styles/Banner.css';
 import axios_fetch from '../api/axios_fetch';
 import request_data from '../api/request_data';
@@ -27,7 +28,7 @@ const Banner = () => {
                 }}/> */}
                 <h1 className='movie__name'>{bannermovie?.title || bannermovie?.name || bannermovie?.original_name}</h1>
                 <div className="buttons">
-                    <button className='button__play'>Play</button>
+                    <button className='button__play'><TbPlayerPlay style={{paddingRight:'10px', paddingTop:'2px'}}/>Play</button>
                     <button className='button__add'>Add to List</button>
                 </div>
                 {/* <Typewriter 
