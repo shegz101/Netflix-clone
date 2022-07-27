@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from "react";
+import YouTube from 'react-youtube';
+import movieTrailer from "movie-trailer";
 import axios_fetch from '../api/axios_fetch';
 import '../styles/Category.css'
 
 const Category =({ heading, url }) => {
     const img_url = `https://image.tmdb.org/t/p/original`;
     const [moviecategory, setMovieCategory] = useState([]);
+    const [trailerId, setTrailerId] = useState('');
     const fetch_movie_category = async () => {
         const resp = await axios_fetch.get(`${url}`);
         setMovieCategory(resp.data.results);
@@ -13,6 +16,27 @@ const Category =({ heading, url }) => {
     useEffect(() => {
         fetch_movie_category();
     },[])
+
+    const options = {
+        height: '390',
+        width: '100%',
+        playerVars: {
+            autoplay: 1,
+        },
+    };
+
+    const handleMovieModal = (movie) => {
+        if (trailerId) {
+            setTrailerId('');
+        } else {
+            movieTrailer(movie?.name || movie.title || movie?.original_name || "").then(url => {
+                const urlParams = new URLSearchParams(new URL(url).search);
+                console.log(urlParams);
+                setTrailerId(urlParams.get("v"));
+            }).catch((err) => console.log(err));
+        }
+    };
+
     return (
         <div className="category-section">
             <p className="heading-info" style={{color:'white', paddingLeft:'10px',}}>{heading}</p>
@@ -20,12 +44,16 @@ const Category =({ heading, url }) => {
             {
                 moviecategory.map((movie) => (
                     <div className="movie__div">
-                      <img clasName="movie__poster" style={{height: '130px', padding:'0 10px', borderRadius: '13px', }} src={`${img_url}/${movie.backdrop_path || movie.poster_path}`} alt="img post"/>
-                      <p style={{color:'white', paddingTop:'10px'}}>{movie.title || movie?.name || movie?.original_name}</p>
+                      <img key={movie?.id} 
+                      onClick={() => handleMovieModal(movie)}
+                      clasName="movie__poster" style={{height: '130px', padding:'0 10px', cursor:'pointer', borderRadius: '13px', }} 
+                      src={`${img_url}/${movie.backdrop_path || movie.poster_path}`} alt={movie?.name}/>
+                      <p style={{color:'white', paddingTop:'10px', paddingBottom:'10px',}}>{movie.title || movie?.name || movie?.original_name}</p>
                     </div>
                 ))
             }
             </div>
+            {trailerId && <YouTube videoId={trailerId} opts={options}/>}
         </div>
     )
 }

@@ -5,7 +5,7 @@ import '../styles/Header.css';
 
 const Header = () => {
     const [showdark, setShowDark] = useState(false);
-    const [showDrop, setShowDrop] = useState(false);
+    const [showdrop, setShowDrop] = useState(false);
     const controlBlackNav = () => {
         if(window.scrollY > 100) {
             setShowDark(true);
@@ -20,6 +20,14 @@ const Header = () => {
             window.removeEventListener('scroll', controlBlackNav)
         };
     }, [])
+
+    const showDropDown = () => {
+      if(showdrop === true) {
+        setShowDrop(false);
+      } else {
+        setShowDrop(true);
+      }
+    }
     return (
         <div className={`header ${showdark && 'bg__dark'}`}>
             <div className="header-image">
@@ -37,14 +45,14 @@ const Header = () => {
               <div className='floated-right-nav'>
                 <nav className='nav-icon'>
                   <AiOutlineSearch className='search-icon'  style={{color:'white', paddingLeft:'10px'}}/>
-                  <img className="avatar__logo" onClick={() => setShowDrop(true)} style={{ paddingLeft:'10px' }} src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt="avatar-default-icon"/>
+                  <img className="avatar__logo" onClick={() => showDropDown(true)} style={{ paddingLeft:'10px' }} src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt="avatar-default-icon"/>
                 </nav>
                 {
-                  showDrop && (
-                    <aside className='more-nav'>
-                      <li style={{color:'white', paddingBottom: '5px', cursor:'pointer',}}>Log Out</li>
-                      <li style={{color:'white', cursor:'pointer'}}>My Account</li>
-                    </aside>
+                  showdrop && (
+                    <div className='more-nav'>
+                      <li style={{color:'white', paddingBottom: '5px', paddingLeft:'10px', cursor:'pointer',}}>Log Out</li>
+                      <li style={{color:'white', cursor:'pointer', paddingLeft:'10px',}}>Account</li>
+                    </div>
                   )
                 }
               </div>
