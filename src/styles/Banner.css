@@ -45,6 +45,10 @@
     width: 45%;
 }
 
+.invisible-div {
+    background-color:linear-gradient(0deg, black, blue 80%) no-repeat;
+}
+
 /*********Media Query for Mobile***********/
 @media only screen and (min-width:0px) and (max-width:320px) {
     .movie__description {

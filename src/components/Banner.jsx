@@ -37,6 +37,7 @@ const Banner = () => {
                 }}/> */}
                 <p className='movie__description'>{bannermovie?.overview}</p>
             </div>
+            <div className="invisible-div" style={{height:'20px', marginTop:'105px', }}/>
         </header>
     )
 }

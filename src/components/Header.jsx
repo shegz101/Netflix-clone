@@ -34,10 +34,10 @@ const Header = () => {
               <div className='header__start__name'>
                 <img className="header__logo" src={pic} alt="web-app-logo"/>
                 <nav className='nav-links' style={{zIndex:'10',}}>
-                  <li style={{color:'white', paddingLeft: '10px', opacity: '1',}}>Home</li>
-                  <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>Tv Shows</li>
-                  <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>Movies</li>
-                  <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>New & Popular</li>
+                  {/* <li style={{color:'white', paddingLeft: '10px', opacity: '1',}}>Home</li>
+                  <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>Tv Shows</li> */}
+                  <li style={{color:'white', paddingLeft: '10px', opacity:'1',}}>Movies</li>
+                  {/* <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>New & Popular</li> */}
                   <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>My List</li>
                 </nav>
               </div>
