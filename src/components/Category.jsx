@@ -40,14 +40,14 @@ const Category =({ heading, url }) => {
 
     return (
         <div className="category-section">
-            <p className="heading-info" style={{color:'white', paddingLeft:'10px',}}>{heading}</p>
+            <p className="heading-info" style={{color:'white', paddingLeft:'10px', fontSize:'20px'}}>{heading}</p>
             <div className="image-crop">
             {
                 moviecategory.map((movie) => (
                     <div className="movie__div">
                       <img key={movie?.id} 
                       onClick={() => handleMovieModal(movie)}
-                      clasName="movie__poster" style={{height: '130px', padding:'0 10px', cursor:'pointer', borderRadius: '13px', }} 
+                      clasName="movie__poster" style={{height: '160px', padding:'0 10px', cursor:'pointer', borderRadius: '13px', }} 
                       src={`${img_url}/${movie.backdrop_path || movie.poster_path}`} alt={movie?.name}/>
                       <p style={{color:'white', paddingTop:'10px', paddingBottom:'10px',}}>{movie.title || movie?.name || movie?.original_name}</p>
                     </div>

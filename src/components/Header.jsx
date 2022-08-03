@@ -44,7 +44,7 @@ const Header = () => {
               
               <div className='floated-right-nav'>
                 <nav className='nav-icon'>
-                  <AiOutlineSearch className='search-icon'  style={{color:'white', paddingLeft:'10px'}}/>
+                  <div><AiOutlineSearch className='search-icon'  style={{color:'white', paddingLeft:'10px'}}/></div>
                   <img className="avatar__logo" onClick={() => showDropDown(true)} style={{ paddingLeft:'10px' }} src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt="avatar-default-icon"/>
                 </nav>
                 {

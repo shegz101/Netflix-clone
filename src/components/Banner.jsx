@@ -8,7 +8,7 @@ import request_data from '../api/request_data';
 const Banner = () => {
     const [bannermovie, setBannerMovie] = useState([]);
     const fetch_movie = async () => {
-        const resp = await axios_fetch.get(request_data.NetflixOriginals);
+        const resp = await axios_fetch.get(request_data.Trending);
         setBannerMovie(resp.data.results[Math.floor(Math.random() * resp.data.results.length - 1)]);
     }
     // console.log(bannermovie);

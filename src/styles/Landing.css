@@ -1,0 +1,105 @@
+.landing__section {
+    /* position: relative; */
+    top:0;
+    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStI4rCgyFHQSG3DGnNnxMeEWiFpKnq84GuSg&usqp=CAU") center no-repeat;
+    background-size: cover;
+    object-fit: contain;
+    height: 100vh;
+    width: 100%;
+}
+
+.landing__logo {
+    position: fixed;
+    z-index: 10;
+    width: 120px;
+    z-index: 10;
+    left: 20px;
+    object-fit: contain;
+    top:13px;
+}
+
+.sign_btn {
+    position: fixed;
+    height: 35px;
+    color: white;
+    margin-top: 13px;
+    right: 20px;
+    right: 20px;
+    background-color: red;
+    z-index: 10;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 6rem;
+    border: 1px solid transparent;
+}
+
+.invisible__imaage__dark {
+    width: 100%;
+    height: 100vh;
+    /* position: fixed; */
+    z-index: 1;
+    background: rgba(0,0,0,0.4);
+    background-image: linear-gradient(to top
+    rgba(0,0,0,0.8)0,
+    rgba(0,0,0,0)60%,
+    rgba(0,0,0,0.8)100%);
+}
+
+.landing__text {
+    z-index: 5;
+    text-align: center;
+    top: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__info {
+    color: white;
+    padding-top: 30vh;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* top: 30px; */
+} 
+
+.description__info {
+    color: white;
+    padding-top: 10px;
+    font-size: 30px;
+    font-weight:400;
+}
+
+.membership__info {
+    color: white;
+    padding-top: 10px;
+    font-size: 18px;
+    font-weight:400;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.input__button {
+    padding-top: 20px;
+}
+
+.input__field {
+    height: 39px;
+    width: 550px;
+    border: 1px solid transparent;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    text-decoration: none;
+    outline: none;
+}
+
+.btn__field {
+    height: 43px;
+    width: 200px;
+    background-color: red;
+    border: 1px solid transparent;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

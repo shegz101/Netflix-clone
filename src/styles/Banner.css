@@ -46,7 +46,11 @@
 }
 
 .invisible-div {
-    background-color:linear-gradient(0deg, black, blue 80%) no-repeat;
+    background: rgba(0,0,0,0.3);
+    background-image:linear-gradient(to bottom,
+    rgba(0,0,0,0.8) 0,
+    rgba(0,0,0,0.8)70%,
+    rgba(0,0,0,0.8)100%);
 }
 
 /*********Media Query for Mobile***********/
