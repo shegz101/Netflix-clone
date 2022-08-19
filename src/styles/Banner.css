@@ -3,7 +3,6 @@
     top: 0;
     z-index: 2;
     height: 448px;
-    color: white;
     object-fit: contain;
 }
 
@@ -14,6 +13,7 @@
 
 .movie__name {
     padding-bottom: 30px;
+    color: white;
 }
 
 .buttons {
@@ -43,6 +43,7 @@
 .movie__description {
     padding-top: 30px;
     width: 45%;
+    color: gray;
 }
 
 .invisible-div {

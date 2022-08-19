@@ -16,7 +16,7 @@ const Landing = () => {
                <p className='description__info'>Watch anywhere. Cancel at any time.</p>
                <p className='membership__info'>Ready to watch? Enter your email to create or restart your membership.</p>
                <div className='input__button'>
-                 <input type='text' placeholder='Email Address' className="input__field"/>
+                 <input type='text' placeholder='Email Address' className="input__field" required/>
                  <Link to='/home' style={{textDecoration:'none'}}><button className="btn__field">GET STARTED</button></Link>
                </div>
             </div>

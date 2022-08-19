@@ -30,8 +30,7 @@
 
 .movie__poster {
     border-radius: 30px;
-    height: 10px;
-    width: 30px;
+    width: 20px;
     transition: 0.2s;
 }
 

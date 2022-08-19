@@ -8,6 +8,10 @@
     width: 100%;
 }
 
+.landing__header {
+    background-color: '#7F000000';
+}
+
 .landing__logo {
     position: fixed;
     z-index: 10;
@@ -51,6 +55,7 @@
     top: 30px;
     align-items: center;
     justify-content: center;
+    background-color: '#7F000000';
 }
 
 .header__info {
