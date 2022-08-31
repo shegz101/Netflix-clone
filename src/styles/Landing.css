@@ -87,8 +87,10 @@
 }
 
 .input__field {
-    height: 39px;
+    height: 40px;
     width: 550px;
+    font-size: 18px;
+    font-size: 13pts;
     border: 1px solid transparent;
     border-top: none;
     border-right: none;
