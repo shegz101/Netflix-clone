@@ -1,0 +1,42 @@
+.signin__modal {
+    margin-left: auto;
+    margin-right: auto;
+    height: max-content;
+    width: 400px;
+    background-color: black;
+    padding: 20px 20px;
+    border-radius: 8px;
+}
+
+.signin__modal > h1 {
+    text-align: left;
+}
+
+.btn__grp {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.btn__grp > input {
+    height: 40px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    outline: none;
+    font-size: 12.6pts;
+    font-size: 20px;
+    border: 1px solid transparent;
+}
+
+.sign__btn {
+    height: 40px;
+    color: #fff;
+    background-color: red;
+    z-index: 10;
+    font-size: 25px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid transparent;
+}

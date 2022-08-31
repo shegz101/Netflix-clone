@@ -1,11 +1,8 @@
 .landing__section {
-    /* position: relative; */
-    top:0;
-    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStI4rCgyFHQSG3DGnNnxMeEWiFpKnq84GuSg&usqp=CAU") center no-repeat;
+    position: relative;
+    height:100%;
+    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1d9C4UyF9p2_19p4LKo7zEroQn7VL8Y7VsQ&usqp=CAU") center no-repeat;
     background-size: cover;
-    object-fit: contain;
-    height: 100vh;
-    width: 100%;
 }
 
 .landing__header {
@@ -40,46 +37,44 @@
 .invisible__imaage__dark {
     width: 100%;
     height: 100vh;
-    /* position: fixed; */
     z-index: 1;
     background: rgba(0,0,0,0.4);
-    background-image: linear-gradient(to top
-    rgba(0,0,0,0.8)0,
-    rgba(0,0,0,0)60%,
-    rgba(0,0,0,0.8)100%);
+    background-image: linear-gradient(
+    to top,
+    rgba(0,0,0,0.8) 0,
+    rgba(0,0,0,0) 60%,
+    rgba(0,0,0,0.8) 100%);
 }
 
 .landing__text {
-    z-index: 5;
+    position:absolute;
+    top:30%;    
+    z-index: 2;
+    padding:20px;
+    left: auto;
+    right: auto;
+    color:#fff;
     text-align: center;
-    top: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     background-color: '#7F000000';
 }
 
 .header__info {
-    color: white;
-    padding-top: 30vh;
     font-size: 40px;
     font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    /* top: 30px; */
 } 
 
 .description__info {
-    color: white;
-    padding-top: 10px;
     font-size: 30px;
     font-weight:400;
 }
 
 .membership__info {
-    color: white;
-    padding-top: 10px;
     font-size: 18px;
     font-weight:400;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-top:10px;
 }
 
 .input__button {
@@ -88,7 +83,7 @@
 
 .input__field {
     height: 40px;
-    width: 550px;
+    width: 50%;
     font-size: 18px;
     font-size: 13pts;
     border: 1px solid transparent;
