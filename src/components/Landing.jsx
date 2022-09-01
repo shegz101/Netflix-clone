@@ -16,7 +16,7 @@ const Landing = () => {
             <div className="landing__text">
                 {
                     isuserin ? (
-                        <>
+                        <div className='intro__div'>
                             <h1 className='header__info'>Unlimited films, TV programmes and more.</h1>
                             <p className='description__info'>Watch anywhere. Cancel at any time.</p>
                             <p className='membership__info'>Ready to watch? Enter your email to create or restart your membership.</p>
@@ -24,12 +24,11 @@ const Landing = () => {
                                 <input type='text' placeholder='Email Address' className="input__field" required/>
                                 <button className="btn__field" onClick={() => {setUserIn(false)}}>GET STARTED</button>
                             </div>
-                        </>
+                        </div>
                     ) : (
                         <SignInModal/>
                     )
-                }
-               
+                } 
             </div>
         </div>
     )

@@ -3,6 +3,7 @@
     height:100%;
     background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1d9C4UyF9p2_19p4LKo7zEroQn7VL8Y7VsQ&usqp=CAU") center no-repeat;
     background-size: cover;
+    overflow-x: hidden;
 }
 
 .landing__header {
@@ -48,17 +49,20 @@
 
 .landing__text {
     position:absolute;
-    top:30%;    
+    top:25%;
+    margin-left: auto;
+    margin-right: auto;    
     z-index: 2;
-    padding:20px;
-    left: auto;
-    right: auto;
+    padding: 20px;
     color:#fff;
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    align-items: center;
-    /* justify-content: center; */
     background-color: '#7F000000';
+}
+
+.intro__div {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .header__info {

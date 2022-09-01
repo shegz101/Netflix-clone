@@ -8,7 +8,21 @@
     border-radius: 8px;
 }
 
+.signup__modal {
+    margin-left: auto;
+    margin-right: auto;
+    height: max-content;
+    width: 400px;
+    background-color: black;
+    padding: 20px 20px;
+    border-radius: 8px;
+}
+
 .signin__modal > h1 {
+    text-align: left;
+}
+
+.signup__modal > h1 {
     text-align: left;
 }
 
