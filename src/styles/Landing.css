@@ -62,10 +62,6 @@
     background-color: '#7F000000';
 }
 
-.intro__div {
-    margin-left: auto;
-    margin-right: auto;
-}
 
 .header__info {
     font-size: 40px;
@@ -111,3 +107,9 @@
     font-weight: 600;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+/* @media only screen and (min-width:426px) and (max-width:728px) {
+    .header__info {
+        font-size: 30px;
+    } 
+} */
