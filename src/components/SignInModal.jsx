@@ -1,15 +1,69 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import '../styles/SignInModal.css';
-import { auth } from '../firebase';
+import {useNavigate} from 'react-router-dom';
+import {auth} from '../firebase';
+import {createUserWithEmailAndPassword} from 'firebase/auth';
+import {signInWithEmailAndPassword, sendEmailVerification} from 'firebase/auth';
+// import {onAuthStateChanged} from 'firebase/auth';
+// import { useSelector } from 'react-redux';
+// import { selectUser } from '../features/authSlice';
+import { useDispatch } from 'react-redux';
+import { updateTimeActive } from '../features/authSlice';
+
 const SignInModal = () => {
     const [isusernew, setIsUserNew] = useState(false);
-    const emailRef = useRef(null);
-    const nameRef = useRef(null);
-    const passwordRef = useRef(null);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const navigate = useNavigate()
+    // const user = useSelector(selectUser);
+    const dispatch = useDispatch();
 
-    const register = (e) => {
-        e.preventDefault();
+    const validatePassword = () => {
+        let isValid = true
+        if (password !== '' && confirmPassword !== ''){
+          if (password !== confirmPassword) {
+            isValid = false
+            alert('Passwords does not match')
+          }
+        }
+        return isValid
     }
+
+    const signUp = (e) => {
+        e.preventDefault()
+        if(validatePassword()) {
+          // Create a new user with email and password using firebase
+            createUserWithEmailAndPassword(auth, email, password)
+            .then((res) => {
+                console.log(res.user)
+              })
+            .catch(err => alert(err.message))
+        }
+        setEmail('');
+        setPassword('');
+        setConfirmPassword('');
+    }
+
+    const signIn = e => {
+        e.preventDefault()
+        signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          if(!auth.user.emailVerified) {
+            sendEmailVerification(auth.user)
+            .then(() => {
+              dispatch(updateTimeActive(true))
+              navigate('/verify-email')
+            })
+          .catch(err => alert(err.message))
+        }else{
+          navigate('/')
+        }
+        })
+        .catch(err => alert(err.message))
+    }
+
+    
     return ( 
         <div className='signup'>
             {
@@ -17,10 +71,10 @@ const SignInModal = () => {
                     <div className='signup__modal'>
                         <h1>Sign Up</h1>
                         <div className='btn__grp'>
-                            <input type='text' ref={nameRef} placeholder='Fullname' required/>
-                            <input type='email' ref={emailRef} placeholder="Email Address" required/>
-                            <input type='password'ref={passwordRef} placeholder='Password' required/>
-                            <button className="sign__btn">Sign Up</button>
+                            <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email Address" required/>
+                            <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' required/>
+                            <input type='password'value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder='ConfIrm Password' required/>
+                            <button className="sign__btn" onClick={signUp}>Sign Up</button>
                         </div>
                         <p><span style={{color:'grey'}}> Already a User? </span> <span style={{cursor:'pointer',}} onClick={() => {setIsUserNew(false)}}>Sign In.</span></p>
                    </div>
@@ -30,7 +84,7 @@ const SignInModal = () => {
                         <div className='btn__grp'>
                             <input type='email' placeholder="Email Address" required/>
                             <input type='password' placeholder='Password' required/>
-                            <button className="sign__btn">Sign In</button>
+                            <button className="sign__btn" onClick={signIn}>Sign In</button>
                         </div>
                         <p><span style={{color:'grey'}}> New to Netflix? </span> <span style={{cursor:'pointer',}} onClick={() => {setIsUserNew(true)}}>Sign Up now.</span></p>
                    </div>

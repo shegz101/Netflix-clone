@@ -1,11 +1,16 @@
 import React,{useState, useEffect}from 'react';
 import pic from '../images/trailflix.png';
 import { AiOutlineSearch } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Header.css';
+import { signOut } from 'firebase/auth';
+import {auth} from '../firebase';
 
 const Header = () => {
     const [showdark, setShowDark] = useState(false);
     const [showdrop, setShowDrop] = useState(false);
+    const navigate = useNavigate();
+
     const controlBlackNav = () => {
         if(window.scrollY > 100) {
             setShowDark(true);
@@ -50,8 +55,8 @@ const Header = () => {
                 {
                   showdrop && (
                     <div className='more-nav'>
-                      <li style={{color:'white', paddingBottom: '5px', paddingLeft:'10px', cursor:'pointer',}}>Log Out</li>
-                      <li style={{color:'white', cursor:'pointer', paddingLeft:'10px',}}>Account</li>
+                      <li style={{color:'white', paddingBottom: '5px', paddingLeft:'10px', cursor:'pointer',}} onClick={() => signOut(auth)}>Log Out</li>
+                      <li style={{color:'white', cursor:'pointer', paddingLeft:'10px',}} onClick={() => navigate('/')}>Account</li>
                     </div>
                   )
                 }
