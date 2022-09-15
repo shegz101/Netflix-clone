@@ -32,15 +32,15 @@ function App() {
   return (
     <Router>
         <Routes>
-          <Route exact path='/' element={
+          <Route exact path='/profile' element={
             <PrivateRoute>
               <Profile/>
             </PrivateRoute>
           }/>
-          <Route path="/landing" element={
+          <Route path="/" element={
             !user 
             ? <Landing/>
-            : <Navigate to='/' replace/>
+            : <Navigate to='/profile' replace/>
           } />
           <Route path='/home' element={<HomePage/>}/>
         </Routes>
