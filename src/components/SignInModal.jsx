@@ -5,10 +5,8 @@ import {auth} from '../firebase';
 import {createUserWithEmailAndPassword} from 'firebase/auth';
 import {signInWithEmailAndPassword, sendEmailVerification} from 'firebase/auth';
 // import {onAuthStateChanged} from 'firebase/auth';
-// import { useSelector } from 'react-redux';
-// import { selectUser } from '../features/authSlice';
 import { useDispatch } from 'react-redux';
-import { updateTimeActive } from '../features/authSlice';
+import { updateTimeActive, updateUserName } from '../features/authSlice';
 
 const SignInModal = () => {
     const [isusernew, setIsUserNew] = useState(false);
@@ -17,7 +15,6 @@ const SignInModal = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState('');
     const navigate = useNavigate()
-    // const user = useSelector(selectUser);
     const dispatch = useDispatch();
 
     const validatePassword = () => {
@@ -38,7 +35,8 @@ const SignInModal = () => {
             createUserWithEmailAndPassword(auth, email, password)
             .then((res) => {
                 console.log(res.user)
-              })
+                dispatch(updateUserName(name))
+            })
             .catch(err => alert(err.message))
         }
         setEmail('');
@@ -54,7 +52,6 @@ const SignInModal = () => {
             sendEmailVerification(auth.user)
             .then(() => {
               dispatch(updateTimeActive(true))
-              navigate('/verify-email')
             })
           .catch(err => alert(err.message))
         }else{

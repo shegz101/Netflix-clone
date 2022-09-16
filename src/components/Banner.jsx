@@ -16,6 +16,7 @@ const Banner = () => {
         fetch_movie();
     },[])
     return (
+        
         <header className="banner__image" style={{backgroundSize: 'cover', 
             backgroundImage: `url('https://image.tmdb.org/t/p/original/${bannermovie?.backdrop_path || bannermovie?.poster_path}')`,
             backgroundPosition: "center center",
