@@ -4,9 +4,10 @@ import {useNavigate} from 'react-router-dom';
 import {auth} from '../firebase';
 import {createUserWithEmailAndPassword} from 'firebase/auth';
 import {signInWithEmailAndPassword, sendEmailVerification} from 'firebase/auth';
-// import {onAuthStateChanged} from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { updateTimeActive, updateUserName } from '../features/authSlice';
+import { AiOutlineEyeInvisible } from 'react-icons/ai';
+import { AiOutlineEye } from 'react-icons/ai';
 
 const SignInModal = () => {
     const [isusernew, setIsUserNew] = useState(false);
@@ -71,7 +72,11 @@ const SignInModal = () => {
                         <div className='btn__grp'>
                             <input type='text' value={name} onChange={(e) => setName(e.target.value)} placeholder="Full Name" required/>
                             <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email Address" required/>
-                            <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' required/>
+                            <>
+                              <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' required/>
+                              <AiOutlineEyeInvisible/>
+                              <AiOutlineEye/>
+                            </>
                             <input type='password'value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder='ConfIrm Password' required/>
                             <button className="sign__btn" onClick={signUp}>Sign Up</button>
                         </div>
