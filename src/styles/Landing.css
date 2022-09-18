@@ -127,7 +127,7 @@
     .header__info {
         font-size: 13px;
         padding: 0 10px;
-        /* font-weight: bold; */
+        font-weight: bold;
     }
 
     .description__info {
@@ -138,6 +138,72 @@
 
     .membership__info {
         font-size: 13px;
+        width: 90vw;
+        word-wrap:break-word;
+        text-align: center;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight:200;
+        padding-top:10px;
+    }
+
+    .input__field {
+        height: 41.6px;
+        width: 60vw;
+        font-size: 18px;
+        font-size: 13pts;
+        border: 1px solid transparent;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom: none;
+        text-decoration: none;
+        outline: none;
+    }
+    
+    .btn__field {
+        height: 43.95px;
+        width: 30vw;
+        background-color: red;
+        border: 1px solid transparent;
+        color: white;
+        cursor: pointer;
+        font-size: 10px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+}
+
+@media only screen and (min-width:321px) and (max-width:375px) {
+    .landing__text {
+        position:absolute;
+        width: max-content;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        -webkit-transform: translate(-50%, -50%);    
+        z-index: 2;
+        padding: 30px;
+        color:#fff;
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: '#7F000000';
+    }
+
+    .header__info {
+        font-size: 15px;
+        padding: 0 10px;
+        font-weight: bold;
+    }
+
+    .description__info {
+        font-size: 16px;
+        font-weight:200;
+        padding-top: 10px;
+    }
+
+    .membership__info {
+        font-size: 15px;
         width: 90vw;
         word-wrap:break-word;
         text-align: center;
