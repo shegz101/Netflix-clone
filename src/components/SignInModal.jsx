@@ -90,7 +90,7 @@ const SignInModal = () => {
                             <input type='password' placeholder='Password' required/>
                             <button className="sign__btn" onClick={signIn}>Sign In</button>
                         </div>
-                        <p><span style={{color:'grey'}}> New to Netflix? </span> <span style={{cursor:'pointer',}} onClick={() => {setIsUserNew(true)}}>Sign Up now.</span></p>
+                        <p><span style={{color:'grey'}}> New to Trailflix? </span> <span style={{cursor:'pointer',}} onClick={() => {setIsUserNew(true)}}>Sign Up now.</span></p>
                    </div>
                 )
             }
