@@ -9,6 +9,9 @@ import {auth} from '../firebase';
 const Header = () => {
     const [showdark, setShowDark] = useState(false);
     const [showdrop, setShowDrop] = useState(false);
+    // const [list, setList] = useState(false);
+    // const [opacityhome, setOpacityHome] = useState(1);
+    // const [opacitylist, setOpacityList] = useState(0.6);
     const navigate = useNavigate();
 
     const controlBlackNav = () => {
@@ -18,6 +21,17 @@ const Header = () => {
             setShowDark(false);
         }
     }
+
+    // const controlOpacity = (e) => {
+    //   e.preventDefault();
+    //   if (list === true) {
+    //     setOpacityHome(0.6);
+    //     setOpacityList(1);
+    //   } else {
+    //     setOpacityHome(1);
+    //     setOpacityList(0.6);
+    //   }
+    // }
 
     useEffect(() => {
         window.addEventListener('scroll', controlBlackNav);
@@ -37,13 +51,13 @@ const Header = () => {
         <div className={`header ${showdark && 'bg__dark'}`}>
             <div className="header-image">
               <div className='header__start__name'>
-                <img className="header__logo" src={pic} alt="web-app-logo"/>
+                <img className="header__logo" src={pic} alt="web-app-logo" onClick={() => navigate('/home')}/>
                 <nav className='nav-links' style={{zIndex:'10',}}>
-                  {/* <li style={{color:'white', paddingLeft: '10px', opacity: '1',}}>Home</li>
-                  <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>Tv Shows</li> */}
-                  <li style={{color:'white', paddingLeft: '10px', opacity:'1',}}>Movies</li>
-                  {/* <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>New & Popular</li> */}
+                  <li style={{color:'white', paddingLeft: '10px', opacity:'1' ,}}>Home</li>
                   <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>My List</li>
+                  <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>Tv Shows</li>
+                  <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>Movies</li>
+                  <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>New & Popular</li>
                 </nav>
               </div>
               
