@@ -15,7 +15,7 @@ const Profile = () => {
                     <img className="avatar_logo" src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt="avatar-default-icon"/>
                     <div className='user__info'>
                         <div className='user_name_mail'>
-                            <p>Name: <span>Bobate Olusegun Isaac</span></p>
+                            <p>Name: <span>{name}</span></p>
                         </div>
                         <div className='user_name_mail'>
                             <p>Email: <span>{user?.email}</span></p>
