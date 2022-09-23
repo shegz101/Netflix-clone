@@ -70,7 +70,8 @@ const Header = () => {
                   showdrop && (
                     <div className='more-nav'>
                       <li style={{color:'white', paddingBottom: '5px', paddingLeft:'10px', cursor:'pointer',}} onClick={() => signOut(auth)}>Log Out</li>
-                      <li style={{color:'white', cursor:'pointer', paddingLeft:'10px',}} onClick={() => navigate('/')}>Account</li>
+                      <li style={{color:'white', cursor:'pointer', paddingBottom: '5px', paddingLeft:'10px',}} onClick={() => navigate('/')}>Account</li>
+                      <li style={{color:'white', cursor:'pointer', paddingBottom: '5px', paddingLeft:'10px',}}>My list</li>
                     </div>
                   )
                 }

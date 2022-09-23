@@ -3,9 +3,9 @@ import '../styles/SignInModal.css';
 import {useNavigate} from 'react-router-dom';
 import {auth} from '../firebase';
 import {createUserWithEmailAndPassword} from 'firebase/auth';
-import {signInWithEmailAndPassword, sendEmailVerification} from 'firebase/auth';
+import {signInWithEmailAndPassword } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
-import { updateTimeActive, updateUserName } from '../features/authSlice';
+import { updateUserName } from '../features/authSlice';
 
 const SignInModal = () => {
     const [isusernew, setIsUserNew] = useState(false);
@@ -47,18 +47,24 @@ const SignInModal = () => {
     const signIn = e => {
         e.preventDefault()
         signInWithEmailAndPassword(auth, email, password)
-        .then(() => {
-          if(!auth.user.emailVerified) {
-            sendEmailVerification(auth.user)
-            .then(() => {
-              dispatch(updateTimeActive(true))
-            })
-          .catch(err => alert(err.message))
-        }else{
-          navigate('/')
-        }
+        .then (() => {
+          if (!auth.user) {
+            alert('Please Sign Up')
+          } else {
+            navigate('/home');
+          }
         })
         .catch(err => alert(err.message))
+        
+        //   if(!auth.user) {
+        //     sendEmailVerification(auth.user)
+        //     .then(() => {
+        //       dispatch(updateTimeActive(true))
+        //     })
+        //   .catch(err => alert(err.message))
+        // }else{
+        //   navigate('/')
+        // }
     }
 
     

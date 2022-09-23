@@ -1,9 +1,60 @@
 .edit__profile__box {
-    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
+    width: max-content;
+    /* border: 1px solid white; */
 }
 .edit__header {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 600;
+    color: white;
+}
+
+.profile__info {
+    display: flex;
+    flex-direction: row;
+}
+
+.avatar_logo {
+    object-fit: contain;
+    width: 80px;
+    padding-top: 10px;
+}
+
+.user__info {
+    color: white;
+    padding: 20px 10px;
+    margin-left: 20px;
+}
+
+.user_name_mail {
+    border-radius: 8px;
+    color: white;
+    margin:10px 0;
+}
+
+.user_name_mail > p {
+    border: 2px solid red;
+    border-radius: 8px;
+    height: 20px;
+    padding: 5px 5px;
+}
+
+.log__out__div__btn {
+    margin-top: 10px;
+    margin-left: 110px;
+}
+
+.log__out__btn {
+    background-color: red;
+    color: white;
+    height: 30px;
+    border: 2px solid white;
+    border-radius: 8px;
+    width: 235px;
 }
