@@ -28,8 +28,8 @@
 
 .user__info {
     color: white;
-    padding: 20px 10px;
-    margin-left: 20px;
+    padding: 20px 5px;
+    margin-left: 10px;
 }
 
 .user_name_mail {
@@ -39,22 +39,21 @@
 }
 
 .user_name_mail > p {
-    border: 2px solid red;
-    border-radius: 8px;
+    border: 1px solid red;
     height: 20px;
     padding: 5px 5px;
 }
 
 .log__out__div__btn {
     margin-top: 10px;
-    margin-left: 110px;
+    margin-left: 95px;
 }
 
 .log__out__btn {
     background-color: red;
     color: white;
     height: 30px;
-    border: 2px solid white;
-    border-radius: 8px;
-    width: 235px;
+    border: 1px solid red;
+    border-radius: 6px;
+    width: 230px;
 }
