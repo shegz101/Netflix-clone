@@ -32,17 +32,17 @@ function App() {
   return (
     <Router>
         <Routes>
+          <Route exact path='/' element={
+            !user 
+            ? <Landing/>
+            : <Navigate to='/profile' replace/>
+          }/>
           <Route exact path='/profile' element={
               <PrivateRoute>
                 <Profile/>
               </PrivateRoute>
           }/>
-          <Route path="/" element={
-            !user 
-            ? <Landing/>
-            : <Navigate to='/profile' replace/>
-          }/>
-          <Route path='/home' element={<HomePage/>}/>
+          <Route exact path='/home' element={<HomePage/>}/>
         </Routes>
     </Router>
   );
