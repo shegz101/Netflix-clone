@@ -82,7 +82,7 @@ const SignInModal = () => {
                     <div className='signup__modal'>
                         <h1>Sign Up</h1>
                         <div className='btn__grp'>
-                            <input type='text' value={name} onChange={(e) => setName(e.target.value)} placeholder="Full Name" required/>
+                            <input type='text' value={name} onChange={(e) => setName(e.target.value)} placeholder="Full Name"/>
                             <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email Address" required/>
                             <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' required/>        
                             <input type='password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder='ConfIrm Password' required/>
