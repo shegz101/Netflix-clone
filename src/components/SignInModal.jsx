@@ -5,18 +5,18 @@ import {auth} from '../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 // import {createUserWithEmailAndPassword, sendEmailVerification} from 'firebase/auth';
 import {signInWithEmailAndPassword } from 'firebase/auth';
-import { useDispatch } from 'react-redux';
-import { updateUserName } from '../features/authSlice';
+// import { useDispatch } from 'react-redux';
+// import { updateUserName } from '../features/authSlice';
 // import { updateTimeActive } from '../features/authSlice';
 
 const SignInModal = () => {
     const [isusernew, setIsUserNew] = useState(false);
-    const [name, setName] = useState("");
+    // const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState('');
     const navigate = useNavigate()
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const validatePassword = () => {
         let isValid = true
@@ -37,7 +37,7 @@ const SignInModal = () => {
             .then((res) => {
                 console.log(res.user);
                 navigate('/profile');
-                dispatch(updateUserName(name));
+                // dispatch(updateUserName(name));
                 // sendEmailVerification(auth.user)
                 // .then((res) => {
                 //     console.log(res.user)
@@ -49,7 +49,7 @@ const SignInModal = () => {
             })
             .catch(err => alert(err.message)) 
         }
-        setName('');
+        // setName('');
         setEmail('');
         setPassword('');
         setConfirmPassword('');
@@ -82,7 +82,7 @@ const SignInModal = () => {
                     <div className='signup__modal'>
                         <h1>Sign Up</h1>
                         <div className='btn__grp'>
-                            <input type='text' value={name} onChange={(e) => setName(e.target.value)} placeholder="Full Name"/>
+                            {/* <input type='text' value={name} onChange={(e) => setName(e.target.value)} placeholder="Full Name"/> */}
                             <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email Address" required/>
                             <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' required/>        
                             <input type='password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder='ConfIrm Password' required/>

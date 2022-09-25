@@ -4,16 +4,16 @@ import Category from './Category';
 import Header from './Header';
 import request_data from '../api/request_data';
 import Footer from './Footer';
-import { useSelector } from 'react-redux';
-import { selectName } from '../features/authSlice';
+// import { useSelector } from 'react-redux';
+// import { selectName } from '../features/authSlice';
 
 const HomePage = () => {
-    const name = useSelector(selectName);
+    // const name = useSelector(selectName);
     return (
         <div className="home">
             <Header/>
             <Banner/>
-            <Category heading={`Top Picks for ${name}`} url={request_data.Trending}/>
+            <Category heading={`Trending Movies`} url={request_data.Trending}/>
             <Category heading={'TopRated Movies'} url={request_data.TopRated}/>
             <Category heading={'Netflix Originals'} url={request_data.NetflixOriginals}/>
             <Category heading={'Animation'} url={request_data.Animation}/>
