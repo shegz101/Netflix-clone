@@ -6,6 +6,7 @@ export default function PrivateRoute({children}) {
   const user = useSelector(selectUser);
 
   if(!user){
+    alert("Please Sign Up");
     return <Navigate to='/' replace/>
   }
 
