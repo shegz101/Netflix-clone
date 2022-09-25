@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import '../styles/SignInModal.css';
 import {useNavigate} from 'react-router-dom';
 import {auth} from '../firebase';
-import {createUserWithEmailAndPassword} from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+// import {createUserWithEmailAndPassword, sendEmailVerification} from 'firebase/auth';
 import {signInWithEmailAndPassword } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { updateUserName } from '../features/authSlice';
+// import { updateTimeActive } from '../features/authSlice';
 
 const SignInModal = () => {
     const [isusernew, setIsUserNew] = useState(false);
@@ -27,16 +29,25 @@ const SignInModal = () => {
         return isValid
     }
 
-    const signUp = (e) => {
+    const signUp = async (e) => {
         e.preventDefault()
         if(validatePassword()) {
           // Create a new user with email and password using firebase
-            createUserWithEmailAndPassword(auth, email, password)
+            await createUserWithEmailAndPassword(auth, email, password)
             .then((res) => {
-                console.log(res.user)
-                dispatch(updateUserName(name))
+                console.log(res.user);
+                navigate('/profile');
+                dispatch(updateUserName(name));
+                // sendEmailVerification(auth.user)
+                // .then((res) => {
+                //     console.log(res.user)
+                //     navigate('/verifyEmail')
+                //     dispatch(updateTimeActive(true))
+                //     dispatch(updateUserName(name))
+                // })
+                // .catch(err => alert(err.message))
             })
-            .catch(err => alert(err.message))
+            .catch(err => alert(err.message)) 
         }
         setName('');
         setEmail('');
@@ -49,22 +60,18 @@ const SignInModal = () => {
         signInWithEmailAndPassword(auth, email, password)
         .then (() => {
           if (!auth.user) {
-            alert('Please Sign Up')
+            alert('Please sign Up');
+            // sendEmailVerification(auth.user)
+            // .then(() => {
+            //     dispatch(updateTimeActive(true));
+            //     navigate('/verifyEmail');
+            // })
+            // .catch(err => alert(err.message))
           } else {
             navigate('/home');
           }
         })
         .catch(err => alert(err.message))
-        
-        //   if(!auth.user) {
-        //     sendEmailVerification(auth.user)
-        //     .then(() => {
-        //       dispatch(updateTimeActive(true))
-        //     })
-        //   .catch(err => alert(err.message))
-        // }else{
-        //   navigate('/')
-        // }
     }
 
     

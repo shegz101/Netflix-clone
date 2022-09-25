@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import HomePage from './components/HomePage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Landing from './components/Landing';
+// import VerifyEmail from './components/VerifyEmail';
 import {auth} from './firebase';
 import {onAuthStateChanged} from 'firebase/auth';
 import { useDispatch } from 'react-redux';
@@ -18,17 +19,17 @@ function App() {
   useEffect(() => {
     onAuthStateChanged(auth, (userAuth) => {
       if (userAuth) {
-        console.log(userAuth);
+        console.log(user);
         dispatch(login({
           uid: userAuth.uid,
-          name: userAuth.displayName,
           email: userAuth.email
+          // emailVerified: userAuth.emailVerified
         }))
       } else {
         dispatch(logout());
       }
     })
-  }, [dispatch])
+  }, [dispatch, user])
 
   return (
     <Router>
@@ -42,31 +43,12 @@ function App() {
             !user 
             ? <Landing/>
             : <Navigate to='/profile' replace/>
-          } />
+          }/>
           <Route path='/home' element={<HomePage/>}/>
+          {/* <Route path='/verifyEmail' element={<VerifyEmail/>}/> */}
         </Routes>
     </Router>
   );
 }
 
 export default App;
-
-/**
- * 
- <>
-        <Routes>
-          {
-            !user ? (
-              <Route path='/' element={<Landing/>}/>
-            ) : (
-              <>
-                <Route path='/home' element={<HomePage/>}/>
-                <Route path='/profile' element={<Profile/>}/>
-              </>
-            )
-          }
-          <Route path='/profile' element={<Profile/>}/>
-        </Routes>
-      </>
- * 
- */

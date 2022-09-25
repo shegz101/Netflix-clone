@@ -8,9 +8,10 @@ import { selectUser, selectTime } from '../features/authSlice';
 import { useDispatch } from 'react-redux';
 import { updateTimeActive } from '../features/authSlice';
 
-function VerifyEmail() {
+const VerifyEmail = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  // const [resendbtndisabled, setResendBtnDisabled] = useState(false);
   const timeActive = useSelector(selectTime);
   const [time, setTime] = useState(60)
   const navigate = useNavigate()
@@ -21,7 +22,7 @@ function VerifyEmail() {
       .then(() => {
         if(user?.emailVerified){
           clearInterval(interval)
-          navigate('/')
+          navigate('/home')
         }
       })
       .catch((err) => {
@@ -31,7 +32,7 @@ function VerifyEmail() {
   }, [navigate, user])
 
   useEffect(() => {
-    let interval = null
+    let interval = null;
     if(timeActive && time !== 0 ){
       interval = setInterval(() => {
         setTime((time) => time - 1)
@@ -45,11 +46,14 @@ function VerifyEmail() {
   }, [timeActive, time, dispatch])
 
   const resendEmailVerification = () => {
-    sendEmailVerification(auth.currentUser)
+    // setResendBtnDisabled(true);
+    sendEmailVerification(auth.user)
     .then(() => {
+      // setResendBtnDisabled(false);
       dispatch(updateTimeActive(true))
     }).catch((err) => {
-      alert(err.message)
+      alert(err.message);
+      // setResendBtnDisabled(false);
     })
   }
 
@@ -58,7 +62,7 @@ function VerifyEmail() {
       <div className='verifyEmail'>
         <h1>Verify your Email Address</h1>
         <p>
-          <strong>A Verification email has been sent to:</strong><br/>
+          <strong>A Verification email has been sent to spam:</strong><br/>
           <span>{user?.email}</span>
         </p>
         <span>Follow the instruction in the email to verify your account</span>       
@@ -71,4 +75,4 @@ function VerifyEmail() {
   )
 }
 
-export default VerifyEmail
+export default VerifyEmail;
