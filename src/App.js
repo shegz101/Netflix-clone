@@ -2,15 +2,14 @@ import React, { useEffect } from 'react';
 import HomePage from './components/HomePage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Landing from './components/Landing';
-// import VerifyEmail from './components/VerifyEmail';
 import {auth} from './firebase';
 import {onAuthStateChanged} from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { login, logout, selectUser } from '../src/features/authSlice';
 import Profile from './components/Profile';
-import PrivateRoute from './components/PrivateRoute'
-import {Navigate} from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   const user = useSelector(selectUser);
@@ -23,7 +22,6 @@ function App() {
         dispatch(login({
           uid: userAuth.uid,
           email: userAuth.email
-          // emailVerified: userAuth.emailVerified
         }))
       } else {
         dispatch(logout());
@@ -35,9 +33,9 @@ function App() {
     <Router>
         <Routes>
           <Route exact path='/profile' element={
-            <PrivateRoute>
-              <Profile/>
-            </PrivateRoute>
+              <PrivateRoute>
+                <Profile/>
+              </PrivateRoute>
           }/>
           <Route path="/" element={
             !user 
@@ -45,7 +43,6 @@ function App() {
             : <Navigate to='/profile' replace/>
           }/>
           <Route path='/home' element={<HomePage/>}/>
-          {/* <Route path='/verifyEmail' element={<VerifyEmail/>}/> */}
         </Routes>
     </Router>
   );

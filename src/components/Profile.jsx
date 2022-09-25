@@ -2,9 +2,10 @@ import Header from './Header';
 import '../styles/Profile.css';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/authSlice';
+import { signOut } from 'firebase/auth'; 
+import { auth } from '../firebase';
 
 const Profile = () => {
-    // const name = useSelector(selectName);
     const user = useSelector(selectUser);
     return ( 
         <div>
@@ -15,7 +16,7 @@ const Profile = () => {
                     <img className="avatar_logo" src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt="avatar-default-icon"/>
                     <div className='user__info'>
                         <div className='user_name_mail'>
-                            <p>Email: <span>{user?.email}</span></p>
+                            <p>Email: <strong>{user?.email}</strong></p>
                         </div>
                         <div>
                             <p style={{fontWeight:'900'}}>Plans</p>
@@ -24,7 +25,7 @@ const Profile = () => {
                     </div>
                 </div>
                 <div className='log__out__div__btn'>
-                    <button className='log__out__btn'>Log Out</button>
+                    <button className='log__out__btn' onClick={() => signOut(auth)}>Log Out</button>
                 </div>
             </div>
         </div>
