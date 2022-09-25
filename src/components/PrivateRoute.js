@@ -5,8 +5,7 @@ import { selectUser } from '../features/authSlice';
 export default function PrivateRoute({children}) {
   const user = useSelector(selectUser);
 
-  if(!user?.emailVerified){
-    alert('Please Verify your Email');
+  if(!user){
     return <Navigate to='/' replace/>
   }
 

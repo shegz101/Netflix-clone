@@ -1,10 +1,10 @@
 import Header from './Header';
 import '../styles/Profile.css';
 import { useSelector } from 'react-redux';
-import { selectName, selectUser } from '../features/authSlice';
+import { selectUser } from '../features/authSlice';
 
 const Profile = () => {
-    const name = useSelector(selectName);
+    // const name = useSelector(selectName);
     const user = useSelector(selectUser);
     return ( 
         <div>
@@ -14,9 +14,6 @@ const Profile = () => {
                 <div className='profile__info'>
                     <img className="avatar_logo" src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt="avatar-default-icon"/>
                     <div className='user__info'>
-                        <div className='user_name_mail'>
-                            <p>Name: <span>{name}</span></p>
-                        </div>
                         <div className='user_name_mail'>
                             <p>Email: <span>{user?.email}</span></p>
                         </div>
