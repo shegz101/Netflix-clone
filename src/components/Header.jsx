@@ -4,14 +4,11 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Header.css';
 import { signOut } from 'firebase/auth';
-import {auth} from '../firebase';
+import { auth } from '../firebase';
 
 const Header = () => {
     const [showdark, setShowDark] = useState(false);
     const [showdrop, setShowDrop] = useState(false);
-    // const [list, setList] = useState(false);
-    // const [opacityhome, setOpacityHome] = useState(1);
-    // const [opacitylist, setOpacityList] = useState(0.6);
     const navigate = useNavigate();
 
     const controlBlackNav = () => {
@@ -21,17 +18,6 @@ const Header = () => {
             setShowDark(false);
         }
     }
-
-    // const controlOpacity = (e) => {
-    //   e.preventDefault();
-    //   if (list === true) {
-    //     setOpacityHome(0.6);
-    //     setOpacityList(1);
-    //   } else {
-    //     setOpacityHome(1);
-    //     setOpacityList(0.6);
-    //   }
-    // }
 
     useEffect(() => {
         window.addEventListener('scroll', controlBlackNav);
@@ -70,7 +56,7 @@ const Header = () => {
                   showdrop && (
                     <div className='more-nav'>
                       <li style={{color:'white', paddingBottom: '5px', paddingLeft:'10px', cursor:'pointer',}} onClick={() => signOut(auth)}>Log Out</li>
-                      <li style={{color:'white', cursor:'pointer', paddingBottom: '5px', paddingLeft:'10px',}} onClick={() => navigate('/')}>Account</li>
+                      <li style={{color:'white', cursor:'pointer', paddingBottom: '5px', paddingLeft:'10px',}} onClick={() => navigate('/profile')}>Account</li>
                       <li style={{color:'white', cursor:'pointer', paddingBottom: '5px', paddingLeft:'10px',}}>My list</li>
                     </div>
                   )

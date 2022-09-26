@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import pic from '../images/trailflix.png';
 import SignInModal from './SignInModal';
-// import { Link } from 'react-router-dom';
 import '../styles/Landing.css';
-// import { useSelector } from 'react-redux';
-// import { selectUser } from '../features/authSlice';
 
 const Landing = () => {
     const [isuserin, setUserIn] = useState(true);

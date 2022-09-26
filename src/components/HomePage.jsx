@@ -4,11 +4,8 @@ import Category from './Category';
 import Header from './Header';
 import request_data from '../api/request_data';
 import Footer from './Footer';
-// import { useSelector } from 'react-redux';
-// import { selectName } from '../features/authSlice';
 
 const HomePage = () => {
-    // const name = useSelector(selectName);
     return (
         <div className="home">
             <Header/>

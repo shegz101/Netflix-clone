@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/SignInModal.css';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {auth} from '../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import {signInWithEmailAndPassword } from 'firebase/auth';
@@ -29,10 +29,9 @@ const SignInModal = () => {
         if(validatePassword()) {
           // Create a new user with email and password using firebase
             createUserWithEmailAndPassword(auth, email, password)
-            .then((res) => {
-                console.log(res);
-                alert('Signed in');
-                navigate('/profile');
+            .then((authUser) => {
+                console.log(authUser);
+                // navigate('/profile');
             })
             .catch(err => alert(err.message)) 
         }
@@ -46,7 +45,7 @@ const SignInModal = () => {
         signInWithEmailAndPassword(auth, email, password)
         .then (() => {
           if (!auth.user) {
-            alert('Please sign Up');
+            console.log('Please sign Up');
           } else {
             navigate('/home');
           }
@@ -74,7 +73,7 @@ const SignInModal = () => {
                         <h1>Sign In</h1>
                         <div className='btn__grp'>
                             <input type='email' placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} required/>
-                            <input type='password' placeholder='Password'value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                            <input type='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} required/>
                             <button className="sign__btn" onClick={signIn}>Sign In</button>
                         </div>
                         <p><span style={{color:'grey'}}> New to Trailflix? </span> <span style={{cursor:'pointer',}} onClick={() => {setIsUserNew(true)}}>Sign Up now.</span></p>

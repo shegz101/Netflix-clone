@@ -15,6 +15,7 @@ const Category =({ heading, url }) => {
     console.log(moviecategory);
     useEffect(() => {
         fetch_movie_category();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     const options = {
