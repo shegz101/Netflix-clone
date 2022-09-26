@@ -31,7 +31,7 @@ const SignInModal = () => {
             createUserWithEmailAndPassword(auth, email, password)
             .then((authUser) => {
                 console.log(authUser);
-                // navigate('/profile');
+                navigate('/profile');
             })
             .catch(err => alert(err.message)) 
         }

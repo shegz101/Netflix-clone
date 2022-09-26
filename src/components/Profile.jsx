@@ -29,7 +29,7 @@ const Profile = () => {
               
               <div className='floated-right-nav'>
                 <nav className='nav-icon'>
-                  <img className="avatar__logo" onClick={() => showDropDown(true)} style={{ paddingLeft:'10px' }} src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt="avatar-default-icon"/>
+                  <img className="avatar__logo" onClick={() => showDropDown(true)} src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt="avatar-default-icon"/>
                 </nav>
                 {
                   showdrop && (
@@ -47,7 +47,7 @@ const Profile = () => {
                 <div className='profile__info'>
                     <img className="avatar_logo" src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt="avatar-default-icon"/>
                     <div className='user__info'>
-                        <h2><strong>bobatesegun3@gmail.com</strong></h2>
+                        <h2><strong>{user.email}</strong></h2>
                         <div className='profile_plans'>
                             <h3>Plans</h3>
                             <button className='log__out__btn' onClick={() => signOut(auth)}>Log Out</button>

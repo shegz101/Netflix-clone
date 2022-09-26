@@ -31,8 +31,8 @@ function App() {
   return (
     <Router>
         <Routes>
-          <Route exact path='/profile' element={<Profile/>}/>
-          <Route path='/' element={
+          <Route path='/profile' element={<Profile/>}/>
+          <Route exact path='/' element={
             !user 
             ? <Landing/>
             : <Navigate to='/profile' replace/>

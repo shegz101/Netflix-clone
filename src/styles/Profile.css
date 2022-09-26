@@ -1,21 +1,13 @@
 .profile_section {
     height: 100vh;
     color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+    overflow-x: hidden;
 }
 
 .header-image {
     display: flex;
-    /* flex-direction: row;
-    justify-content: space-between; */
-}
-
-.header__start__name {
-    display: flex;
-    flex-direction: row;
-}
-
-.bg__dark {
-    background-color: black;
 }
 
 .header__logo {
@@ -24,13 +16,8 @@
     z-index: 10;
     left: 0;
     object-fit: contain;
-    padding-left: 13px;
+    padding-left: 5px;
     top:15px;
-}
-
-.floated-right-nav {
-    display: flex;
-    flex-direction: column;
 }
 
 .avatar__logo {
@@ -39,6 +26,22 @@
     right: 4px;
     padding-top: 10px;
     cursor:pointer;
+}
+
+.nav-icon {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    list-style-type: none;
+    position: fixed;
+    margin-left: 96%;
+    margin-top: 5px;
+    z-index: 10;
+}
+
+.floated-right-nav {
+    display: flex;
+    flex-direction: column;
 }
 
 .more-nav {
@@ -70,26 +73,16 @@
     border-color: transparent transparent black transparent;
 }
 
-.nav-icon {
-    display: flex;
-    flex-direction: row;
-    text-decoration: none;
-    list-style-type: none;
-    position: fixed;
-    margin-left: 95%;
-    margin-top: 6px;
-    z-index: 10;
-}
-
 .edit__profile__box {
     display: flex;
     flex-direction: column;
-    padding-top: 8%;
+    margin-top: 8%;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 50vw;
 }
+
 .edit__header {
     font-size: 40px;
     font-weight: 400;
@@ -114,10 +107,12 @@
 }
 
 .user__info > h2 {
-    background-color: gray;
+    background-color: black;
+    color: white;
+    border: 1px solid #e50914;
     padding: 15px;
     font-size: 15px;
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
 .profile_plans {
@@ -148,31 +143,61 @@
     }
     
     .nav-icon {
-        margin-top: 6px;
-        margin-left: 70%;
+        margin-left: 80%;
     }
 
     .more-nav {
         margin-left: 64%;
         margin-top: 20%;
     }
+
+    .edit__profile__box {
+        margin-top: 18%;
+        width: 200px;
+        margin-left: 15px;
+        margin-right: 10px;
+    }
+    
+    .edit__header {
+        font-size: 15px;
+        font-weight: 400;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #282c2d;
+    }
+
+    .avatar_logo {
+        object-fit: contain;
+        height: 70px;
+        padding-top: 10px;
+    }
+
+    .user__info {    
+        margin-left: 15px;
+        flex: 1;
+    }
 } 
 
 @media only screen and (min-width:321px) and (max-width:376px) {
     .nav-icon {
-        margin-top: 6px;
-        margin-left: 65.5%;
+        margin-left: 85%;
     }
 
     .more-nav {
         margin-left: 69%;
         margin-top: 16%;
     }
+
+    .edit__profile__box {
+        margin-top: 18%;
+        width: 200px;
+        margin-left: 15px;
+        margin-right: 10px;
+    }
 }
 
 @media only screen and (min-width:377px) and (max-width:426px) {
     .nav-icon {
-        margin-left: 69.5%;
+        margin-left: 88%;
     }
 
 
@@ -180,26 +205,48 @@
         margin-left: 73%;
         margin-top: 14%;
     }
+
+    .edit__profile__box {
+        margin-top: 15%;
+        width: 250px;
+        margin-left: 15px;
+        margin-right: 10px;
+    }
 }
 
 @media only screen and (min-width:427px) and (max-width:769px){
     .nav-icon {
-        margin-left: 83%;
+        margin-left: 92%;
     }
 
     .more-nav {
         margin-left: 84.5%;
         margin-top: 8%;
     }
+
+    .edit__profile__box {
+        margin-top: 15%;
+    }
 }
 
-@media only screen and (min-width:770px) and (max-width:1025px) {
+@media only screen and (min-width:770px) and (max-width:1024px) {
     .nav-icon {
-        margin-left: 87%;
+        margin-left: 94%;
     }
 
     .more-nav {
         margin-left: 88%;
         margin-top: 6%;
+    }
+}
+
+@media only screen and (min-width:1025px) and (max-width:1440px) {
+    .nav-icon {
+        margin-left: 96%;
+    }
+
+    .more-nav {
+        margin-left: 92%;
+        margin-top: 5%;
     }
 }
