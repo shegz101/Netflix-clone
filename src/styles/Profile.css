@@ -1,18 +1,96 @@
+.profile_section {
+    height: 100vh;
+    color: white;
+}
+
+.header-image {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header__start__name {
+    display: flex;
+    flex-direction: row;
+}
+
+.bg__dark {
+    background-color: black;
+}
+
+.header__logo {
+    position: fixed;
+    width: 120px;
+    z-index: 10;
+    left: 0;
+    object-fit: contain;
+    padding-left: 13px;
+    top:15px;
+}
+
+.floated-right-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.avatar__logo {
+    object-fit: contain;
+    width: 35px;
+    right: 4px;
+    padding-top: 10px;
+    cursor:pointer;
+}
+
+.more-nav {
+    text-decoration: none;
+    list-style-type: none;
+    margin-left: 91%;
+    background-color: black;
+    border:2px solid black;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    padding-left: 5px;
+    width: 86px;
+    height: max-content;
+    margin-top: 4.5%;
+    z-index: 10;
+    position: fixed;
+}
+
+.more-nav::before {
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    right: 10px;
+    top: -12px;
+    border-style: solid;
+    border-width: 0px 8px 16px 8px;
+    border-color: transparent transparent black transparent;
+}
+
+.nav-icon {
+    display: block;
+    margin-left: 90%;
+    z-index: 10;
+    position: fixed;
+}
+
 .edit__profile__box {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    /* align-items: center; */
-    margin-top: 100px;
+    padding-top: 8%;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    width: max-content;
-    /* border: 1px solid white; */
+    width: 50%;
 }
 .edit__header {
-    font-size: 30px;
-    font-weight: 600;
-    color: white;
+    font-size: 40px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #282c2d;
 }
 
 .profile__info {
@@ -22,38 +100,131 @@
 
 .avatar_logo {
     object-fit: contain;
-    width: 80px;
+    height: 100px;
     padding-top: 10px;
 }
 
-.user__info {
-    color: white;
-    padding: 20px 5px;
-    margin-left: 10px;
+.user__info {    
+    margin-left: 25px;
+    flex: 1;
 }
 
-.user_name_mail {
-    border-radius: 8px;
-    color: white;
-    margin:10px 0;
+.user__info > h2 {
+    background-color: gray;
+    padding: 15px;
+    font-size: 15px;
+    padding-left: 20px;
 }
 
-.user_name_mail > p {
-    border: 1px solid red;
-    height: 20px;
-    padding: 5px 5px;
+.profile_plans {
+    margin-top: 20px;
 }
 
-.log__out__div__btn {
-    margin-top: 10px;
-    margin-left: 96px;
+.profile_plans > h3 {
+    border-bottom: 1px solid #282c2d;
+    padding-bottom: 10px;
 }
 
 .log__out__btn {
-    background-color: red;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 5%;
     color: white;
-    height: 30px;
-    border: 1px solid red;
-    border-radius: 6px;
-    width: 235px;
+    border: none;
+    background-color: #e50914;
+    width: 100%;
+    cursor: pointer;
+}
+
+/*********Media Query for Mobile***********/
+@media only screen and (min-width:0px) and (max-width:320px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .header__logo {
+        padding-left: 15px;
+    }
+    
+    .nav-icon {
+        margin-left: 60%;
+    }
+
+    .search-icon {
+        padding-right: 25px;
+    }
+
+    .more-nav {
+        margin-left: 64%;
+        margin-top: 20%;
+    }
+} 
+
+@media only screen and (min-width:321px) and (max-width:376px) {
+    .nav-links {
+        display: none;
+    }
+
+    .nav-icon {
+        margin-left: 65.5%;
+    }
+
+    .search-icon {
+        padding-right: 25px;
+    }
+
+    .more-nav {
+        margin-left: 69%;
+        margin-top: 16%;
+    }
+}
+
+@media only screen and (min-width:377px) and (max-width:426px) {
+    .nav-links {
+        display: none;
+    }
+
+    .nav-icon {
+        margin-left: 69.5%;
+    }
+
+    .search-icon {
+        padding-right: 25px;
+    }
+
+    .more-nav {
+        margin-left: 73%;
+        margin-top: 14%;
+    }
+}
+
+@media only screen and (min-width:427px) and (max-width:769px){
+    .nav-icon {
+        margin-left: 83%;
+    }
+
+    .search-icon {
+        padding-right: 25px;
+    }
+
+    .more-nav {
+        margin-left: 84.5%;
+        margin-top: 8%;
+    }
+}
+
+@media only screen and (min-width:770px) and (max-width:1025px) {
+    .nav-icon {
+        margin-left: 87%;
+    }
+
+    .search-icon {
+        padding-right: 25px;
+    }
+
+    .more-nav {
+        margin-left: 88%;
+        margin-top: 6%;
+    }
 }

@@ -15,9 +15,8 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const signed = onAuthStateChanged(auth, (userAuth) => {
+    onAuthStateChanged(auth, (userAuth) => {
       if (userAuth) {
-        console.log(user);
         dispatch(login({
           uid: userAuth.uid,
           email: userAuth.email
@@ -26,15 +25,14 @@ function App() {
         dispatch(logout());
       }
     });
-    return signed;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    // return signed;
+  }, [dispatch])
 
   return (
     <Router>
         <Routes>
-          <Route path='/profile' element={<Profile/>}/>
-          <Route exact path='/' element={
+          <Route exact path='/profile' element={<Profile/>}/>
+          <Route path='/' element={
             !user 
             ? <Landing/>
             : <Navigate to='/profile' replace/>
