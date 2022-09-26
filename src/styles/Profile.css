@@ -5,8 +5,8 @@
 
 .header-image {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    /* flex-direction: row;
+    justify-content: space-between; */
 }
 
 .header__start__name {
@@ -71,10 +71,14 @@
 }
 
 .nav-icon {
-    display: block;
-    margin-left: 90%;
-    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    list-style-type: none;
     position: fixed;
+    margin-left: 95%;
+    margin-top: 6px;
+    z-index: 10;
 }
 
 .edit__profile__box {
@@ -139,20 +143,13 @@
 
 /*********Media Query for Mobile***********/
 @media only screen and (min-width:0px) and (max-width:320px) {
-    .nav-links {
-        display: none;
-    }
-    
     .header__logo {
         padding-left: 15px;
     }
     
     .nav-icon {
-        margin-left: 60%;
-    }
-
-    .search-icon {
-        padding-right: 25px;
+        margin-top: 6px;
+        margin-left: 70%;
     }
 
     .more-nav {
@@ -162,16 +159,9 @@
 } 
 
 @media only screen and (min-width:321px) and (max-width:376px) {
-    .nav-links {
-        display: none;
-    }
-
     .nav-icon {
+        margin-top: 6px;
         margin-left: 65.5%;
-    }
-
-    .search-icon {
-        padding-right: 25px;
     }
 
     .more-nav {
@@ -181,17 +171,10 @@
 }
 
 @media only screen and (min-width:377px) and (max-width:426px) {
-    .nav-links {
-        display: none;
-    }
-
     .nav-icon {
         margin-left: 69.5%;
     }
 
-    .search-icon {
-        padding-right: 25px;
-    }
 
     .more-nav {
         margin-left: 73%;
@@ -204,10 +187,6 @@
         margin-left: 83%;
     }
 
-    .search-icon {
-        padding-right: 25px;
-    }
-
     .more-nav {
         margin-left: 84.5%;
         margin-top: 8%;
@@ -217,10 +196,6 @@
 @media only screen and (min-width:770px) and (max-width:1025px) {
     .nav-icon {
         margin-left: 87%;
-    }
-
-    .search-icon {
-        padding-right: 25px;
     }
 
     .more-nav {
