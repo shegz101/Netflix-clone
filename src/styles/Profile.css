@@ -13,6 +13,7 @@
 .header__logo {
     position: fixed;
     width: 120px;
+    height: 50px;
     z-index: 10;
     left: 0;
     object-fit: contain;
@@ -99,6 +100,7 @@
     object-fit: contain;
     height: 100px;
     padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .user__info {    
@@ -154,15 +156,30 @@
     .edit__profile__box {
         margin-top: 18%;
         width: 280px;
-        min-width: 250px;
-        margin-left: 15px;
+        min-width: 200px;
+        margin-left: -3px;
         margin-right: 10px;
+    }
+
+    .edit__header {
+        font-size: 40px;
+        font-weight: 400;
+        margin-left: 20px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #282c2d;
     }
 
     .avatar_logo {
         object-fit: contain;
         height: 72px;
         padding-top: 10px;
+    }
+
+    .profile__info {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 10px;
     }
 
     .user__info {    
@@ -187,6 +204,11 @@
         min-width: 250px;
         margin-left: 15px;
         margin-right: 10px;
+    }
+
+    .profile__info {
+        display: flex;
+        flex-direction: column;
     }
 }
 

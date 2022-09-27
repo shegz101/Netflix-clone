@@ -25,9 +25,7 @@ function App() {
         dispatch(logout());
       }
     });
-    console.log(user);
-    // return signed;
-  }, [dispatch])
+  }, [])
 
   return (
     <Router>
