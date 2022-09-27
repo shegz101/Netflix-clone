@@ -20,11 +20,12 @@ function App() {
         dispatch(login({
           uid: userAuth.uid,
           email: userAuth.email
-        }))
+        }));
       } else {
         dispatch(logout());
       }
     });
+    console.log(user);
     // return signed;
   }, [dispatch])
 
@@ -33,7 +34,7 @@ function App() {
         <Routes>
           <Route path='/profile' element={<Profile/>}/>
           <Route exact path='/' element={
-            !user?.email ? <Landing/> : <Navigate to='/profile' replace/>
+            !user ? <Landing/> : <Navigate to='/profile' replace/>
           }/>
           <Route path='/home' element={<HomePage/>}/>
         </Routes>

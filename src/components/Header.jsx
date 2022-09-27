@@ -33,12 +33,6 @@ const Header = () => {
         setShowDrop(true);
       }
     }
-
-    const signedOut = (e) => {
-      e.preventDefault();
-      signOut(auth);
-      navigate('/');
-    }
     
     return (
         <div className={`header ${showdark && 'bg__dark'}`}>
@@ -62,7 +56,7 @@ const Header = () => {
                 {
                   showdrop && (
                     <div className='more-nav'>
-                      <li style={{color:'white', paddingBottom: '5px', paddingLeft:'10px', cursor:'pointer',}} onClick={signedOut}>Log Out</li>
+                      <li style={{color:'white', paddingBottom: '5px', paddingLeft:'10px', cursor:'pointer',}} onClick={() => signOut(auth)}>Log Out</li>
                       <li style={{color:'white', cursor:'pointer', paddingBottom: '5px', paddingLeft:'10px',}} onClick={() => navigate('/profile')}>Account</li>
                       <li style={{color:'white', cursor:'pointer', paddingBottom: '5px', paddingLeft:'10px',}}>My list</li>
                     </div>
