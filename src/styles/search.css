@@ -41,7 +41,7 @@
 
 .input__gloss {
     height: 35px;
-    width: 75vw;
+    width: 78vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,12 +55,12 @@
 .input__gloss input {
     box-sizing: border-box;
     height: 100%;
+    width: 90%;
     flex: 1;
     font-size: 20px;
     background: transparent;
     outline: none;
     border: none;
-    padding: 0 10px;
     color: #fff;
 }
 
@@ -69,7 +69,23 @@
 }
 
 .search__icon {
-    width: 20%;
+    width: 10%;
     font-size: 26px;
     color: #fff;
+}
+
+.search__btn {
+    height: 100%;
+    width: 15vw;
+    color: white;
+    border-radius: 10px;
+    background: #e50914;
+    box-shadow: 0 8px 32px 0 rgba(6, 6, 12, 0.541);
+    backdrop-filter: blur(3px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.result__section {
+    margin-top: 20px;
+    margin-left: 0;
 }

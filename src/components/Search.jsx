@@ -10,8 +10,8 @@ const Search = () => {
     const [searchresponse, setSearchResponse] = useState([]);
     const url = request_data.search;
     
-    const fetch_search = async (movie) => {
-        const resp = await axios_fetch.get(`${url}&query=${movie}`);
+    const fetch_search = async () => {
+        const resp = await axios_fetch.get(`${url}&query=${searchinput}`);
         setSearchResponse(resp.data.results);
         setSearchInput("");
     }
@@ -28,8 +28,12 @@ const Search = () => {
                         <BiSearch className='search__icon' style={{color:'white'}}/>
                         <input type='text' value={searchinput} style={{width:'80%'}} 
                         onChange={(e) => setSearchInput(e.target.value)} 
-                        placeholder='search for movie (e.g lucifer)...' 
-                        onInput={() => fetch_search(searchinput)}/>
+                        placeholder='search for movie...'/>
+                        <button className='search__btn' onClick={fetch_search}>Search</button>
+                    </div>
+
+                    <div className='result__section'>
+                        <p style={{color:'white'}}>20 results found</p>
                     </div>
                 </div>
             </div>
