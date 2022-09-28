@@ -20,24 +20,39 @@
     padding-bottom: 30px;
 }
 
+.buttons > button {
+    height: 35px;
+    width: max-content;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
 .button__play {
-    border-radius: 15px;
-    width: 80px;
-    height: 30px;
+    border-radius: 12px;
     border: 1px solid #fff;
     color: white;
     background-color: black;
     text-align: center;
 }
 
+.button__play:hover {
+    background-color: #fff;
+    color: black;
+    transition: all ease 0.2s;
+}
+
 .button__add {
-    border-radius: 15px;
-    width: 100px;
-    height: 30px;
+    border-radius: 12px;
     border: 1px solid #fff;
     color: white;
     background-color: rgb(2, 2, 2);
     margin-left: 20px;
+}
+
+.button__add:hover {
+    background-color: #fff;
+    color: black;
+    transition: all ease 0.2s;
 }
 
 .movie__description {
@@ -46,12 +61,16 @@
     color: #fff;
 }
 
-.invisible-div {
-    background: rgba(0,0,0,0.3);
-    background-image:linear-gradient(to bottom,
-    rgba(0,0,0,0.8) 0,
-    rgba(0,0,0,0.8)70%,
-    rgba(0,0,0,0.8)100%);
+.invisible__div {
+    height: 7.4rem;
+    width: 100%;
+    background-image:linear-gradient(
+    180deg,
+    transparent,
+    rgba(37,37,37,0.61),
+    #111
+    );
+    margin-left: -20px;
 }
 
 /*********Media Query for Mobile***********/

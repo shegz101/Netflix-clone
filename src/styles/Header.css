@@ -17,7 +17,7 @@
     z-index: 10;
     left: 0;
     object-fit: contain;
-    padding-left: 13px;
+    padding-left: 10px;
     top:15px;
 }
 
@@ -28,16 +28,28 @@
 
 .avatar__logo {
     object-fit: contain;
-    width: 35px;
     right: 4px;
-    padding-top: 10px;
+    /* padding-right: 10px; */
+    margin-right: -10px;
     cursor:pointer;
 }
 
-.search-icon {
+.search__div {
     position: relative;
-    padding-right: 30px;
-    padding-top: 20px;
+    width: 35px;
+    height: 35px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    margin-top: 20px;
+    background-color:#e50914;
+}
+
+.search-icon {
+    position: absolute;
+    padding-top: 8px;
+    padding-right: 5px;
+    padding-left: 8px;
     z-index: 10;
     cursor:pointer;
 }
@@ -76,7 +88,7 @@
     flex-direction: row;
     text-decoration: none;
     list-style-type: none;
-    margin-top: 17px;
+    margin-top: 20px;
     margin-left: 160px;
     z-index: 10;
     position: fixed;
@@ -90,6 +102,7 @@
     list-style-type: none;
     position: fixed;
     margin-left: 90%;
+    margin-top: -7px;
     z-index: 10;
     position: fixed;
 }

@@ -20,6 +20,11 @@ const Profile = () => {
         }
     }
 
+    const signedOut = async () => {
+      await(signOut(auth));
+      navigate('/');
+    }
+
     return ( 
         <div className='profile_section'>
             <div className="profile-header-image">
@@ -34,7 +39,7 @@ const Profile = () => {
                 {
                   showdrop && (
                     <div className='more-nav'>
-                      <li style={{color:'white', paddingBottom: '5px', paddingLeft:'10px', cursor:'pointer',}} onClick={() => signOut(auth)}>Log Out</li>
+                      <li style={{color:'white', paddingBottom: '5px', paddingLeft:'10px', cursor:'pointer',}} onClick={signedOut}>Log Out</li>
                       <li style={{color:'white', cursor:'pointer', paddingBottom: '5px', paddingLeft:'10px',}} onClick={() => navigate('/home')}>Home</li>
                       <li style={{color:'white', cursor:'pointer', paddingBottom: '5px', paddingLeft:'10px',}}>My list</li>
                     </div>
@@ -50,7 +55,7 @@ const Profile = () => {
                         <h2><strong>{user?.email}</strong></h2>
                         <div className='profile_plans'>
                             <h3>Plans</h3>
-                            <button className='log__out__btn' onClick={() => signOut(auth)}>Log Out</button>
+                            <button className='log__out__btn' onClick={signedOut}>Log Out</button>
                         </div>
                     </div>
                 </div>

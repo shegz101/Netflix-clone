@@ -37,8 +37,9 @@ const Banner = () => {
                     typewriter.typeString(`<p className='movie__description'>${bannermovie?.overview}</p>`).stop().start();
                 }}/> */}
                 <p className='movie__description'>{bannermovie?.overview}</p>
+                
             </div>
-            {/* <div className="invisible-div" style={{height:'20px', marginTop:'105px', }}/> */}
+            <div className="invisible__div"/>
         </header>
     )
 }

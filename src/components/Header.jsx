@@ -33,6 +33,11 @@ const Header = () => {
         setShowDrop(true);
       }
     }
+
+    const signedOut = async () => {
+      await(signOut(auth));
+      navigate('/');
+    }
     
     return (
         <div className={`header ${showdark && 'bg__dark'}`}>
@@ -40,8 +45,8 @@ const Header = () => {
               <div className='header__start__name'>
                 <img className="header__logo" src={pic} alt="web-app-logo" onClick={() => navigate('/home')}/>
                 <nav className='nav-links' style={{zIndex:'10',}}>
-                  <li style={{color:'white', paddingLeft: '10px', opacity:'1' ,}}>Home</li>
-                  <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>My List</li>
+                  <li style={{color:'white', paddingLeft: '13px', opacity:'1' ,}}>Home</li>
+                  <li style={{color:'white', paddingLeft: '13px', opacity:'0.6',}}>My List</li>
                   {/* <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>Tv Shows</li>
                   <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>Movies</li>
                   <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>New & Popular</li> */}
@@ -50,13 +55,17 @@ const Header = () => {
               
               <div className='floated-right-nav'>
                 <nav className='nav-icon'>
-                  <div><AiOutlineSearch className='search-icon'  style={{color:'white', paddingLeft:'10px',fontWeight:'800', fontSize:'25px'}}/></div>
-                  <img className="avatar__logo" onClick={() => showDropDown(true)} style={{ paddingLeft:'10px' }} src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt="avatar-default-icon"/>
+                  <div className='search__div' style={{ marginLeft:'20px' }}>
+                    <AiOutlineSearch className='search-icon'  style={{color:'white', fontWeight:'900', fontSize:'20px'}}/>
+                  </div>
+                  <div>
+                    <img className="avatar__logo" onClick={() => showDropDown(true)} style={{ paddingLeft:'20px', paddingTop:'20px' }} src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt="avatar-default-icon"/>
+                  </div>
                 </nav>
                 {
                   showdrop && (
                     <div className='more-nav'>
-                      <li style={{color:'white', paddingBottom: '5px', paddingLeft:'10px', cursor:'pointer',}} onClick={() => signOut(auth)}>Log Out</li>
+                      <li style={{color:'white', paddingBottom: '5px', paddingLeft:'10px', cursor:'pointer',}} onClick={signedOut}>Log Out</li>
                       <li style={{color:'white', cursor:'pointer', paddingBottom: '5px', paddingLeft:'10px',}} onClick={() => navigate('/profile')}>Account</li>
                       <li style={{color:'white', cursor:'pointer', paddingBottom: '5px', paddingLeft:'10px',}}>My list</li>
                     </div>

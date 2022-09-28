@@ -13,7 +13,6 @@
 .header__logo {
     position: fixed;
     width: 120px;
-    height: 50px;
     z-index: 10;
     left: 0;
     object-fit: contain;
@@ -25,7 +24,7 @@
     object-fit: contain;
     width: 35px;
     right: 4px;
-    padding-top: 10px;
+    padding-top: 15px;
     cursor:pointer;
 }
 
