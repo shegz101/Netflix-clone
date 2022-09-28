@@ -8,11 +8,13 @@ const Category =({ heading, url }) => {
     const img_url = `https://image.tmdb.org/t/p/original`;
     const [moviecategory, setMovieCategory] = useState([]);
     const [trailerId, setTrailerId] = useState('');
+    
     const fetch_movie_category = async () => {
         const resp = await axios_fetch.get(`${url}`);
         setMovieCategory(resp.data.results);
     }
     console.log(moviecategory);
+
     useEffect(() => {
         fetch_movie_category();
     // eslint-disable-next-line react-hooks/exhaustive-deps

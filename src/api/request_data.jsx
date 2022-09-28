@@ -13,6 +13,7 @@ const request_data = {
     Horror:`/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=27`,
     Comedy:`/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=35`,
     Documentaries:`/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=99`,
+    search:`/search/movie?api_key=${API_KEY}&language=en-US`,
 }
 
 export default request_data;

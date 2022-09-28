@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { login, logout, selectUser } from '../src/features/authSlice';
 import Profile from './components/Profile';
 import { Navigate } from 'react-router-dom';
+import Search from './components/Search';
 
 function App() {
   const user = useSelector(selectUser);
@@ -35,6 +36,7 @@ function App() {
             !user ? <Landing/> : <Navigate to='/profile' replace/>
           }/>
           <Route path='/home' element={<HomePage/>}/>
+          <Route path='/search' element={<Search/>}/>
         </Routes>
     </Router>
   );
