@@ -4,6 +4,8 @@ import request_data from '../api/request_data';
 import {BiSearch} from 'react-icons/bi';
 import {MdOutlineArrowBackIosNew} from 'react-icons/md'
 import '../styles/search.css';
+import Error from './Error';
+import ResultCard from './ResultCard';
 
 const Search = () => {
     const [searchinput, setSearchInput] = useState("");
@@ -15,6 +17,8 @@ const Search = () => {
         setSearchResponse(resp.data.results);
         setSearchInput("");
     }
+
+    const result__lenght = searchresponse.length;
 
     console.log(searchresponse);
     return ( 
@@ -31,11 +35,27 @@ const Search = () => {
                         placeholder='search for movie...'/>
                         <button className='search__btn' onClick={fetch_search}>Search</button>
                     </div>
-
-                    <div className='result__section'>
-                        <p style={{color:'white'}}>20 results found</p>
-                    </div>
                 </div>
+            </div>
+            <div className='result__section'>
+                <p style={{color:'white', paddingLeft:'0px'}}>{result__lenght} results found</p> 
+                <>  
+                    {
+                        result__lenght > 0 ? (
+                            <div className='container'>
+                                {
+                                    searchresponse.map((result) => (
+                                        <ResultCard result={result}/>
+                                    ))
+                                } 
+                            </div>
+                            ) : (
+                            <>
+                                <Error/>
+                            </>
+                        )
+                    }
+                </>
             </div>
         </div>
      );

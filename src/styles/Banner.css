@@ -61,7 +61,7 @@
     color: #fff;
 }
 
-.invisible__div {
+/* .invisible__div {
     height: 7.4rem;
     width: 100%;
     background-image:linear-gradient(
@@ -71,7 +71,7 @@
     #111
     );
     margin-left: -20px;
-}
+} */
 
 /*********Media Query for Mobile***********/
 @media only screen and (min-width:0px) and (max-width:320px) {
