@@ -5,12 +5,14 @@ import {BiSearch} from 'react-icons/bi';
 import {MdOutlineArrowBackIosNew} from 'react-icons/md'
 import '../styles/search.css';
 import Error from './Error';
+import { useNavigate } from 'react-router-dom';
 import ResultCard from './ResultCard';
 
 const Search = () => {
     const [searchinput, setSearchInput] = useState("");
     const [searchresponse, setSearchResponse] = useState([]);
     const url = request_data.search;
+    const navigate = useNavigate();
     
     const fetch_search = async () => {
         const resp = await axios_fetch.get(`${url}&query=${searchinput}`);
@@ -24,7 +26,7 @@ const Search = () => {
     return ( 
         <div className='search__section'>
             <div className="search__input__section">
-                <div className='navigate_icon'>
+                <div className='navigate_icon' onClick={() => navigate(-1)}>
                     <MdOutlineArrowBackIosNew style={{color:'white'}} className="nav__icon"/>
                 </div>
                 <div className="search__field">

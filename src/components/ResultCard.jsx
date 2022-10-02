@@ -11,11 +11,11 @@ const ResultCard = ({ result }) => {
             </div>
 
             <div>
-                <img src={`${img_url}/${result.backdrop_path || result.poster_path}` !== null ? `${img_url}/${result.backdrop_path || result.poster_path}` : `https://via.placeholder.com/400`} alt={result?.name}/>
+                <img src={`${img_url}/${result.backdrop_path || result.poster_path}` === null ? `https://via.placeholder.com/400` : `${img_url}/${result.backdrop_path || result.poster_path}`} alt={result?.name}/>
             </div>
 
             <div>
-                <span><FaPlayCircle style={{width:'35px', height:'35px'}}/></span>
+                <span><FaPlayCircle style={{width:'35px', height:'35px', color:'#e50914'}}/></span>
             </div>
 
             <div>
