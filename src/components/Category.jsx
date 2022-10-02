@@ -37,6 +37,7 @@ const Category =({ heading, url }) => {
                 const urlParams = new URLSearchParams(new URL(url).search);
                 console.log(urlParams);
                 setTrailerId(urlParams.get("v"));
+                console.log(trailerId);
             }).catch((err) => console.log(err));
         }
     };

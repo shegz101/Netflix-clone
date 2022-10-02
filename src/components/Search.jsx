@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios_fetch from '../api/axios_fetch';
 import request_data from '../api/request_data';
 import {BiSearch} from 'react-icons/bi';
-import {MdOutlineArrowBackIosNew} from 'react-icons/md'
+import {MdOutlineArrowBackIosNew} from 'react-icons/md';
 import '../styles/search.css';
 import Error from './Error';
 import { useNavigate } from 'react-router-dom';

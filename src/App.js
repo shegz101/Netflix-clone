@@ -10,6 +10,7 @@ import { login, logout, selectUser } from '../src/features/authSlice';
 import Profile from './components/Profile';
 import { Navigate } from 'react-router-dom';
 import Search from './components/Search';
+import PlayMore from './components/PlayMore';
 
 function App() {
   const user = useSelector(selectUser);
@@ -37,6 +38,7 @@ function App() {
           }/>
           <Route path='/home' element={<HomePage/>}/>
           <Route path='/search' element={<Search/>}/>
+          <Route path='/playmore' element={<PlayMore/>}/>
         </Routes>
     </Router>
   );
