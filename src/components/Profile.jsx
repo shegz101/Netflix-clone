@@ -29,7 +29,7 @@ const Profile = () => {
         <div className='profile_section'>
             <div className="profile-header-image">
               <div className=''>
-                <img className="header__logo" src={pic} alt="web-app-logo" onClick={() => navigate('/home')}/>
+                <img className="header-logo" src={pic} alt="web-app-logo" onClick={() => navigate('/home')}/>
               </div>
               
               <div className='floated-right-nav'>

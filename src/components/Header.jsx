@@ -47,16 +47,15 @@ const Header = () => {
                 <nav className='nav-links' style={{zIndex:'10',}}>
                   <li style={{color:'white', paddingLeft: '13px', opacity:'1' ,}}>Home</li>
                   <li style={{color:'white', paddingLeft: '13px', opacity:'0.6',}}>My List</li>
-                  {/* <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>Tv Shows</li>
-                  <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>Movies</li>
-                  <li style={{color:'white', paddingLeft: '10px', opacity:'0.6',}}>New & Popular</li> */}
                 </nav>
               </div>
               
               <div className='floated-right-nav'>
                 <nav className='nav-icon'>
-                  <div className='search__div' style={{ marginLeft:'20px' }} onClick={() => navigate('/search')}>
-                    <AiOutlineSearch className='search-icon'  style={{color:'white', fontWeight:'900', fontSize:'20px'}}/>
+                  <div>
+                    <div className='search__div' style={{ marginLeft:'20px', position: 'fixed' }} onClick={() => navigate('/search')}>
+                      <AiOutlineSearch className='search-icon'  style={{color:'white', fontWeight:'900', fontSize:'20px'}}/>
+                    </div>
                   </div>
                   <div>
                     <img className="avatar__logo" onClick={() => showDropDown(true)} style={{ paddingLeft:'20px', paddingTop:'20px' }} src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt="avatar-default-icon"/>

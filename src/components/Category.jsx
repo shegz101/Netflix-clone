@@ -51,7 +51,7 @@ const Category =({ heading, url }) => {
                     <div className="movie__div">
                       <img key={movie?.id} 
                       onClick={() => handleMovieModal(movie)}
-                      clasName="movie__poster" style={{height: '210px', width:'160px', padding:'0 10px', cursor:'pointer', borderRadius: '13px',objectFit:'cover' }} 
+                      className="movie__poster" style={{height: '210px', width:'160px', padding:'0 10px', cursor:'pointer', borderRadius: '13px',objectFit:'cover' }} 
                       src={`${img_url}/${movie.backdrop_path || movie.poster_path}`} alt={movie?.name}/>
                       <p style={{color:'white', paddingTop:'10px', paddingBottom:'10px',}}>{movie.title || movie?.name || movie?.original_name}</p>
                     </div>

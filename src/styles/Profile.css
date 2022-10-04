@@ -10,7 +10,7 @@
     display: flex;
 }
 
-.header__logo {
+.header-logo {
     position: fixed;
     width: 120px;
     z-index: 10;
