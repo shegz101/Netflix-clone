@@ -3,25 +3,29 @@ import '../styles/search.css';
 import {FaPlayCircle} from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import movieTrailer from "movie-trailer";
+import { useDispatch } from 'react-redux';
+import { trailid } from '../features/authSlice';
 
 const ResultCard = ({ result }) => {
+    const dispatch = useDispatch();
     const img_url = `https://image.tmdb.org/t/p/original`;
     const navigate = useNavigate();
-    const [trailerId, setTrailerId] = useState('');
+    const [trailersId, setrailersId] = useState('');
 
     const handleResultModal = (movie) => {
-        if (trailerId) {
-            setTrailerId('');
+        if (trailersId) {
+            setrailersId('');
         } else {
             movieTrailer(movie?.name || movie.title || movie?.original_name || "").then(url => {
                 const urlParams = new URLSearchParams(new URL(url).search);
-                console.log(urlParams);
-                setTrailerId(urlParams.get("v"));
-                console.log(trailerId);
+                setrailersId(urlParams.get("v"));
+                dispatch(trailid({id: trailersId}));
             }).catch((err) => console.log(err));
         }
+        dispatch(trailid({id: trailersId}));
         navigate('/playmore');
     };
+
     return (
         <div className="movie">
             <div>

@@ -32,7 +32,8 @@
     font-weight: 800;
     border: none;
     color: white;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.671);
+    box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 

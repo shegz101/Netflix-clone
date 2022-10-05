@@ -2,9 +2,9 @@
     margin-top: 30px;
 }
 
-/* .heading-info {
-    z-index: 10;
-} */
+.heading-info {
+    font-weight: 900;
+}
 
 .image-crop {
     display: flex;
@@ -35,8 +35,8 @@
 }
 
 .movie__poster:hover {
-    -ms-transform: scale(1.5); /* IE 9 */
-    -webkit-transform: scale(1.5); /* Safari 3-8 */
-    transform: scale(1.05);
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1);
 }
 
