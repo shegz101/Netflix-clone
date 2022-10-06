@@ -19,10 +19,10 @@ const ResultCard = ({ result }) => {
             movieTrailer(movie?.name || movie.title || movie?.original_name || "").then(url => {
                 const urlParams = new URLSearchParams(new URL(url).search);
                 setrailersId(urlParams.get("v"));
-                dispatch(trailid({id: trailersId}));
+                dispatch(trailid(trailersId));
             }).catch((err) => console.log(err));
         }
-        dispatch(trailid({id: trailersId}));
+        dispatch(trailid(trailersId));
         navigate('/playmore');
     };
 

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import HomePage from './components/HomePage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Landing from './components/Landing';
 import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
@@ -11,6 +10,7 @@ import Profile from './components/Profile';
 import { Navigate } from 'react-router-dom';
 import Search from './components/Search';
 import PlayMore from './components/PlayMore';
+import Land from './components/Land';
 
 function App() {
   const user = useSelector(selectUser);
@@ -34,7 +34,7 @@ function App() {
         <Routes>
           <Route path='/profile' element={<Profile/>}/>
           <Route exact path='/' element={
-            !user ? <Landing/> : <Navigate to='/profile' replace/>
+            !user ? <Land/> : <Navigate to='/profile' replace/>
           }/>
           <Route path='/home' element={<HomePage/>}/>
           <Route path='/search' element={<Search/>}/>

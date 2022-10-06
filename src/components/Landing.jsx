@@ -29,6 +29,7 @@ const Landing = () => {
                     )
                 } 
             </div>
+            {/* <div className='invisible-landing-div'/> */}
         </div>
     )
 }
