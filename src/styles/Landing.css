@@ -49,7 +49,7 @@
 .landing__text {
     position:absolute;
     width: max-content;
-    top:60%;
+    top:50%;
     left: 50%;
     transform: translate(-50%, -50%); 
     -webkit-transform: translate(-50%, -50%);    
@@ -138,6 +138,10 @@
         padding-top: 10px;
     }
 
+    .landing__text {
+        top: 250px;
+    } 
+
     .membership__info {
         font-size: 13px;
         width: 90vw;
@@ -183,10 +187,16 @@
         font-weight: bold;
     }
 
+
+
     .description__info {
         font-size: 16px;
         font-weight:500;
         padding-top: 10px;
+    }
+
+    .landing__text {
+        top: 250px;
     }
 
     .membership__info {
@@ -238,6 +248,10 @@
         font-size: 16px;
         font-weight:500;
         padding-top: 10px;
+    }
+
+    .landing__text {
+        top: 250px;
     }
 
     .membership__info {
