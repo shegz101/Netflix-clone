@@ -1,0 +1,37 @@
+.pictorial__section {
+    color: #fff;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.describe__movie {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.text-div {
+    width: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-weight: 800;
+}
+
+.image-div {
+    width: 50%;
+}
+
+.pictorial__section > img {
+    height: 100%;
+    width: 100%;
+}
+
+.tv__img {
+    width: 720px;
+    height: 500px;
+}
+
+@media only screen and (min-width:0px) and (max-width:320px) {
+    .describe__movie {
+        flex-direction: column;
+    }
+}

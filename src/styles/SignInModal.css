@@ -5,7 +5,7 @@
     width: 400px;
     background-color: black;
     padding: 20px 20px;
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 .signup__modal {
@@ -15,7 +15,7 @@
     width: 400px;
     background-color: black;
     padding: 20px 20px;
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
 .signin__modal > h1 {
@@ -35,8 +35,9 @@
 
 .btn__grp > input {
     height: 40px;
-    border-radius: 8px;
+    border-radius: 5px;
     text-decoration: none;
+    outline: none;
     margin-bottom: 20px;
     outline: none;
     font-size: 12.6pts;
@@ -44,6 +45,40 @@
     border: 1px solid transparent;
 }
 
+.password-type {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    text-decoration: none;
+    height: 40px; 
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    outline: none;
+}
+
+.password-type > input {
+    width: 95%;
+    font-size: 12.6pts;
+    font-size: 20px;
+    border: 1px solid transparent;
+    outline: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.password-type > button {
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    width: 10%;
+}
+
+.password__icon {
+    width: 100%;
+    height: 80%;
+    font-size: larger;
+}
 .sign__btn {
     height: 40px;
     color: #fff;

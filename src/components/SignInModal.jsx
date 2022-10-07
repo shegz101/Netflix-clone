@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import {auth} from '../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import {signInWithEmailAndPassword } from 'firebase/auth';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+
 
 
 const SignInModal = () => {
@@ -11,6 +13,8 @@ const SignInModal = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [showpassword, setShowPassword] = useState(false);
+
     const navigate = useNavigate();
 
     const validatePassword = () => {
@@ -53,6 +57,9 @@ const SignInModal = () => {
         .catch(err => alert(err.message))
     }
 
+    const handlePassword = () => {
+        setShowPassword(!showpassword);
+    }
     
     return ( 
         <div className='signup'>
@@ -62,8 +69,22 @@ const SignInModal = () => {
                         <h1>Sign Up</h1>
                         <div className='btn__grp'>
                             <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email Address" required/>
-                            <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' required/>        
-                            <input type='password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder='ConfIrm Password' required/>
+                            <div className="password-type">
+                                <input type={showpassword ? `text` : `password`} value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' required/> 
+                                <button onClick={handlePassword}>
+                                    {
+                                        showpassword ? ( <AiFillEyeInvisible className='password__icon'/> ) : ( <AiFillEye className='password__icon'/> )
+                                    }
+                                </button>
+                            </div>  
+                            <div className="password-type">
+                                <input type={showpassword ? `text` : `password`} value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder='ConfIrm Password' required/> 
+                                <button onClick={handlePassword}>
+                                    {
+                                        showpassword ? ( <AiFillEyeInvisible className='password__icon'/> ) : ( <AiFillEye className='password__icon'/> )
+                                    }
+                                </button>
+                            </div>      
                             <button className="sign__btn" onClick={signUp}>Sign Up</button>
                         </div>
                         <p><span style={{color:'grey'}}> Already a User? </span> <span style={{cursor:'pointer',}} onClick={() => {setIsUserNew(false)}}>Sign In.</span></p>
@@ -73,7 +94,14 @@ const SignInModal = () => {
                         <h1>Sign In</h1>
                         <div className='btn__grp'>
                             <input type='email' placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} required/>
-                            <input type='password' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                            <div className="password-type">
+                                <input type={showpassword ? `text` : `password`} value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' required/> 
+                                <button onClick={handlePassword}>
+                                    {
+                                        showpassword ? ( <AiFillEyeInvisible className='password__icon'/> ) : ( <AiFillEye className='password__icon'/> )
+                                    }
+                                </button>
+                            </div> 
                             <button className="sign__btn" onClick={signIn}>Sign In</button>
                         </div>
                         <p><span style={{color:'grey'}}> New to Trailflix? </span> <span style={{cursor:'pointer',}} onClick={() => {setIsUserNew(true)}}>Sign Up now.</span></p>
