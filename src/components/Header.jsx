@@ -53,7 +53,7 @@ const Header = () => {
               <div className='floated-right-nav'>
                 <nav className='nav-icon'>
                   <div>
-                    <div className='search__div' style={{ marginLeft:'20px', position: 'fixed' }} onClick={() => navigate('/search')}>
+                    <div className='search__div' style={{ position: 'fixed' }} onClick={() => navigate('/search')}>
                       <AiOutlineSearch className='search-icon'  style={{color:'white', fontWeight:'900', fontSize:'20px'}}/>
                     </div>
                   </div>

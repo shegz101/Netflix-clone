@@ -47,9 +47,9 @@
     flex-direction: row;
     text-decoration: none;
     list-style-type: none;
-    position: fixed;
     margin-left: 90%;
     margin-top: -5px;
+    padding: 10px;
     z-index: 10;
 }
 
