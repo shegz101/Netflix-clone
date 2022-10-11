@@ -13,7 +13,7 @@ const Banner = () => {
     }
 
     const truncate = (string) => {
-        if(string.length > 100) {
+        if(string?.length > 100) {
             return string.slice(0, 100) + ' ...';
         }
     }
