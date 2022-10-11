@@ -1,6 +1,6 @@
 .landing__section {
     position: relative;
-    height:80vh;
+    height:85vh;
     background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1d9C4UyF9p2_19p4LKo7zEroQn7VL8Y7VsQ&usqp=CAU") center no-repeat;
     background-size: cover;
     overflow-x: hidden;
@@ -60,13 +60,13 @@
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: '#7F000000';
-    padding-left: 20px;
-    padding-right: 20px;
+    /* margin-left: 20px;
+    margin-right: 20px; */
 }
 
 
 .header__info {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
 } 
 
@@ -297,13 +297,64 @@
 
 @media only screen and (min-width:425.1px) and (max-width:768px) {
     .header__info {
-        font-size: 22px;
+        font-size: 19px;
         padding: 0 10px;
         font-weight: bold;
     }
 
     .description__info {
+        font-size: 18px;
+        font-weight:500;
+        padding-top: 10px;
+    }
+
+    .membership__info {
+        font-size: 20px;
+        width: 90vw;
+        word-wrap:break-word;
+        text-align: center;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight:500;
+        padding-top:10px;
+    }
+
+    .input__field {
+        /* height: 41.6px; */
+        width: 60vw;
+        font-size: 18px;
+        font-size: 13pts;
+        border: 1px solid transparent;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom: none;
+        text-decoration: none;
+        outline: none;
+    }
+    
+    .btn__field {
+        /* height: 43.95px; */
+        width: 30vw;
+        background-color: red;
+        border: 1px solid transparent;
+        color: white;
+        cursor: pointer;
+        font-size: 10px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+}
+
+@media only screen and (min-width:768.5px) and (max-width:1024px) {
+    .header__info {
         font-size: 25px;
+        padding: 0 10px;
+        font-weight: bold;
+    }
+
+    .description__info {
+        font-size: 28px;
         font-weight:500;
         padding-top: 10px;
     }

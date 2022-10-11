@@ -18,15 +18,11 @@ const Banner = () => {
         }
     }
 
-    // console.log(bannermovie);
     useEffect(() => {
         fetch_movie();
 
         return () => fetch_movie();
     },[])
-
-    // const title = bannermovie?.title || bannermovie?.name || bannermovie?.original_name;
-    // const overview = bannermovie?.overview;
     
     return (
         <header className="banner__image" style={{backgroundSize: 'cover', 
@@ -46,7 +42,7 @@ const Banner = () => {
                 </div>
                 {/* <Typewriter 
                     onInit={(typewriter)=> {
-                    typewriter.typeString(`<p className='movie__description'>${overview}</p>`).stop().start();
+                    typewriter.typeString(`<p className='movie__description'>${truncate(bannermovie?.overview)}</p>`).stop().start();
                 }}/> */}
                 <p className='movie__description'>{truncate(bannermovie?.overview)}</p>
             </div>
@@ -57,5 +53,3 @@ const Banner = () => {
 }
 
 export default Banner;
-
-//<TbPlayerPlay style={{paddingRight:'10px', paddingTop:'2px'}}/>
