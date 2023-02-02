@@ -15,7 +15,7 @@ const Question = ({ title, answer }) => {
             <h4 style={{color:'grey',}}>{title}</h4>
             <button className='question-icon' onClick={handleClick}>
                 {
-                    showanswer ? ( <AiOutlineMinus color="#e50914"/> ) : ( <AiOutlinePlus color="#1f93ff"/> )
+                    showanswer ? ( <AiOutlineMinus color="#e50914"/> ) : ( <AiOutlinePlus color="#008000"/> )
                 }
             </button>
         </div>

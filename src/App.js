@@ -11,6 +11,7 @@ import { Navigate } from 'react-router-dom';
 import Search from './components/Search';
 import PlayMore from './components/PlayMore';
 import Land from './components/Land';
+import MovieShow from './components/MovieShow';
 
 function App() {
   const user = useSelector(selectUser);
@@ -39,6 +40,7 @@ function App() {
           <Route path='/home' element={<HomePage/>}/>
           <Route path='/search' element={<Search/>}/>
           <Route path='/playmore' element={<PlayMore/>}/>
+          <Route path='/movieshow' element={<MovieShow/>}/>
         </Routes>
     </Router>
   );

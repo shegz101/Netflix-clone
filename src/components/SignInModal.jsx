@@ -3,10 +3,8 @@ import '../styles/SignInModal.css';
 import { useNavigate } from 'react-router-dom';
 import {auth} from '../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import {signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
-
-
 
 const SignInModal = () => {
     const [isusernew, setIsUserNew] = useState(false);

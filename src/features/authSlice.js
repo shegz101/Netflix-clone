@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+//define the initIal state
 const initialState = {
   user: null,
-  trailerId: "",
+  trailer_Id: "",
 };
-
 
 export const authSlice = createSlice({
   name: 'user',
@@ -17,19 +17,19 @@ export const authSlice = createSlice({
     logout: (state) => {
       state.user = null;
     },
-    trailid: (state, action) => {
-      state.trailerId = action.payload;
-    }
+    trail: (state, action) => {
+      state.trailer_Id = action.payload;
+    } 
   },
 });
 
-export const { login, logout, trailid } = authSlice.actions;
+export const { login, logout, trail } = authSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const selectUser = (state) => state.user.user;
-export const selectId = (state) => state.user.trailerId;
+export const selectId = (state) => state.user.trailer_Id;
 
 // We can also write thunks by hand, which may contain both sync and async logic.
 // Here's an example of conditionally dispatching actions based on current state.

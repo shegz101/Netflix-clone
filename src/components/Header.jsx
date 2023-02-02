@@ -22,7 +22,7 @@ const Header = () => {
     useEffect(() => {
         window.addEventListener('scroll', controlBlackNav);
         return () => {
-            window.removeEventListener('scroll', controlBlackNav)
+          window.removeEventListener('scroll', controlBlackNav)
         };
     }, [])
 

@@ -3,11 +3,8 @@ import '../styles/search.css';
 import {FaPlayCircle} from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import movieTrailer from "movie-trailer";
-import { useDispatch } from 'react-redux';
-import { trailid } from '../features/authSlice';
 
 const ResultCard = ({ result }) => {
-    const dispatch = useDispatch();
     const img_url = `https://image.tmdb.org/t/p/original`;
     const navigate = useNavigate();
     const [trailersId, setrailersId] = useState('');
@@ -19,10 +16,8 @@ const ResultCard = ({ result }) => {
             movieTrailer(movie?.name || movie.title || movie?.original_name || "").then(url => {
                 const urlParams = new URLSearchParams(new URL(url).search);
                 setrailersId(urlParams.get("v"));
-                dispatch(trailid(trailersId));
             }).catch((err) => console.log(err));
         }
-        dispatch(trailid(trailersId));
         navigate('/playmore');
     };
 
@@ -33,7 +28,7 @@ const ResultCard = ({ result }) => {
             </div>
 
             <div>
-                <img src={`${img_url}/${result.backdrop_path || result.poster_path}` !== null ? `${img_url}/${result.backdrop_path || result.poster_path}` : `https://via.placeholder.com/400`} alt={result?.name}/>
+                <img src={`${img_url}/${result.backdrop_path || result.poster_path}` !== null ? `${img_url}/${result.backdrop_path || result.poster_path}` : (`https://via.placeholder.com/400`)} alt={result?.name}/>
             </div>
 
             <div>

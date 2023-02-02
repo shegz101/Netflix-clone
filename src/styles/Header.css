@@ -18,6 +18,7 @@
     position: fixed;
     width: 120px;
     z-index: 10;
+    cursor: pointer;
     left: 0;
     object-fit: contain;
     padding-left: 10px;

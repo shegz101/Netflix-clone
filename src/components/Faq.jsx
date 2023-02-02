@@ -1,4 +1,4 @@
-import {FaQuestionCircle} from 'react-icons/fa';
+import { FaQuestionCircle } from 'react-icons/fa';
 import Question from './Question';
 import { questions } from './Data';
 

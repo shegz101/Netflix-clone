@@ -40,8 +40,8 @@ const Search = () => {
                 </div>
             </div>
             <div className='result__section'>
-                <p style={{color:'white', paddingLeft:'0px'}}>{result__lenght} results found</p> 
-                <>  
+                <> 
+                    <p style={{color:'white', paddingLeft:'0px'}}>{result__lenght} results found</p>  
                     {
                         result__lenght > 0 ? (
                             <div className='container'>
