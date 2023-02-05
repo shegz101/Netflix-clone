@@ -1,6 +1,7 @@
 import '../styles/Pictorial.css';
 import Tv from '../images/tv.png';
-import Eleven from '../images/mov.png';
+import Eleven from '../images/phone.png';
+import Kids from "../images/kids.png";
 
 const Pictorial = () => {
     return ( 
@@ -32,6 +33,16 @@ const Pictorial = () => {
                 </div>
                 <div className='image-div'>
                     <img style={{marginLeft:'auto', marginRight: 'auto'}} src={Eleven} alt='sample_video'/>
+                </div>
+            </div>
+
+            <div className="describe__movie">
+                <div className='image-div'>
+                    <img style={{marginLeft:'100px', marginRight: 'auto'}} src={Kids} alt='sample_video'/>
+                </div>
+                <div className='text-div'>
+                    <h1 style={{paddingBottom: '25px'}}>Create profiles for kids.</h1>
+                    <p>Send kids on adventures with their favorite characters in a space made just for them—free with your membership.</p>
                 </div>
             </div>
         </div>

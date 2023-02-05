@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import pic from '../images/trailflix.png';
+import pic from 'images/trailflix.png';
 import SignInModal from './SignInModal';
-import '../styles/Landing.css';
+import 'styles/Landing.css';
 
 const Landing = () => {
     const [isuserin, setUserIn] = useState(true);
