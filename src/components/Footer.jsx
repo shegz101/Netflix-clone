@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <div className="footer-section">
             <p style={{color:'white'}}>Built by Segun, Powered by Tmdb API</p>
-            <p style={{color:'white'}}>Copyright © 2022</p>
+            <p style={{color:'white'}}>Copyright © 2023</p>
         </div>
     )
 }

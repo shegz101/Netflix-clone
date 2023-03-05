@@ -34,6 +34,7 @@ const Header = () => {
       }
     }
 
+    //function to initiate log out
     const signedOut = async () => {
       await(signOut(auth));
       navigate('/');
