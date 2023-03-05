@@ -85,14 +85,14 @@
     display: flex;
     flex-direction: row;
     padding-top: 20px;
-    height: 42px;
+    /* height: 42px; */
     justify-content: center;
     padding-left: 10px;
     padding-right: 10px;
 }
 
 .input__field {
-    /* height: 40px; */
+    height: 42px;
     width: 50%;
     font-size: 18px;
     font-size: 13pts;
@@ -103,10 +103,11 @@
     border-bottom: none;
     text-decoration: none;
     outline: none;
+    padding-left: 10px;
 }
 
 .btn__field {
-    /* height: 43px; */
+    height: 43px;
     width: 200px;
     background-color: red;
     border: 1px solid transparent;
@@ -170,6 +171,10 @@
         text-decoration: none;
         outline: none;
     }
+
+    .sign_btn {
+        margin-right: 6px;
+    }
     
     .btn__field {
         /* height: 43.95px; */
@@ -190,7 +195,9 @@
         font-weight: bold;
     }
 
-
+    .sign_btn {
+        margin-right: 10px;
+    }
 
     .description__info {
         font-size: 16px;
@@ -253,6 +260,10 @@
         padding-top: 10px;
     }
 
+    .sign_btn {
+        margin-right: 10px;
+    }
+
     .landing__text {
         top: 50%;
     }
@@ -308,6 +319,10 @@
         padding-top: 10px;
     }
 
+    .sign_btn {
+        margin-right: 10px;
+    }
+
     .membership__info {
         font-size: 20px;
         width: 90vw;
@@ -357,6 +372,10 @@
         font-size: 28px;
         font-weight:500;
         padding-top: 10px;
+    }
+
+    .sign_btn {
+        margin-right: 10px;
     }
 
     .membership__info {

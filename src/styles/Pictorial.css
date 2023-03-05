@@ -6,6 +6,7 @@
 .describe__movie {
     display: flex;
     flex-direction: row;
+    width: 100%;
     margin-top: 20px;
 }
 
@@ -30,8 +31,160 @@
     height: 500px;
 }
 
-@media only screen and (min-width:0px) and (max-width:320px) {
+@media only screen and (min-width:0px) and (max-width:375px) {
     .describe__movie {
         flex-direction: column;
+    }
+
+    .second_movie {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .text-div {
+        width: 95%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+        text-align: center;
+    }
+
+    .pictorial_text {
+        font-size: 12px;
+        font-weight: 300;
+        width: 100%;
+        padding: 10px 10px;
+    }
+
+    .main_text {
+        font-size: 15px;
+    }
+
+    .image-div {
+        width: 80%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .the_image {
+        width: 260px;
+        margin: 0 auto;
+        align-items: center;
+    }
+}
+
+@media only screen and (min-width:321px) and (max-width:375px) {
+    .describe__movie {
+        flex-direction: column;
+    }
+
+    .second_movie {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .text-div {
+        width: 95%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+        text-align: center;
+    }
+
+    .pictorial_text {
+        font-size: 12px;
+        font-weight: 300;
+        width: 100%;
+        padding: 10px 10px;
+    }
+
+    .main_text {
+        font-size: 15px;
+    }
+
+    .image-div {
+        width: 80%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .the_image {
+        width: 300px;
+        margin:0 auto;
+        align-items: center;
+    }
+}
+
+@media only screen and (min-width:375.1px) and (max-width:425px) {
+    .describe__movie {
+        flex-direction: column;
+    }
+
+    .second_movie {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .text-div {
+        width: 95%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+        text-align: center;
+    }
+
+    .pictorial_text {
+        font-size: 15px;
+        font-weight: 300;
+        width: 100%;
+        padding: 10px 10px;
+    }
+
+    .main_text {
+        font-size: 20px;
+    }
+
+    .image-div {
+        width: 80%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .the_image {
+        width: 350px;
+        margin:0 auto;
+        align-items: center;
+    }
+}
+
+@media only screen and (min-width:425.1px) and (max-width:768px) { 
+    .describe__movie {
+        flex-direction: column;
+    }
+
+    .second_movie {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .text-div {
+        width: 95%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+        text-align: center;
+    }
+
+    .pictorial_text {
+        font-size: 15px;
+        font-weight: 300;
+        width: 100%;
+        padding: 10px 10px;
+    }
+
+    .main_text {
+        font-size: 20px;
+    }
+
+    .the_image {
+        width: 700px;
+        margin:0 auto;
+        align-items: center;
     }
 }

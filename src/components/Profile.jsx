@@ -48,7 +48,7 @@ const Profile = () => {
               </div>
             </div>
             <div className='edit__profile__box'>
-                <p className="edit__header">Edit Profile</p>
+                <p className="edit__header">My Profile</p>
                 <div className='profile__info'>
                     <img className="avatar_logo" src="https://cdn-icons-png.flaticon.com/512/147/147142.png" alt="avatar-default-icon"/>
                     <div className='user__info'>

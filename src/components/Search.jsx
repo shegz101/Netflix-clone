@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// import ClipLoader from "react-spinners/ClipLoader";
 import axios_fetch from '../api/axios_fetch';
 import request_data from '../api/request_data';
 import {BiSearch} from 'react-icons/bi';
@@ -52,9 +53,7 @@ const Search = () => {
                                 } 
                             </div>
                             ) : (
-                            <>
-                                <Error/>
-                            </>
+                            <Error/>
                         )
                     }
                 </>
