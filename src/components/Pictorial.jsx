@@ -12,7 +12,7 @@ const Pictorial = () => {
                     <p className="pictorial_text">Watch on smart TVs, Playstations, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
                 </div>
                 <div className='image-div'>
-                    <img className='the_image'  src={Tv} alt='sample_video'/>
+                    <img className='the_image tv__img'  src={Tv} alt='sample_video'/>
                 </div>
             </div>
 

@@ -188,3 +188,13 @@
         align-items: center;
     }
 }
+
+@media only screen and (min-width:770px) and (max-width:1025px) { 
+   .tv__img {
+     width: 600px;
+   } 
+
+   .text-div {
+    width: 35%;
+   }
+}
