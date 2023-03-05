@@ -1,26 +1,33 @@
 import React, { useState } from 'react';
 import '../styles/SignInModal.css';
 import { useNavigate } from 'react-router-dom';
-import {auth} from '../firebase';
+import { useDispatch } from 'react-redux';
+import { populateUser } from 'features/authSlice';
+import { auth } from '../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+//Using React Toastify to handle notifications
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignInModal = () => {
     const [isusernew, setIsUserNew] = useState(false);
     const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState('');
     const [showpassword, setShowPassword] = useState(false);
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const validatePassword = () => {
         let isValid = true
         if (password !== '' && confirmPassword !== ''){
           if (password !== confirmPassword) {
             isValid = false
-            alert('Passwords does not match')
+            toast.error('Passwords does not match');
           }
         }
         return isValid
@@ -35,8 +42,12 @@ const SignInModal = () => {
                 console.log(authUser);
                 navigate('/profile');
             })
-            .catch(err => alert(err.message)) 
+            .catch(err => toast.error(err.message)) 
+            dispatch(populateUser(name));
+            localStorage.setItem("name", JSON.stringify(name));
+            toast.success(`👋 Welcome onboard ${name}!`);
         }
+        setName("");
         setEmail('');
         setPassword('');
         setConfirmPassword('');
@@ -48,11 +59,12 @@ const SignInModal = () => {
         .then (() => {
           if (!auth.user) {
             console.log('Please sign Up');
+            toast.info("👋 Please Sign Up");
           } else {
             navigate('/home');
           }
         })
-        .catch(err => alert(err.message))
+        .catch(err => toast.error(err.message))
     }
 
     const handlePassword = () => {
@@ -61,11 +73,24 @@ const SignInModal = () => {
     
     return ( 
         <div className='signup'>
+            <ToastContainer
+            position='top-right'
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme='light'
+            />
             {
                 isusernew ? (
                     <div className='signup__modal'>
                         <h1>Sign Up</h1>
                         <div className='btn__grp'>
+                            <input type='text' value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter Your FullName" required/>
                             <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email Address" required/>
                             <div className="password-type">
                                 <input type={showpassword ? `text` : `password`} value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' required/> 
