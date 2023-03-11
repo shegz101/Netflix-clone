@@ -22,7 +22,6 @@ const Banner = () => {
 
     useEffect(() => {
         fetch_movie();
-
         return () => fetch_movie();
     },[])
     
@@ -35,7 +34,7 @@ const Banner = () => {
             <div className="banner-contents">
                 {/* <Typewriter 
                     onInit={(typewriter)=> {
-                    typewriter.typeString(`<h1 className='movie__name'>${title}</h1>`).stop().start();
+                    typewriter.typeString(`<h1 className='movie__name'>${bannermovie?.title || bannermovie?.name || bannermovie?.original_name}</h1>`).stop().start();
                 }}/> */}
                 <h1 className='movie__name'>{bannermovie?.title || bannermovie?.name || bannermovie?.original_name}</h1>
                 <div className="buttons">

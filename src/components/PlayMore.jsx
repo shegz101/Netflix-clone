@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 const PlayMore = () => {
     const navigate = useNavigate();
     const id_tr = useSelector(selectId);
+    console.log(id_tr);
 
     const options = {
         height: '100%',
@@ -23,6 +24,9 @@ const PlayMore = () => {
     };
     return (
         <div className='playmore__section'>
+            <div className='navigate_icon' onClick={() => navigate(-1)}>
+                <MdOutlineArrowBackIosNew style={{color:'white'}} className="nav__icon"/>
+            </div>
             <div className='player__wrapper'>
                 {
                    id_tr ? (

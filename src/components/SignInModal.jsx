@@ -62,6 +62,7 @@ const SignInModal = () => {
             toast.info("👋 Please Sign Up");
           } else {
             navigate('/home');
+            toast.success('Signed In Successfully');
           }
         })
         .catch(err => toast.error(err.message))

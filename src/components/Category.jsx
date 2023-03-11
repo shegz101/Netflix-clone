@@ -14,8 +14,6 @@ const Category =({ heading, url }) => {
     const [trailerId, setTrailerId] = useState('');
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    console.log(`three ` + trailerId);
-    dispatch(trail(trailerId));
     
     const fetch_movie_category = async () => {
         const resp = await axios_fetch.get(`${url}`);
@@ -31,16 +29,16 @@ const Category =({ heading, url }) => {
         },
     };
 
-    const handleMovieModal = (movie) => {
-        if (trailerId) {
-            setTrailerId('');
-        } else {
-            movieTrailer(movie?.name || movie?.title || movie?.original_name || "").then(url => {
-                const urlParams = new URLSearchParams(new URL(url).search);
-                setTrailerId(urlParams.get("v"));
-            }).catch((err) => console.log(err));
-        }
-    };
+    // const handleMovieModal = (movie) => {
+    //     if (trailerId) {
+    //         setTrailerId('');
+    //     } else {
+    //         movieTrailer(movie?.name || movie?.title || movie?.original_name || "").then(url => {
+    //             const urlParams = new URLSearchParams(new URL(url).search);
+    //             setTrailerId(urlParams.get("v"));
+    //         }).catch((err) => console.log(err));
+    //     }
+    // };
 
 
     const handleMovieId = (movie) => {
@@ -49,6 +47,7 @@ const Category =({ heading, url }) => {
         } else {
             movieTrailer(movie?.name || movie?.title || movie?.original_name || "").then(url => {
                 const urlParams = new URLSearchParams(new URL(url).search);
+                dispatch(trail(urlParams.get("v")));
                 setTrailerId(urlParams.get("v"));
             }).catch((err) => console.log(err));
         }
@@ -68,8 +67,7 @@ const Category =({ heading, url }) => {
                     moviecategory.map((movie) => (
                         <div className="movie__div">
                             <img key={movie?.id} 
-                            onClick={() => handleMovieModal(movie)}
-                            onDoubleClick={() => handleMovieId(movie)}
+                            onClick={() => handleMovieId(movie)}
                             className="movie__poster" style={{height: '210px', width:'160px', padding:'0 10px', cursor:'pointer', borderRadius: '13px', objectFit:'cover' }} 
                             src={`${img_url}/${movie.backdrop_path || movie.poster_path}`} alt={movie?.name}/>
                             <p style={{color:'white', paddingTop:'10px', paddingBottom:'10px',}}>{movie?.title || movie?.name || movie?.original_name}</p>

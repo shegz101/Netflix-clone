@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/search.css';
+import errimg from "../images/400.png";
 import {FaPlayCircle} from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import movieTrailer from "movie-trailer";
@@ -7,15 +8,15 @@ import movieTrailer from "movie-trailer";
 const ResultCard = ({ result }) => {
     const img_url = `https://image.tmdb.org/t/p/original`;
     const navigate = useNavigate();
-    const [trailersId, setrailersId] = useState('');
+    const [trailersId, setTrailersId] = useState('');
 
     const handleResultModal = (movie) => {
         if (trailersId) {
-            setrailersId('');
+            setTrailersId('');
         } else {
             movieTrailer(movie?.name || movie.title || movie?.original_name || "").then(url => {
                 const urlParams = new URLSearchParams(new URL(url).search);
-                setrailersId(urlParams.get("v"));
+                setTrailersId(urlParams.get("v"));
             }).catch((err) => console.log(err));
         }
         navigate('/playmore');
@@ -28,7 +29,7 @@ const ResultCard = ({ result }) => {
             </div>
 
             <div>
-                <img src={`${img_url}/${result.backdrop_path || result.poster_path}` !== null ? `${img_url}/${result.backdrop_path || result.poster_path}` : (`https://via.placeholder.com/400`)} alt={result?.name}/>
+                <img src={`${img_url}/${result.backdrop_path || result.poster_path}` === null ? `${errimg}`  : `${img_url}/${result.backdrop_path || result.poster_path}` } alt={result?.name}/>
             </div>
 
             <div>
