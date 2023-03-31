@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/SignInModal.css';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { populateUser } from 'features/authSlice';
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -20,7 +18,6 @@ const SignInModal = () => {
     const [showpassword, setShowPassword] = useState(false);
 
     const navigate = useNavigate();
-    const dispatch = useDispatch();
 
     const validatePassword = () => {
         let isValid = true
@@ -43,7 +40,6 @@ const SignInModal = () => {
                 navigate('/profile');
             })
             .catch(err => toast.error(err.message)) 
-            dispatch(populateUser(name));
             localStorage.setItem("name", JSON.stringify(name));
             toast.success(`👋 Welcome onboard ${name}!`);
         }

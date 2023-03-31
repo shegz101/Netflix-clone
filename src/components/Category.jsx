@@ -3,8 +3,7 @@ import axios_fetch from '../api/axios_fetch';
 import movieTrailer from "movie-trailer";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { trail } from '../features/authSlice.js';
-import YouTube from 'react-youtube';
+import { trail, mname, mdescp, mdate, mlang } from '../features/authSlice.js';
 import '../styles/Category.css';
 
 
@@ -18,28 +17,8 @@ const Category =({ heading, url }) => {
     const fetch_movie_category = async () => {
         const resp = await axios_fetch.get(`${url}`);
         setMovieCategory(resp.data.results);
+        console.log(resp.data.results)
     }
-
-    const options = {
-        height: '390',
-        width: '100%',
-        playerVars: {
-            // https://developers.google.com/youtube/player_parameters
-            autoplay: 1,
-        },
-    };
-
-    // const handleMovieModal = (movie) => {
-    //     if (trailerId) {
-    //         setTrailerId('');
-    //     } else {
-    //         movieTrailer(movie?.name || movie?.title || movie?.original_name || "").then(url => {
-    //             const urlParams = new URLSearchParams(new URL(url).search);
-    //             setTrailerId(urlParams.get("v"));
-    //         }).catch((err) => console.log(err));
-    //     }
-    // };
-
 
     const handleMovieId = (movie) => {
         if (trailerId) {
@@ -49,6 +28,10 @@ const Category =({ heading, url }) => {
                 const urlParams = new URLSearchParams(new URL(url).search);
                 dispatch(trail(urlParams.get("v")));
                 setTrailerId(urlParams.get("v"));
+                dispatch(mname(movie?.name || movie?.title || movie?.original_name || ""));
+                dispatch(mdescp(movie?.overview));
+                dispatch(mdate(movie?.release_date));
+                dispatch(mlang(movie?.original_language));
             }).catch((err) => console.log(err));
         }
         navigate('/movieshow');
@@ -56,7 +39,7 @@ const Category =({ heading, url }) => {
 
     useEffect(() => {
         fetch_movie_category();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     return (
@@ -70,12 +53,11 @@ const Category =({ heading, url }) => {
                             onClick={() => handleMovieId(movie)}
                             className="movie__poster" style={{height: '210px', width:'160px', padding:'0 10px', cursor:'pointer', borderRadius: '13px', objectFit:'cover' }} 
                             src={`${img_url}/${movie.backdrop_path || movie.poster_path}`} alt={movie?.name}/>
-                            <p style={{color:'white', paddingTop:'10px', paddingBottom:'10px',}}>{movie?.title || movie?.name || movie?.original_name}</p>
+                            <p style={{color:'white', paddingTop:'10px', paddingBottom:'10px', fontSize:'12px'}}>{movie?.title || movie?.name || movie?.original_name}</p>
                         </div>
                     ))
                 }
             </div>
-            {trailerId && <YouTube videoId={trailerId} opts={options}/>}
         </div>
     )
 }
