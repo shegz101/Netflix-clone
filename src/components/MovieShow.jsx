@@ -3,15 +3,17 @@ import '../styles/MovieShow.css';
 import YouTube from 'react-youtube';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectId, selectName, selectDescription } from '../features/authSlice.js';
+import { selectId, selectName, selectDescription, selectDate, selectLang } from '../features/authSlice.js';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 
 const MovieShow = () => {
     const id_tr = useSelector(selectId);
     const movie_title = useSelector(selectName);
     const movie_overview = useSelector(selectDescription);
+    const movie_date = useSelector(selectDate);
+    const movie_lang = useSelector(selectLang);
     console.log(movie_title);
-    console.log(movie_overview)
+    console.log(movie_overview);
     const navigate = useNavigate();
 
     const options = {
@@ -47,7 +49,9 @@ const MovieShow = () => {
 
             <div className="movie_info">
                 <h1>{movie_title}</h1>
-                <p>{movie_overview}</p>
+                <p className="movie__overview">{movie_overview}</p>
+                <p className="movie__date">Release Date: {movie_date}</p>
+                <p className="movie__date">Language: {movie_lang}</p>
             </div>
         </>
     )
