@@ -1,6 +1,7 @@
 import React from "react";
 import '../styles/MovieShow.css';
 import YouTube from 'react-youtube';
+import { GrAdd } from 'react-icons/gr';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectId, selectName, selectDescription, selectDate, selectLang } from '../features/authSlice.js';
@@ -52,6 +53,15 @@ const MovieShow = () => {
                 <p className="movie__overview">{movie_overview}</p>
                 <p className="movie__date">Release Date: {movie_date}</p>
                 <p className="movie__date">Language: {movie_lang}</p>
+            </div>
+
+            <div className="add_movie">
+                <p><GrAdd style={{color:"white",}} className="add_icon"/></p>
+                <p>Add to List</p>
+            </div>
+
+            <div className="related_video">
+                <h2 style={{color:'white'}}>Related Videos</h2>
             </div>
         </>
     )

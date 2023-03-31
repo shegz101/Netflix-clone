@@ -44,7 +44,7 @@ const Category =({ heading, url }) => {
 
     return (
         <div className="category-section">
-            <p className="heading-info" style={{color:'white', paddingLeft:'10px', fontSize:'20px'}}>{heading}</p>
+            <p className="heading-info" style={{color:'white', paddingLeft:'10px'}}>{heading}</p>
             <div className="image-crop">
                 {
                     moviecategory.map((movie) => (

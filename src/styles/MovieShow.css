@@ -76,6 +76,38 @@
     font-weight: 800;
 }
 
+.add_movie {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    height: max-content;
+    width: max-content;
+    color: white;
+    background-color: black;
+    margin-left: 20px;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 8px;
+}
+
+.add_movie:hover {
+    background-color: #e50914;
+}
+
+.add_icon {
+    color: #fff;
+    font-weight: bolder;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.related_video {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-top: 30px;
+}
+
 @media only screen and (min-width: 0px) and (max-width: 425px) {
     .movie_info > h1 {
         font-size: 20px; 
