@@ -1,121 +1,120 @@
 .movie_show {
-    positiOn: relative;
-    /* width: 100%; */
-    padding: 0 5px;
-    padding-top: -10px;
-    overflow-x: hidden;
+  position: relative;
+  /* width: 100%; */
+  padding: 0 5px;
+  padding-top: -10px;
+  overflow-x: hidden;
 }
 
 .movie_show_btn {
-    display: flex;
-    position: absolute;
-    left: 0;
-    right: 0;
-    justify-content: space-between;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .navigate_icon {
-    height: 25px;
-    width: 25px;
-    padding-top: 10px;
-    padding-right: auto;
-    padding-left: auto;
-    justify-content: center;
-    border-radius: 50px;
-    -moz-border-radius: 50px;
-    -webkit-border-radius: 50px;
-    background: rgb(255,255,255,0.35);
-    box-shadow: 0 8px 32px 0 rgba(6, 6, 12, 0.541);
-    backdrop-filter: blur(3px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+  height: 25px;
+  width: 25px;
+  padding-top: 10px;
+  padding-right: auto;
+  padding-left: auto;
+  justify-content: center;
+  border-radius: 50px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  background: rgb(255, 255, 255, 0.35);
+  box-shadow: 0 8px 32px 0 rgba(6, 6, 12, 0.541);
+  backdrop-filter: blur(3px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .nav__icon {
-    position: absolute;
-    align-items: center;
-    text-align: center;
-    font-weight: bolder;
-    /* z-index: 10; */
-    cursor:pointer;
+  position: absolute;
+  align-items: center;
+  text-align: center;
+  font-weight: bolder;
+  /* z-index: 10; */
+  cursor: pointer;
 }
 
 .add__list {
-    height: 38px;
-    width: 80px;
-    border-radius: 8px;
-    font-weight: 800;
-    border: none;
-    color: #ffffff;
-    background-color: #e50914;
-    box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
-    text-align: center;
+  height: 38px;
+  width: 80px;
+  border-radius: 8px;
+  font-weight: 800;
+  border: none;
+  color: #ffffff;
+  background-color: #e50914;
+  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .movie_info {
-    display: flex;
-    flex-direction: column;
-    color: #fff;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .movie_info > p {
-    margin-top: 15px;
-    /* font-size: 20px; */
-    line-height: 25px;
+  margin-top: 15px;
+  /* font-size: 20px; */
+  line-height: 25px;
 }
 
 .movie__date {
-    font-size: 14px;
-    font-weight: 800;
+  font-size: 14px;
+  font-weight: 800;
 }
 
 .add_movie {
-    display: flex;
-    flex-direction: column;
-    padding: 20px 10px;
-    height: max-content;
-    width: max-content;
-    color: white;
-    background-color: black;
-    margin-left: 20px;
-    align-items: center;
-    border: 1px solid transparent;
-    border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+  height: max-content;
+  width: max-content;
+  margin-left: 20px;
+  align-items: center;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 8px;
 }
 
 .add_movie:hover {
-    background-color: #e50914;
+  background-color: #e50914;
 }
 
 .add_icon {
-    color: #fff;
-    font-weight: bolder;
-    padding-bottom: 20px;
-    text-align: center;
+  color: #fff;
+  font-weight: bolder;
+  padding-bottom: 20px;
+  text-align: center;
 }
 
 .related_video {
-    display: flex;
-    flex-direction: column;
-    margin-left: 20px;
-    margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-top: 30px;
 }
 
 @media only screen and (min-width: 0px) and (max-width: 425px) {
-    .movie_info > h1 {
-        font-size: 20px; 
-    }
+  .movie_info > h1 {
+    font-size: 20px;
+  }
 
-    .movie_info > p {
-        margin-top: 10px;
-        font-size: 12px;
-        line-height: 13px;
-    }
+  .movie_info > p {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 13px;
+  }
 }
