@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {
   selectId,
+  selectMid,
   selectName,
   selectDescription,
   selectDate,
@@ -21,13 +22,15 @@ const MovieShow = () => {
   const movie_lang = useSelector(selectLang);
   const [similarResponse, setSimilarResponse] = useState([]);
   const navigate = useNavigate();
-  const id_tr = useSelector(selectId) || "1WJJVupoWvA";
+  const img_url = `https://image.tmdb.org/t/p/original`;
+  const id_tr = useSelector(selectId);
+  const mov_id = useSelector(selectMid);
   const API_KEY = "51e3d67cbe329bdeb9071d6ccdc4eb6f";
-  const url = `/movie/${id_tr}/similar?api_key=${API_KEY}&language=en-US&page=1`;
+  const url = `/movie/${mov_id}/similar?api_key=${API_KEY}&language=en-US&page=1`;
 
   const fetch_similar = async () => {
     const resp = await axios_fetch.get(`${url}`);
-    setSimilarResponse(resp.data);
+    setSimilarResponse(resp.data.results);
     console.log(similarResponse);
   };
 
@@ -85,7 +88,31 @@ const MovieShow = () => {
       </div>
 
       <div className="related_video">
-        <h2 style={{ color: "white" }}>Related Videos</h2>
+        <div>
+          <h2 style={{ color: "white", marginLeft: "10px" }}>
+            Related Trailers
+          </h2>
+        </div>
+        <div className="similar__movies-nav">
+          {/* Render the images */}
+          {similarResponse.map((related) => (
+            <div className="related_trailers">
+              <img
+                key={related?.id}
+                className="trailer__poster"
+                style={{
+                  cursor: "pointer",
+                  borderRadius: "13px",
+                  objectFit: "cover",
+                }}
+                src={`${img_url}/${
+                  related.backdrop_path || related.poster_path
+                }`}
+                alt={related?.name}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
