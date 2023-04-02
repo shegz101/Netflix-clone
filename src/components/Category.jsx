@@ -3,7 +3,14 @@ import axios_fetch from "../api/axios_fetch";
 import movieTrailer from "movie-trailer";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { trail, mname, mdescp, mdate, mlang } from "../features/authSlice.js";
+import {
+  trail,
+  movieId,
+  mname,
+  mdescp,
+  mdate,
+  mlang,
+} from "../features/authSlice.js";
 import "../styles/Category.css";
 
 const Category = ({ heading, url }) => {
@@ -32,6 +39,7 @@ const Category = ({ heading, url }) => {
           dispatch(
             mname(movie?.name || movie?.title || movie?.original_name || "")
           );
+          dispatch(movieId(movie?.id));
           dispatch(mdescp(movie?.overview));
           dispatch(mdate(movie?.release_date));
           dispatch(mlang(movie?.original_language));
