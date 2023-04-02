@@ -59,8 +59,8 @@
   flex-direction: column;
   color: #fff;
   margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -82,7 +82,7 @@
   padding: 20px 10px;
   height: max-content;
   width: max-content;
-  margin-left: 20px;
+  margin-left: 10px;
   align-items: center;
   color: #fff;
   border: 1px solid transparent;
@@ -103,8 +103,38 @@
 .related_video {
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
-  margin-top: 30px;
+  margin-top: 20px;
+  margin-left: 10px;
+  overflow-x: hidden;
+}
+
+.similar__movies-nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.related_trailers {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  padding: 10px 10px;
+  overflow-y: hidden;
+}
+
+.trailer__poster {
+  width: 200px;
+  height: 250px;
+  transition: 0.2s;
+}
+
+.trailer__poster:hover {
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(1.1);
 }
 
 @media only screen and (min-width: 0px) and (max-width: 425px) {
@@ -116,5 +146,11 @@
     margin-top: 10px;
     font-size: 12px;
     line-height: 13px;
+  }
+
+  .trailer__poster {
+    width: 260px;
+    height: 210px;
+    transition: 0.2s;
   }
 }
