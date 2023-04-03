@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "../styles/MovieShow.css";
 import YouTube from "react-youtube";
 import axios_fetch from "../api/axios_fetch";
+import movieTrailer from "movie-trailer";
 import { MdAdd } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import {
   selectId,
@@ -12,6 +14,12 @@ import {
   selectDescription,
   selectDate,
   selectLang,
+  trail,
+  movieId,
+  mname,
+  mdescp,
+  mdate,
+  mlang,
 } from "../features/authSlice.js";
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
 
@@ -21,12 +29,15 @@ const MovieShow = () => {
   const movie_date = useSelector(selectDate);
   const movie_lang = useSelector(selectLang);
   const [similarResponse, setSimilarResponse] = useState([]);
+  const [trailerId, setTrailerId] = useState("");
   const navigate = useNavigate();
   const img_url = `https://image.tmdb.org/t/p/original`;
   const id_tr = useSelector(selectId);
   const mov_id = useSelector(selectMid);
   const API_KEY = "51e3d67cbe329bdeb9071d6ccdc4eb6f";
   const url = `/movie/${mov_id}/similar?api_key=${API_KEY}&language=en-US&page=1`;
+
+  const dispatch = useDispatch();
 
   const fetch_similar = async () => {
     const resp = await axios_fetch.get(`${url}`);
@@ -35,6 +46,34 @@ const MovieShow = () => {
   };
 
   fetch_similar();
+
+  //This function will help us dispatch the current trailer ID and
+  //relaod this page with the current infos.
+  const handleSimilarTrailers = (trailer) => {
+    if (trailerId) {
+      setTrailerId("");
+    } else {
+      movieTrailer(
+        trailer?.name || trailer?.title || trailer?.original_name || ""
+      )
+        .then((url) => {
+          const urlParams = new URLSearchParams(new URL(url).search);
+          dispatch(trail(urlParams.get("v")));
+          setTrailerId(urlParams.get("v"));
+          dispatch(
+            mname(
+              trailer?.name || trailer?.title || trailer?.original_name || ""
+            )
+          );
+          dispatch(movieId(trailer?.id));
+          dispatch(mdescp(trailer?.overview));
+          dispatch(mdate(trailer?.release_date));
+          dispatch(mlang(trailer?.original_language));
+        })
+        .catch((err) => console.log(err));
+    }
+    navigate("/movieshow");
+  };
 
   const options = {
     height: "390",
@@ -89,9 +128,7 @@ const MovieShow = () => {
 
       <div className="related_video">
         <div>
-          <h2 style={{ color: "white", marginLeft: "10px" }}>
-            Related Trailers
-          </h2>
+          <h2 style={{ color: "white" }}>Related Trailers</h2>
         </div>
         <div className="similar__movies-nav">
           {/* Render the images */}
@@ -99,6 +136,7 @@ const MovieShow = () => {
             <div className="related_trailers">
               <img
                 key={related?.id}
+                onClick={() => handleSimilarTrailers(related)}
                 className="trailer__poster"
                 style={{
                   cursor: "pointer",
