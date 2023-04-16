@@ -115,7 +115,9 @@ const MovieShow = () => {
       <div className="movie_info">
         <h1>{movie_title}</h1>
         <p className="movie__overview">{movie_overview}</p>
-        <p className="movie__date">Release Date: {movie_date}</p>
+        <p className="movie__date">
+          Release Date: <span style={{ color: "#e50914" }}>{movie_date}</span>
+        </p>
         <p className="movie__date">Language: {movie_lang}</p>
       </div>
 
