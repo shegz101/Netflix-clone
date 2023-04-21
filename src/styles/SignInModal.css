@@ -1,138 +1,142 @@
 .signin__modal {
-    margin-left: auto;
-    margin-right: auto;
-    height: max-content;
-    width: 400px;
-    background-color: black;
-    border: 1px solid red;
-    padding: 20px 20px;
-    border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  height: max-content;
+  width: 400px;
+  background-color: black;
+  border: 1px solid red;
+  padding: 20px 20px;
+  border-radius: 5px;
+  z-index: 20;
 }
 
 .signup__modal {
-    margin-left: auto;
-    margin-right: auto;
-    height: max-content;
-    width: 400px;
-    background-color: black;
-    padding: 20px 20px;
-    border: 1px solid red;
-    border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  height: max-content;
+  width: 400px;
+  background-color: black;
+  padding: 20px 20px;
+  border: 1px solid red;
+  border-radius: 5px;
+  z-index: 20;
 }
 
 .signin__modal > h1 {
-    text-align: left;
+  text-align: left;
 }
 
 .signup__modal > h1 {
-    text-align: left;
+  text-align: left;
 }
 
 .btn__grp {
-    display: flex;
-    flex-direction: column;
-    padding-top: 20px;
-    padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .btn__grp > input {
-    height: 40px;
-    border-radius: 5px;
-    text-decoration: none;
-    outline: none;
-    margin-bottom: 20px;
-    outline: none;
-    font-size: 12.6pts;
-    font-size: 20px;
-    padding-left: 10px;
-    border: 1px solid transparent;
+  height: 40px;
+  border-radius: 5px;
+  text-decoration: none;
+  outline: none;
+  margin-bottom: 20px;
+  outline: none;
+  font-size: 12.6pts;
+  font-size: 20px;
+  padding-left: 10px;
+  border: 1px solid transparent;
 }
 
 .password-type {
-    display: flex;
-    justify-content: space-between;
-    border-radius: 5px;
-    text-decoration: none;
-    height: 40px; 
-    margin-bottom: 20px;
-    background-color: #fff;
-    border: 1px solid transparent;
-    outline: none;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+  text-decoration: none;
+  height: 40px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  outline: none;
 }
 
 .password-type > input {
-    width: 95%;
-    font-size: 12.6pts;
-    font-size: 20px;
-    border: 1px solid transparent;
-    outline: none;
-    border-radius: 5px;
-    text-decoration: none;
+  width: 95%;
+  font-size: 12.6pts;
+  font-size: 20px;
+  border: 1px solid transparent;
+  outline: none;
+  border-radius: 5px;
+  text-decoration: none;
 }
 
 .password-type > button {
-    background-color: #fff;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    width: 10%;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  width: 10%;
 }
 
 .password__icon {
-    width: 100%;
-    height: 80%;
-    font-size: larger;
+  width: 100%;
+  height: 80%;
+  font-size: larger;
 }
 .sign__btn {
-    height: 40px;
-    color: #fff;
-    background-color: red;
-    z-index: 10;
-    font-size: 25px;
-    cursor: pointer;
-    border-radius: 10px;
-    border: 1px solid transparent;
+  height: 40px;
+  color: #fff;
+  background-color: red;
+  z-index: 10;
+  font-size: 25px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid transparent;
 }
 
-@media only screen and (min-width:0px) and (max-width:320px) {
-    .signin__modal {
-        margin-left: auto;
-        margin-right: auto;
-        height: max-content;
-        width: 300px;
-        background-color: black;
-        /* padding: 20px 20px; */
-        border-radius: 8px; 
-    }
+@media only screen and (min-width: 0px) and (max-width: 320px) {
+  .signin__modal {
+    margin-left: auto;
+    margin-right: auto;
+    height: max-content;
+    width: 280px;
+    /* margin-top: 20px; */
+    background-color: black;
+    /* padding: 20px 20px; */
+    border-radius: 8px;
+  }
 
-    .signup__modal {
-        margin-left: auto;
-        margin-right: auto;
-        height: max-content;
-        width: 300px;
-        background-color: black;
-        /* padding: 20px 20px; */
-        border-radius: 8px;
-    }
+  .signup__modal {
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-top: 20px; */
+    height: max-content;
+    width: 280px;
+    background-color: black;
+    /* padding: 20px 20px; */
+    border-radius: 8px;
+  }
 }
 
-@media only screen and (min-width:321px) and (max-width:375px) {
-    .signin__modal {
-        margin-left: auto;
-        margin-right: auto;
-        height: max-content;
-        width: 300px;
-        background-color: black;
-        /* padding: 20px 20px; */
-        border-radius: 8px;
-    }
+@media only screen and (min-width: 321px) and (max-width: 375px) {
+  .signin__modal {
+    margin-left: auto;
+    margin-right: auto;
+    height: max-content;
+    width: 300px;
+    background-color: black;
+    /* padding: 20px 20px; */
+    border-radius: 8px;
+  }
 
-    .signup__modal {
-        margin-left: auto;
-        margin-right: auto;
-        height: max-content;
-        width: 300px;
-        background-color: black;
-        /* padding: 20px 20px; */
-        border-radius: 8px;
-    }
+  .signup__modal {
+    margin-left: auto;
+    margin-right: auto;
+    height: max-content;
+    width: 300px;
+    background-color: black;
+    /* padding: 20px 20px; */
+    border-radius: 8px;
+  }
 }
