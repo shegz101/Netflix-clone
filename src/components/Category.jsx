@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios_fetch from "../api/axios_fetch";
 import movieTrailer from "movie-trailer";
+import { MdAddCircleOutline, MdAddCircle } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
@@ -17,6 +18,7 @@ const Category = ({ heading, url }) => {
   const img_url = `https://image.tmdb.org/t/p/original`;
   const [moviecategory, setMovieCategory] = useState([]);
   const [trailerId, setTrailerId] = useState("");
+  const [addtolist, setAddToList] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -80,6 +82,9 @@ const Category = ({ heading, url }) => {
               src={`${img_url}/${movie.backdrop_path || movie.poster_path}`}
               alt={movie?.name}
             />
+            <div>
+              <p>{addtolist ? <MdAddCircle /> : <MdAddCircleOutline />}</p>
+            </div>
             <p
               style={{
                 color: "white",
