@@ -82,8 +82,28 @@ const Category = ({ heading, url }) => {
               src={`${img_url}/${movie.backdrop_path || movie.poster_path}`}
               alt={movie?.name}
             />
-            <div>
-              <p>{addtolist ? <MdAddCircle /> : <MdAddCircleOutline />}</p>
+            <div className="add_movie">
+              <p>
+                {addtolist ? (
+                  <MdAddCircle
+                    style={{
+                      position: "absolute",
+                      top: 4,
+                      left: 4,
+                      color: "gray",
+                    }}
+                  />
+                ) : (
+                  <MdAddCircleOutline
+                    style={{
+                      position: "absolute",
+                      top: 4,
+                      left: 4,
+                      color: "whitesmoke",
+                    }}
+                  />
+                )}
+              </p>
             </div>
             <p
               style={{
