@@ -1,7 +1,12 @@
 import React from "react";
+import Header from "./Header";
 
 const MyList = () => {
-  return <div>My Trailer List</div>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 };
 
 export default MyList;
