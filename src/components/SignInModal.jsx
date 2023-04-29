@@ -5,6 +5,8 @@ import { auth, db } from "../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+//Import from firebase/firestore
+import { doc, setDoc, collection, addDoc } from "firebase/firestore";
 //Using React Toastify to handle notifications
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -30,16 +32,31 @@ const SignInModal = () => {
     return isValid;
   };
 
-  const signUp = (e) => {
+  const signUp = async (e) => {
     e.preventDefault();
     if (validatePassword()) {
       // Create a new user with email and password using firebase
       createUserWithEmailAndPassword(auth, email, password)
         .then((authUser) => {
           console.log(authUser);
+          //set the trailer add list array to empty as soon as a user signs up
+          //Whenever we sign up, we create a user and email inside of the firestore database
+          setDoc(doc(db, "users", email), {
+            savedTrailers: [],
+          });
+          addDoc(collection(db, "users"), {
+            first: "Ada",
+            last: "Lovelace",
+            born: 1815,
+          });
           navigate("/profile");
         })
         .catch((err) => toast.error(err.message));
+      addDoc(collection(db, "users"), {
+        first: "Ada",
+        last: "Lovelace",
+        born: 1815,
+      });
       localStorage.setItem("name", JSON.stringify(name));
       toast.success(`👋 Welcome onboard ${name}!`);
     }
