@@ -11,6 +11,7 @@ import { Navigate } from "react-router-dom";
 import Search from "./components/Search";
 import Land from "./components/Land";
 import MovieShow from "./components/MovieShow";
+import MyList from "components/MyList";
 
 function App() {
   const user = useSelector(selectUser);
@@ -41,6 +42,7 @@ function App() {
           element={!user ? <Land /> : <Navigate to="/profile" replace />}
         />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/list" element={<MyList />} />
         <Route path="/search" element={<Search />} />
         <Route path="/movieshow" element={<MovieShow />} />
       </Routes>
