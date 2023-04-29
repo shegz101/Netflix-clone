@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios_fetch from "../api/axios_fetch";
 import movieTrailer from "movie-trailer";
-import { MdAddCircleOutline, MdAddCircle } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
@@ -18,7 +17,7 @@ const Category = ({ heading, url }) => {
   const img_url = `https://image.tmdb.org/t/p/original`;
   const [moviecategory, setMovieCategory] = useState([]);
   const [trailerId, setTrailerId] = useState("");
-  const [addtolist, setAddToList] = useState(false);
+  const [addtolist, setAddToList] = useState(true);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -82,26 +81,36 @@ const Category = ({ heading, url }) => {
               src={`${img_url}/${movie.backdrop_path || movie.poster_path}`}
               alt={movie?.name}
             />
-            <div className="add_movie">
+            <div className="add_trailer">
               <p>
                 {addtolist ? (
-                  <MdAddCircle
+                  <p
                     style={{
                       position: "absolute",
-                      top: 4,
-                      left: 4,
-                      color: "gray",
+                      top: 6,
+                      left: 20,
+                      cursor: "pointer",
+                      height: "50px",
+                      fontSize: "20px",
+                      color: "white",
                     }}
-                  />
+                  >
+                    +
+                  </p>
                 ) : (
-                  <MdAddCircleOutline
+                  <p
                     style={{
                       position: "absolute",
-                      top: 4,
-                      left: 4,
+                      top: 6,
+                      left: 20,
+                      cursor: "pointer",
+                      height: "50px",
+                      fontSize: "20px",
                       color: "whitesmoke",
                     }}
-                  />
+                  >
+                    x
+                  </p>
                 )}
               </p>
             </div>
