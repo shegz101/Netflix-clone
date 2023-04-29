@@ -39,6 +39,7 @@
   height: 100%;
   opacity: 0;
   color: white;
+  border-color: 1px solid blue;
 }
 
 .add_movie:hover {
