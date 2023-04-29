@@ -107,14 +107,14 @@ const SignInModal = () => {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Enter Your FullName"
+              placeholder="Janes James"
               required
             />
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email Address"
+              placeholder="email@gmail.com"
               required
             />
             <div className="password-type">
