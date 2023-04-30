@@ -6,7 +6,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 //Import from firebase/firestore
-import { collection, addDoc } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
 //Using React Toastify to handle notifications
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -39,9 +39,15 @@ const SignInModal = () => {
       createUserWithEmailAndPassword(auth, email, password)
         .then((authUser) => {
           console.log(authUser);
+          setDoc(doc(db, "users", email), {
+            savedTrailers: [],
+          });
           navigate("/profile");
         })
         .catch((err) => toast.error(err.message));
+      // setDoc(doc(db, "users", email), {
+      //   savedTrailers: [],
+      // });
       localStorage.setItem("name", JSON.stringify(name));
       toast.success(`👋 Welcome onboard ${name}!`);
       //set the trailer add list array to empty as soon as a user signs up
@@ -50,15 +56,15 @@ const SignInModal = () => {
       //   name: { name },
       //   savedTrailers: [],
       // });
-      try {
-        const docRef = await addDoc(collection(db, "users"), {
-          email: email,
-          savedTrailers: [],
-        });
-        console.log("Document written with ID: ", docRef.id);
-      } catch (e) {
-        console.error("Error adding document: ", e);
-      }
+      // try {
+      //   const docRef = await addDoc(collection(db, "users"), {
+      //     email: email,
+      //     savedTrailers: [],
+      //   });
+      //   console.log("Document written with ID: ", docRef.id);
+      // } catch (e) {
+      //   console.error("Error adding document: ", e);
+      // }
     }
     setName("");
     setEmail("");
