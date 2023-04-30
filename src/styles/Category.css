@@ -35,9 +35,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
+  /* width: 100%;
+  height: 100%; */
+  /* opacity: 0; */
   color: white;
   border-color: 1px solid blue;
 }
@@ -48,10 +48,10 @@
   border-radius: 50%;
 }
 
-.add_trailer:hover {
+/* .add_trailer:hover {
   opacity: 1;
   background-color: rgba(0, 0, 0, 0.801);
-}
+} */
 .movie__poster {
   border-radius: 30px;
   width: 20px;
