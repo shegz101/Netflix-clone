@@ -39,32 +39,17 @@ const SignInModal = () => {
       createUserWithEmailAndPassword(auth, email, password)
         .then((authUser) => {
           console.log(authUser);
+          //set the trailer add list array to empty as soon as a user signs up
+          //Whenever we sign up, we create a user and email inside of the firestore database
           setDoc(doc(db, "users", email), {
+            name: name, //storing user name to firestore
             savedTrailers: [],
           });
           navigate("/profile");
         })
         .catch((err) => toast.error(err.message));
-      // setDoc(doc(db, "users", email), {
-      //   savedTrailers: [],
-      // });
       localStorage.setItem("name", JSON.stringify(name));
       toast.success(`👋 Welcome onboard ${name}!`);
-      //set the trailer add list array to empty as soon as a user signs up
-      //Whenever we sign up, we create a user and email inside of the firestore database
-      // addDoc(collection(db, "users", email), {
-      //   name: { name },
-      //   savedTrailers: [],
-      // });
-      // try {
-      //   const docRef = await addDoc(collection(db, "users"), {
-      //     email: email,
-      //     savedTrailers: [],
-      //   });
-      //   console.log("Document written with ID: ", docRef.id);
-      // } catch (e) {
-      //   console.error("Error adding document: ", e);
-      // }
     }
     setName("");
     setEmail("");
