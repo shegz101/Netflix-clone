@@ -42,7 +42,6 @@ const MovieShow = () => {
   const fetch_similar = async () => {
     const resp = await axios_fetch.get(`${url}`);
     setSimilarResponse(resp.data.results);
-    console.log(similarResponse);
   };
 
   fetch_similar();
