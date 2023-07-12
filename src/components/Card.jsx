@@ -14,7 +14,7 @@ import {
   mdate,
   mlang,
 } from "../features/authSlice.js";
-import { arrayUnion, doc, updateDoc, getDoc } from "firebase/firestore";
+import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import movieTrailer from "movie-trailer";
 
 const Card = ({ movie }) => {
@@ -27,20 +27,40 @@ const Card = ({ movie }) => {
 
   const user = useSelector(selectUser);
 
-  const movieID = doc(db, "movies", `${user?.email}`);
+  //MovieId Reference
+  const movieID = doc(db, "users", `${user?.email}`);
 
   //create a function that handles and controls saving a trailer to list
-  const savedTrailers = async (movie) => {
-    setAdd(!add);
-    setTrailerSaved(true);
-    await updateDoc(movieID, {
-      savedTrailers: arrayUnion({
-        id: movie.id,
-        title: movie.title,
-        coverart: movie.backdrop_path || movie.poster_path,
-      }),
-    });
+  const savedTrailers = async () => {
+    if (user?.email) {
+      setAdd(!add);
+      setTrailerSaved(true);
+      await updateDoc(movieID, {
+        savedTrailers: arrayUnion({
+          id: movie.id,
+          title: movie.title,
+          coverart: movie.backdrop_path || movie.poster_path,
+        }),
+      });
+    }
   };
+
+  // const updateUserSavedTrailers = async () => {
+  //   const userDocRef = doc(db, "users", `${user?.email}`);
+
+  //   setAdd(!add);
+  //   setTrailerSaved(true);
+
+  //   await updateDoc(userDocRef, {
+  //     savedTrailers: arrayUnion({
+  //       id: movie.id,
+  //       title: movie.title,
+  //       coverart: movie.backdrop_path || movie.poster_path,
+  //     }),
+  //   });
+
+  //   console.log("Saved trailers updated successfully.");
+  // };
 
   // console.log(movie.id);
 
@@ -84,7 +104,7 @@ const Card = ({ movie }) => {
         alt={movie?.name}
       />
       <div>
-        <div onClick={() => savedTrailers(movie)}>
+        <div onClick={savedTrailers}>
           {add ? (
             <p
               style={{
