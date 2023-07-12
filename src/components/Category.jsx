@@ -27,7 +27,7 @@ const Category = ({ heading, url }) => {
       </p>
       <div className="image-crop">
         {moviecategory.map((movie) => (
-          <Card movie={movie} />
+          <Card movie={movie} key={movie.id} />
         ))}
       </div>
     </div>
