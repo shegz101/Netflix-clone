@@ -45,8 +45,6 @@ const Card = ({ movie }) => {
     console.log("Saved trailers updated successfully.");
   };
 
-  // console.log(movie.id);
-
   const handleMovieId = (movie) => {
     if (trailerId) {
       setTrailerId("");
