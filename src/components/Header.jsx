@@ -9,8 +9,8 @@ import { auth } from "../firebase";
 const Header = () => {
   const [showdark, setShowDark] = useState(false);
   const [showdrop, setShowDrop] = useState(false);
-  //state to control opacity
-  const [listopacity, setListOpacity] = useState(true);
+  //state to control link activeness
+  const [activeLink, setActiveLink] = useState("home");
   const navigate = useNavigate();
 
   const controlBlackNav = () => {
@@ -19,6 +19,11 @@ const Header = () => {
     } else {
       setShowDark(false);
     }
+  };
+
+  //function to set active link
+  const handleNavClick = (link) => {
+    setActiveLink(link);
   };
 
   useEffect(() => {
@@ -52,15 +57,19 @@ const Header = () => {
             alt="web-app-logo"
             onClick={() => navigate("/home")}
           />
-          <nav className="nav-links" style={{ zIndex: "10" }}>
+          <nav className="nav-links" style={{ zIndex: "3" }}>
             <Link
               to="/home"
-              onClick={() => setListOpacity(true)}
-              style={{ opacity: listopacity ? "1" : "0.6" }}
+              style={{
+                textDecoration: "none",
+              }}
+              onClick={() => handleNavClick("home")}
             >
               <li
+                className={`navbar-link ${
+                  activeLink === "home" ? "active" : ""
+                }`}
                 style={{
-                  color: "white",
                   paddingLeft: "13px",
                 }}
               >
@@ -69,12 +78,16 @@ const Header = () => {
             </Link>
             <Link
               to="/list"
-              onClick={() => setListOpacity(false)}
-              style={{ opacity: listopacity ? "0.6" : "1" }}
+              style={{
+                textDecoration: "none",
+              }}
+              onClick={() => handleNavClick("list")}
             >
               <li
+                className={`navbar-link ${
+                  activeLink === "list" ? "active" : ""
+                }`}
                 style={{
-                  color: "white",
                   paddingLeft: "13px",
                 }}
               >
