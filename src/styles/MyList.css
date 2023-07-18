@@ -1,0 +1,16 @@
+.list_section {
+  position: relative;
+  height: 400px;
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1d9C4UyF9p2_19p4LKo7zEroQn7VL8Y7VsQ&usqp=CAU")
+    center no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+p {
+  color: white;
+  margin-top: 60px;
+  margin-left: 20px;
+  font-size: 2rem;
+}
