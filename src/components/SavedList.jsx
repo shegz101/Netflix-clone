@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/SavedList.css";
+import { useSelector } from "react-redux";
+import { selectUser } from "../features/authSlice.js";
+//importing things needed to query the data base
+import { db } from "../firebase";
+import { updateDoc, doc, onSnapshot } from "firebase/firestore";
 
 function SavedList() {
+  //Trailers State Array
+  const [trailers, setTrailers] = useState([]);
+  // The Image Url
+  const img_url = `https://image.tmdb.org/t/p/original`;
+
+  const user = useSelector(selectUser);
+
+  useEffect(() => {
+    const docRef = doc(db, "users", `${user?.email}`);
+
+    const unsubscribe = onSnapshot(docRef, (doc) => {
+      setTrailers(doc.data()?.savedTrailers);
+    });
+
+    return () => unsubscribe(); // Cleanup the listener when the component is unmounted
+  }, [user?.email]);
+
   return (
     <div className="savedlist-section">
       <p
@@ -11,11 +33,10 @@ function SavedList() {
         The List
       </p>
       <div className="image-crop">
-        {moviecategory.map((movie) => (
-          <div className="movie__div">
+        {trailers.map((movie, id) => (
+          <div className="movie__div" key={id}>
             <img
               key={movie?.id}
-              onClick={() => handleMovieId(movie)}
               className="movie__poster"
               style={{
                 height: "210px",
@@ -26,41 +47,9 @@ function SavedList() {
                 objectFit: "cover",
               }}
               src={`${img_url}/${movie.coverart}`}
-              alt={movie?.name}
+              alt={movie.title}
             />
-            <div>
-              <div onClick={updateUserSavedTrailers}>
-                {add ? (
-                  <p
-                    style={{
-                      position: "absolute",
-                      top: 6,
-                      left: 20,
-                      cursor: "pointer",
-                      height: "50px",
-                      fontSize: "20px",
-                      color: "whitesmoke",
-                    }}
-                  >
-                    x
-                  </p>
-                ) : (
-                  <p
-                    style={{
-                      position: "absolute",
-                      top: 6,
-                      left: 20,
-                      cursor: "pointer",
-                      height: "50px",
-                      fontSize: "20px",
-                      color: "white",
-                    }}
-                  >
-                    +
-                  </p>
-                )}
-              </div>
-            </div>
+
             <p
               style={{
                 color: "white",
@@ -69,7 +58,7 @@ function SavedList() {
                 fontSize: "12px",
               }}
             >
-              {movie?.title || movie?.name || movie?.original_name}
+              {movie?.title}
             </p>
           </div>
         ))}
