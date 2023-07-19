@@ -24,6 +24,20 @@ function SavedList() {
     return () => unsubscribe(); // Cleanup the listener when the component is unmounted
   }, [user?.email]);
 
+  //delete trailer function
+  const trailerRef = doc(db, "users", `${user?.email}`);
+
+  const deleteTrailer = async (id) => {
+    try {
+      const updated_list = trailers.filter((movie) => movie.id !== id);
+      await updateDoc(trailerRef, {
+        savedTrailers: updated_list,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="savedlist-section">
       <p
@@ -49,7 +63,21 @@ function SavedList() {
               src={`${img_url}/${movie.coverart}`}
               alt={movie.title}
             />
-
+            <div onClick={() => deleteTrailer(movie.id)}>
+              <p
+                style={{
+                  position: "absolute",
+                  top: 6,
+                  right: 30,
+                  cursor: "pointer",
+                  height: "50px",
+                  fontSize: "20px",
+                  color: "whitesmoke",
+                }}
+              >
+                x
+              </p>
+            </div>
             <p
               style={{
                 color: "white",
