@@ -23,11 +23,14 @@ const MyList = () => {
           <p className="list-page-header">My Trailer Lists</p>
           <p className="list-page-description">
             Welcome to the "My Lists" page, your personalized Trailflix haven.
-            Here, you are in full control of your curated trailer collection.
-            Add and remove trailers at will, and dive into the excitement by
-            watching your most anticipated trailers with just a click. Enjoy a
-            seamless experience as you explore the series of trailers you've
-            added to your list. Happy watching!
+            <span className="list-page-description-mobile">
+              {" "}
+              Here, you are in full control of your curated trailer collection.
+              Add and remove trailers at will, and dive into the excitement by
+              watching your most anticipated trailers with just a click. Enjoy a
+              seamless experience as you explore the series of trailers you've
+              added to your list. Happy watching!
+            </span>
           </p>
         </div>
       </div>
