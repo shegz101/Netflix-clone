@@ -20,6 +20,20 @@ const Landing = () => {
         <div className="invisible__imaage__dark" />
       </div>
 
+      {/* Adding a dark background layout */}
+      <div
+        style={{
+          backgroundColor: "black",
+          top: 0,
+          left: 0,
+          width: "100%",
+          position: "fixed",
+          zIndex: "2",
+          opacity: 0.6,
+          height: "85vh",
+        }}
+      />
+
       <div className="landing__text">
         {isuserin ? (
           <>
@@ -54,7 +68,7 @@ const Landing = () => {
           <SignInModal />
         )}
       </div>
-      {/* <div className='invisible-landing-div'/> */}
+      {/* <div className="invisible-landing-div" /> */}
     </div>
   );
 };
