@@ -1,4 +1,4 @@
-.category-section {
+.savedlist-section {
   margin-top: 30px;
 }
 
@@ -21,6 +21,17 @@
 .image-crop::-webkit-scrollbar {
   display: none;
 }
+
+/* .add_trailer > p {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  } */
+
+/* .add_trailer:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.801);
+  } */
 
 @media only screen and (min-width: 0px) and (max-width: 425px) {
   .heading-info {
