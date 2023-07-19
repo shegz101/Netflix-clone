@@ -16,7 +16,7 @@ const MyList = () => {
             width: "100%",
             position: "fixed",
             opacity: 0.6,
-            height: "550px",
+            height: "60vh",
           }}
         />
         <div className="listed_trailers">
