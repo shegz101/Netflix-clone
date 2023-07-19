@@ -1,120 +1,121 @@
 .landing__section {
-    position: relative;
-    height:85vh;
-    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1d9C4UyF9p2_19p4LKo7zEroQn7VL8Y7VsQ&usqp=CAU") center no-repeat;
-    background-size: cover;
-    overflow-x: hidden;
-    overflow-y: hidden;
+  position: relative;
+  height: 85vh;
+  background: url("https://assets.nflxext.com/ffe/siteui/vlv3/9c5457b8-9ab0-4a04-9fc1-e608d5670f1a/710d74e0-7158-408e-8d9b-23c219dee5df/IN-en-20210719-popsignuptwoweeks-perspective_alpha_website_small.jpg")
+    center no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .landing__header {
-    background-color: '#7F000000';
+  background-color: "#7F000000";
 }
 
 .landing__logo {
-    position: fixed;
-    z-index: 10;
-    width: 120px;
-    left: 10px;
-    object-fit: contain;
-    top:20px;
+  position: fixed;
+  z-index: 10;
+  width: 120px;
+  left: 10px;
+  object-fit: contain;
+  top: 20px;
 }
 
 .sign_btn {
-    position: fixed;
-    height: 35px;
-    color: white;
-    margin-top: 13px;
-    right: 10px;
-    background-color: red;
-    z-index: 10;
-    cursor: pointer;
-    border-radius: 10px;
-    width: 6rem;
-    border: 1px solid transparent;
+  position: fixed;
+  height: 35px;
+  color: white;
+  margin-top: 13px;
+  right: 10px;
+  background-color: red;
+  z-index: 10;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 6rem;
+  border: 1px solid transparent;
 }
 
 .invisible__imaage__dark {
-    width: 100%;
-    height: 100vh;
-    z-index: 1;
-    background: rgba(0,0,0,0.4);
-    background-image: linear-gradient(
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(
     to top,
-    rgba(0,0,0,0.8) 0,
-    rgba(0,0,0,0) 60%,
-    rgba(0,0,0,0.8) 100%);
+    rgba(0, 0, 0, 0.8) 0,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
 }
 
 .landing__text {
-    position:absolute;
-    word-wrap: break-word;
-    width: max-content;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
-    -webkit-transform: translate(-50%, -50%);    
-    z-index: 2;
-    padding: 20px;
-    color:#fff;
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: '#7F000000';
-    /* margin-left: 20px;
+  position: absolute;
+  word-wrap: break-word;
+  width: max-content;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  z-index: 2;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: "#7F000000";
+  /* margin-left: 20px;
     margin-right: 20px; */
 }
 
-
 .header__info {
-    font-size: 40px;
-    font-weight: bold;
-} 
+  font-size: 40px;
+  font-weight: bold;
+}
 
 .description__info {
-    font-size: 35px;
-    font-weight:400;
+  font-size: 35px;
+  font-weight: 400;
 }
 
 .membership__info {
-    font-size: 20px;
-    font-weight:400;
-    padding-top:10px;
+  font-size: 20px;
+  font-weight: 400;
+  padding-top: 10px;
 }
 
 .input__button {
-    display: flex;
-    flex-direction: row;
-    padding-top: 20px;
-    /* height: 42px; */
-    justify-content: center;
-    padding-left: 10px;
-    padding-right: 10px;
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  /* height: 42px; */
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .input__field {
-    height: 42px;
-    width: 50%;
-    font-size: 18px;
-    font-size: 13pts;
-    border: 1px solid transparent;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    border-bottom: none;
-    text-decoration: none;
-    outline: none;
-    padding-left: 10px;
+  height: 42px;
+  width: 50%;
+  font-size: 18px;
+  font-size: 13pts;
+  border: 1px solid transparent;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: none;
+  text-decoration: none;
+  outline: none;
+  padding-left: 10px;
 }
 
 .btn__field {
-    height: 43px;
-    width: 200px;
-    background-color: red;
-    border: 1px solid transparent;
-    color: white;
-    cursor: pointer;
-    font-weight: 600;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 43px;
+  width: 200px;
+  background-color: red;
+  border: 1px solid transparent;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* .invisible-landing-div {
@@ -128,290 +129,289 @@
     );
 } */
 
+@media only screen and (min-width: 0px) and (max-width: 320px) {
+  .header__info {
+    font-size: 13px;
+    padding: 0 10px;
+    font-weight: bold;
+  }
 
-@media only screen and (min-width:0px) and (max-width:320px) {
-    .header__info {
-        font-size: 13px;
-        padding: 0 10px;
-        font-weight: bold;
-    }
+  .description__info {
+    font-size: 14px;
+    font-weight: 500;
+    padding-top: 10px;
+  }
 
-    .description__info {
-        font-size: 14px;
-        font-weight:500;
-        padding-top: 10px;
-    }
+  .landing__text {
+    top: 250px;
+  }
 
-    .landing__text {
-        top: 250px;
-    } 
+  .membership__info {
+    font-size: 13px;
+    width: 90vw;
+    word-wrap: break-word;
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+    padding-top: 10px;
+  }
 
-    .membership__info {
-        font-size: 13px;
-        width: 90vw;
-        word-wrap:break-word;
-        text-align: center;
-        justify-content: center;
-        margin-left: auto;
-        margin-right: auto;
-        font-weight:500;
-        padding-top:10px;
-    }
+  .input__field {
+    /* height: 41.6px; */
+    width: 60vw;
+    font-size: 18px;
+    font-size: 13pts;
+    border: 1px solid transparent;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    text-decoration: none;
+    outline: none;
+  }
 
-    .input__field {
-        /* height: 41.6px; */
-        width: 60vw;
-        font-size: 18px;
-        font-size: 13pts;
-        border: 1px solid transparent;
-        border-top: none;
-        border-right: none;
-        border-left: none;
-        border-bottom: none;
-        text-decoration: none;
-        outline: none;
-    }
+  .sign_btn {
+    margin-right: 6px;
+  }
 
-    .sign_btn {
-        margin-right: 6px;
-    }
-    
-    .btn__field {
-        /* height: 43.95px; */
-        width: 30vw;
-        background-color: red;
-        border: 1px solid transparent;
-        color: white;
-        cursor: pointer;
-        font-size: 10px;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-    }
+  .btn__field {
+    /* height: 43.95px; */
+    width: 30vw;
+    background-color: red;
+    border: 1px solid transparent;
+    color: white;
+    cursor: pointer;
+    font-size: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
 }
 
-@media only screen and (min-width:320.1px) and (max-width:375px) {
-    .header__info {
-        font-size: 15px;
-        padding: 0 10px;
-        font-weight: bold;
-    }
+@media only screen and (min-width: 320.1px) and (max-width: 375px) {
+  .header__info {
+    font-size: 15px;
+    padding: 0 10px;
+    font-weight: bold;
+  }
 
-    .sign_btn {
-        margin-right: 10px;
-    }
+  .sign_btn {
+    margin-right: 10px;
+  }
 
-    .description__info {
-        font-size: 16px;
-        font-weight:500;
-        padding-top: 10px;
-    }
+  .description__info {
+    font-size: 16px;
+    font-weight: 500;
+    padding-top: 10px;
+  }
 
-    .landing__text {
-        top: 250px;
-    }
+  .landing__text {
+    top: 250px;
+  }
 
-    .membership__info {
-        font-size: 15px;
-        width: 90vw;
-        word-wrap:break-word;
-        text-align: center;
-        justify-content: center;
-        margin-left: auto;
-        margin-right: auto;
-        font-weight:500;
-        padding-top:10px;
-    }
+  .membership__info {
+    font-size: 15px;
+    width: 90vw;
+    word-wrap: break-word;
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+    padding-top: 10px;
+  }
 
-    .input__field {
-        /* height: 41.6px; */
-        width: 60vw;
-        font-size: 18px;
-        font-size: 13pts;
-        border: 1px solid transparent;
-        border-top: none;
-        border-right: none;
-        border-left: none;
-        border-bottom: none;
-        text-decoration: none;
-        outline: none;
-    }
-    
-    .btn__field {
-        /* height: 43.95px; */
-        width: 30vw;
-        background-color: red;
-        border: 1px solid transparent;
-        color: white;
-        cursor: pointer;
-        font-size: 10px;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-    }
+  .input__field {
+    /* height: 41.6px; */
+    width: 60vw;
+    font-size: 18px;
+    font-size: 13pts;
+    border: 1px solid transparent;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    text-decoration: none;
+    outline: none;
+  }
+
+  .btn__field {
+    /* height: 43.95px; */
+    width: 30vw;
+    background-color: red;
+    border: 1px solid transparent;
+    color: white;
+    cursor: pointer;
+    font-size: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
 }
 
-@media only screen and (min-width:375.1px) and (max-width:425px) {
-    .header__info {
-        font-size: 16px;
-        padding: 0 10px;
-        font-weight: bold;
-    }
+@media only screen and (min-width: 375.1px) and (max-width: 425px) {
+  .header__info {
+    font-size: 16px;
+    padding: 0 10px;
+    font-weight: bold;
+  }
 
-    .description__info {
-        font-size: 17px;
-        font-weight:500;
-        padding-top: 10px;
-    }
+  .description__info {
+    font-size: 17px;
+    font-weight: 500;
+    padding-top: 10px;
+  }
 
-    .sign_btn {
-        margin-right: 10px;
-    }
+  .sign_btn {
+    margin-right: 10px;
+  }
 
-    .landing__text {
-        top: 50%;
-    }
+  .landing__text {
+    top: 50%;
+  }
 
-    .membership__info {
-        font-size: 17px;
-        width: 90vw;
-        word-wrap:break-word;
-        text-align: center;
-        justify-content: center;
-        margin-left: auto;
-        margin-right: auto;
-        font-weight:500;
-        padding-top:10px;
-    }
+  .membership__info {
+    font-size: 17px;
+    width: 90vw;
+    word-wrap: break-word;
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+    padding-top: 10px;
+  }
 
-    .input__field {
-        /* height: 41.6px; */
-        width: 60vw;
-        font-size: 18px;
-        font-size: 13pts;
-        border: 1px solid transparent;
-        border-top: none;
-        border-right: none;
-        border-left: none;
-        border-bottom: none;
-        text-decoration: none;
-        outline: none;
-    }
-    
-    .btn__field {
-        /* height: 43.95px; */
-        width: 30vw;
-        background-color: red;
-        border: 1px solid transparent;
-        color: white;
-        cursor: pointer;
-        font-size: 10px;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-    }
+  .input__field {
+    /* height: 41.6px; */
+    width: 60vw;
+    font-size: 18px;
+    font-size: 13pts;
+    border: 1px solid transparent;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    text-decoration: none;
+    outline: none;
+  }
+
+  .btn__field {
+    /* height: 43.95px; */
+    width: 30vw;
+    background-color: red;
+    border: 1px solid transparent;
+    color: white;
+    cursor: pointer;
+    font-size: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
 }
 
-@media only screen and (min-width:425.1px) and (max-width:768px) {
-    .header__info {
-        font-size: 19px;
-        padding: 0 10px;
-        font-weight: bold;
-    }
+@media only screen and (min-width: 425.1px) and (max-width: 768px) {
+  .header__info {
+    font-size: 19px;
+    padding: 0 10px;
+    font-weight: bold;
+  }
 
-    .description__info {
-        font-size: 18px;
-        font-weight:500;
-        padding-top: 10px;
-    }
+  .description__info {
+    font-size: 18px;
+    font-weight: 500;
+    padding-top: 10px;
+  }
 
-    .sign_btn {
-        margin-right: 10px;
-    }
+  .sign_btn {
+    margin-right: 10px;
+  }
 
-    .membership__info {
-        font-size: 20px;
-        width: 90vw;
-        word-wrap:break-word;
-        text-align: center;
-        justify-content: center;
-        margin-left: auto;
-        margin-right: auto;
-        font-weight:500;
-        padding-top:10px;
-    }
+  .membership__info {
+    font-size: 20px;
+    width: 90vw;
+    word-wrap: break-word;
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+    padding-top: 10px;
+  }
 
-    .input__field {
-        /* height: 41.6px; */
-        width: 60vw;
-        font-size: 18px;
-        font-size: 13pts;
-        border: 1px solid transparent;
-        border-top: none;
-        border-right: none;
-        border-left: none;
-        border-bottom: none;
-        text-decoration: none;
-        outline: none;
-    }
-    
-    .btn__field {
-        /* height: 43.95px; */
-        width: 30vw;
-        background-color: red;
-        border: 1px solid transparent;
-        color: white;
-        cursor: pointer;
-        font-size: 10px;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-    }
+  .input__field {
+    /* height: 41.6px; */
+    width: 60vw;
+    font-size: 18px;
+    font-size: 13pts;
+    border: 1px solid transparent;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    text-decoration: none;
+    outline: none;
+  }
+
+  .btn__field {
+    /* height: 43.95px; */
+    width: 30vw;
+    background-color: red;
+    border: 1px solid transparent;
+    color: white;
+    cursor: pointer;
+    font-size: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
 }
 
-@media only screen and (min-width:768.5px) and (max-width:1024px) {
-    .header__info {
-        font-size: 25px;
-        padding: 0 10px;
-        font-weight: bold;
-    }
+@media only screen and (min-width: 768.5px) and (max-width: 1024px) {
+  .header__info {
+    font-size: 25px;
+    padding: 0 10px;
+    font-weight: bold;
+  }
 
-    .description__info {
-        font-size: 28px;
-        font-weight:500;
-        padding-top: 10px;
-    }
+  .description__info {
+    font-size: 28px;
+    font-weight: 500;
+    padding-top: 10px;
+  }
 
-    .sign_btn {
-        margin-right: 10px;
-    }
+  .sign_btn {
+    margin-right: 10px;
+  }
 
-    .membership__info {
-        font-size: 25px;
-        width: 90vw;
-        word-wrap:break-word;
-        text-align: center;
-        justify-content: center;
-        margin-left: auto;
-        margin-right: auto;
-        font-weight:500;
-        padding-top:10px;
-    }
+  .membership__info {
+    font-size: 25px;
+    width: 90vw;
+    word-wrap: break-word;
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+    padding-top: 10px;
+  }
 
-    .input__field {
-        /* height: 41.6px; */
-        width: 60vw;
-        font-size: 18px;
-        font-size: 13pts;
-        border: 1px solid transparent;
-        border-top: none;
-        border-right: none;
-        border-left: none;
-        border-bottom: none;
-        text-decoration: none;
-        outline: none;
-    }
-    
-    .btn__field {
-        /* height: 43.95px; */
-        width: 30vw;
-        background-color: red;
-        border: 1px solid transparent;
-        color: white;
-        cursor: pointer;
-        font-size: 10px;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-    }
+  .input__field {
+    /* height: 41.6px; */
+    width: 60vw;
+    font-size: 18px;
+    font-size: 13pts;
+    border: 1px solid transparent;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    text-decoration: none;
+    outline: none;
+  }
+
+  .btn__field {
+    /* height: 43.95px; */
+    width: 30vw;
+    background-color: red;
+    border: 1px solid transparent;
+    color: white;
+    cursor: pointer;
+    font-size: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
 }
