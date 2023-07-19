@@ -37,7 +37,7 @@ const Card = ({ movie }) => {
     await updateDoc(userDocRef, {
       savedTrailers: arrayUnion({
         id: movie.id,
-        title: movie.title,
+        title: movie.title || movie.name || movie.original_name,
         coverart: movie.backdrop_path || movie.poster_path,
       }),
     });
