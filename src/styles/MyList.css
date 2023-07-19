@@ -1,6 +1,6 @@
 .list_section {
   position: relative;
-  height: 400px;
+  height: 60vh;
   background: url("https://assets.nflxext.com/ffe/siteui/vlv3/9c5457b8-9ab0-4a04-9fc1-e608d5670f1a/710d74e0-7158-408e-8d9b-23c219dee5df/IN-en-20210719-popsignuptwoweeks-perspective_alpha_website_small.jpg")
     center no-repeat;
   background-size: cover;
@@ -8,9 +8,27 @@
   overflow-y: hidden;
 }
 
-p {
+.listed_trailers {
+  position: absolute;
+  top: 20%;
+  padding: 16px;
   color: white;
-  margin-top: 60px;
-  margin-left: 20px;
+}
+
+.list-page-header {
+  color: white;
   font-size: 2rem;
+  font-weight: bold;
+}
+
+.list-page-description {
+  color: white;
+  padding-top: 40px;
+  line-height: 2;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 450px) {
+  .list-page-description {
+    display: none;
+  }
 }
