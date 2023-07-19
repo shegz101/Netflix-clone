@@ -28,7 +28,7 @@
 }
 
 @media only screen and (min-width: 0px) and (max-width: 450px) {
-  .list-page-description {
+  .list-page-description-mobile {
     display: none;
   }
 }
