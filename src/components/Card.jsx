@@ -19,7 +19,6 @@ import movieTrailer from "movie-trailer";
 const Card = ({ movie }) => {
   const [add, setAdd] = useState(false);
   const [trailerId, setTrailerId] = useState("");
-  const [trailersaved, setTrailerSaved] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const img_url = `https://image.tmdb.org/t/p/original`;
@@ -31,7 +30,6 @@ const Card = ({ movie }) => {
     const userDocRef = doc(db, "users", `${user?.email}`);
 
     setAdd(!add);
-    setTrailerSaved(true);
 
     await updateDoc(userDocRef, {
       savedTrailers: arrayUnion({
