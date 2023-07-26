@@ -49,6 +49,7 @@
   font-weight: 800;
   border: none;
   color: #ffffff;
+  cursor: pointer;
   background-color: #e50914;
   box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -84,6 +85,7 @@
   width: max-content;
   margin-left: 10px;
   align-items: center;
+  cursor: pointer;
   color: #fff;
   border: 1px solid transparent;
   border-radius: 8px;
