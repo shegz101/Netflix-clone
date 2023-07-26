@@ -9,6 +9,7 @@ const initialState = {
   movie_description: "",
   movie_release_date: "",
   movie_language: "",
+  movie_cover: "",
 };
 
 export const authSlice = createSlice({
@@ -40,11 +41,23 @@ export const authSlice = createSlice({
     mlang: (state, action) => {
       state.movie_language = action.payload;
     },
+    mcover: (state, action) => {
+      state.movie_cover = action.payload;
+    },
   },
 });
 
-export const { login, logout, trail, movieId, mname, mdescp, mdate, mlang } =
-  authSlice.actions;
+export const {
+  login,
+  logout,
+  trail,
+  movieId,
+  mname,
+  mdescp,
+  mdate,
+  mcover,
+  mlang,
+} = authSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
@@ -55,6 +68,7 @@ export const selectMid = (state) => state.user.movie_Id;
 export const selectName = (state) => state.user.movie_name;
 export const selectDate = (state) => state.user.movie_release_date;
 export const selectDescription = (state) => state.user.movie_description;
+export const selectCover = (state) => state.user.movie_cover;
 export const selectLang = (state) => state.user.movie_language;
 
 // We can also write thunks by hand, which may contain both sync and async logic.

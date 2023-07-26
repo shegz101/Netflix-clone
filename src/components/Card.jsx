@@ -11,6 +11,7 @@ import {
   mname,
   mdescp,
   mdate,
+  mcover,
   mlang,
 } from "../features/authSlice.js";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
@@ -60,6 +61,7 @@ const Card = ({ movie }) => {
           dispatch(movieId(movie?.id));
           dispatch(mdescp(movie?.overview));
           dispatch(mdate(movie?.release_date));
+          dispatch(mcover(movie?.backdrop_path || movie?.poster_path));
           dispatch(mlang(movie?.original_language));
         })
         .catch((err) => console.log(err));
