@@ -89,7 +89,7 @@ const Card = ({ movie }) => {
         savedTrailers: arrayUnion(movieData),
       });
       toast.success(
-        `ℹ Successfully added ${
+        `Successfully added ${
           movie.title || movie.name || movie.original_name
         }`,
         {

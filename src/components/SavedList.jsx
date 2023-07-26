@@ -49,7 +49,7 @@ const SavedList = () => {
         savedTrailers: updated_list,
       });
       toast.success(
-        `ℹ Successfully deleted ${
+        `Successfully deleted ${
           trailer.name || trailer.title || trailer.original_name
         }`,
         {

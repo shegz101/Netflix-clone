@@ -134,7 +134,7 @@ const MovieShow = () => {
       await updateDoc(userDocRef, {
         savedTrailers: arrayUnion(movieData),
       });
-      toast.success(`ℹ Successfully added ${movie_title}`, {
+      toast.success(`Successfully added ${movie_title}`, {
         position: "bottom-center",
         autoClose: 5000,
         hideProgressBar: false,
