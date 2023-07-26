@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/Card.css";
 //importing things needed to query the data base
 import { db } from "../firebase";
@@ -14,17 +14,35 @@ import {
   mcover,
   mlang,
 } from "../features/authSlice.js";
-import { arrayUnion, doc, updateDoc } from "firebase/firestore";
+import {
+  arrayUnion,
+  doc,
+  updateDoc,
+  getDoc,
+  onSnapshot,
+} from "firebase/firestore";
 import movieTrailer from "movie-trailer";
 
 const Card = ({ movie }) => {
   const [add, setAdd] = useState(false);
   const [trailerId, setTrailerId] = useState("");
+  //Trailers State Array
+  const [trailers, setTrailers] = useState([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const img_url = `https://image.tmdb.org/t/p/original`;
 
   const user = useSelector(selectUser);
+
+  useEffect(() => {
+    const docRef = doc(db, "users", `${user?.email}`);
+
+    const unsubscribe = onSnapshot(docRef, (doc) => {
+      setTrailers(doc.data()?.savedTrailers);
+    });
+
+    return () => unsubscribe(); // Cleanup the listener when the component is unmounted
+  }, [user?.email]);
 
   //Function to update the savedtrailers docs
   const updateUserSavedTrailers = async () => {
@@ -32,18 +50,50 @@ const Card = ({ movie }) => {
 
     setAdd(!add);
 
-    await updateDoc(userDocRef, {
-      savedTrailers: arrayUnion({
-        id: movie.id,
-        title: movie.title || movie.name || movie.original_name,
-        coverart: movie.backdrop_path || movie.poster_path,
-        release_date: movie.release_date,
-        overview: movie.overview,
-        language: movie.original_language,
-      }),
-    });
+    // Fetch the user document to check if the data already exists
+    const userDocSnapshot = await getDoc(userDocRef);
+    const userData = userDocSnapshot.data();
 
-    console.log("Saved trailers updated successfully.");
+    // The movie data to be added
+    const movieData = {
+      id: movie.id,
+      title: movie.title || movie.name || movie.original_name,
+      coverart: movie.backdrop_path || movie.poster_path,
+      release_date: movie.release_date,
+      overview: movie.overview,
+      language: movie.original_language,
+    };
+
+    // Check if the movie data exists in the "savedTrailers" array
+    const isMovieSaved = userData.savedTrailers.some(
+      (trailer) => trailer.id === movieData.id
+    );
+
+    if (isMovieSaved) {
+      // Data already exists in Firebase, show an alert or handle the case as needed
+      alert("Movie data already saved to Firebase!");
+    } else {
+      // Data doesn't exist, add it to the "savedTrailers" array
+      await updateDoc(userDocRef, {
+        savedTrailers: arrayUnion(movieData),
+      });
+      console.log("Saved trailers updated successfully.");
+    }
+  };
+
+  //delete trailer function
+  const trailerRef = doc(db, "users", `${user?.email}`);
+
+  const deleteTrailer = async (id) => {
+    setAdd(!add);
+    try {
+      const updated_list = trailers.filter((movie) => movie.id !== id);
+      await updateDoc(trailerRef, {
+        savedTrailers: updated_list,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleMovieId = (movie) => {
@@ -90,6 +140,7 @@ const Card = ({ movie }) => {
         <div onClick={updateUserSavedTrailers}>
           {add ? (
             <p
+              onClick={() => deleteTrailer(movie?.id)}
               style={{
                 position: "absolute",
                 top: 6,
