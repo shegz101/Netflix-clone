@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-// import Typewriter from "typewriter-effect";
-// import { TbPlayerPlay } from "react-icons/tb";
 import movieTrailer from "movie-trailer";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUser } from "../features/authSlice.js";
 import {
   trail,
   movieId,
@@ -15,12 +14,15 @@ import {
 import "../styles/Banner.css";
 import axios_fetch from "../api/axios_fetch";
 import request_data from "../api/request_data";
+import { db } from "../firebase";
+import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 
 const Banner = () => {
   const [bannermovie, setBannerMovie] = useState([]);
   const [trailerId, setTrailerId] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const user = useSelector(selectUser);
 
   const fetch_movie = async () => {
     const resp = await axios_fetch.get(request_data.Trending);
@@ -64,6 +66,24 @@ const Banner = () => {
     fetch_movie();
   }, []);
 
+  //Function to add and update the savedtrailers docs
+  const updateUserSavedTrailers = async (movie) => {
+    const userDocRef = doc(db, "users", `${user?.email}`);
+
+    await updateDoc(userDocRef, {
+      savedTrailers: arrayUnion({
+        id: movie.id,
+        title: movie.title || movie.name || movie.original_name,
+        coverart: movie.backdrop_path || movie.poster_path,
+        release_date: movie.release_date,
+        overview: movie.overview,
+        language: movie.original_language,
+      }),
+    });
+
+    console.log("Saved trailers updated successfully.");
+  };
+
   return (
     <header
       className="banner__image"
@@ -76,20 +96,6 @@ const Banner = () => {
       }}
     >
       <div className="banner-contents">
-        {/* <Typewriter
-          onInit={(typewriter) => {
-            typewriter
-              .typeString(
-                `<h1 className='movie__name'>${
-                  bannermovie?.title ||
-                  bannermovie?.name ||
-                  bannermovie?.original_name
-                }</h1>`
-              )
-              .stop()
-              .start();
-          }}
-        /> */}
         <h1 className="movie__name">
           {bannermovie?.title ||
             bannermovie?.name ||
@@ -102,7 +108,12 @@ const Banner = () => {
           >
             Play
           </button>
-          <button className="button__add">Add to List</button>
+          <button
+            className="button__add"
+            onClick={() => updateUserSavedTrailers(bannermovie)}
+          >
+            Add to List
+          </button>
         </div>
         <p className="movie__description">{truncate(bannermovie?.overview)}</p>
       </div>
