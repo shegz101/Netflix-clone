@@ -3,8 +3,7 @@ import "../styles/Card.css";
 //importing things needed to query the data base
 import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../features/authSlice.js";
 import {
   trail,
