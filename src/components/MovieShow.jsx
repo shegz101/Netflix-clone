@@ -10,6 +10,8 @@ import { useSelector } from "react-redux";
 import { db } from "../firebase";
 import { arrayUnion, doc, updateDoc, getDoc } from "firebase/firestore";
 import { selectUser } from "../features/authSlice.js";
+//Using React Toastify to handle notifications
+import { toast, ToastContainer } from "react-toastify";
 import {
   selectId,
   selectMid,
@@ -117,11 +119,30 @@ const MovieShow = () => {
 
     if (isMovieSaved) {
       // Data already exists in Firebase, show an alert or handle the case as needed
-      alert("Movie data already saved to Firebase!");
+      toast.error("Movie data already saved!", {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     } else {
       // Data doesn't exist, add it to the "savedTrailers" array
       await updateDoc(userDocRef, {
         savedTrailers: arrayUnion(movieData),
+      });
+      toast.success(`ℹ Successfully added ${movie_title}`, {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
       });
       console.log("Saved trailers updated successfully.");
     }
@@ -130,6 +151,18 @@ const MovieShow = () => {
   return (
     <>
       <div className="movie_show">
+        <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
         <div className="movie_show_btn">
           <div className="navigate_icon" onClick={() => navigate(-1)}>
             <MdOutlineArrowBackIosNew

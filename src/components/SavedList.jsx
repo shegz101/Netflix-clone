@@ -3,6 +3,8 @@ import "../styles/SavedList.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { selectUser } from "../features/authSlice.js";
+//Using React Toastify to handle notifications
+import { toast, ToastContainer } from "react-toastify";
 import {
   trail,
   movieId,
@@ -40,12 +42,27 @@ const SavedList = () => {
   //delete trailer function
   const trailerRef = doc(db, "users", `${user?.email}`);
 
-  const deleteTrailer = async (id) => {
+  const deleteTrailer = async (trailer) => {
     try {
-      const updated_list = trailers.filter((movie) => movie.id !== id);
+      const updated_list = trailers.filter((movie) => movie.id !== trailer.id);
       await updateDoc(trailerRef, {
         savedTrailers: updated_list,
       });
+      toast.success(
+        `ℹ Successfully deleted ${
+          trailer.name || trailer.title || trailer.original_name
+        }`,
+        {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }
+      );
     } catch (error) {
       console.log(error);
     }
@@ -76,6 +93,18 @@ const SavedList = () => {
 
   return (
     <div className="savedlist-section">
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <p
         className="heading-info"
         style={{ color: "white", paddingLeft: "10px" }}
@@ -100,7 +129,7 @@ const SavedList = () => {
               src={`${img_url}/${movie.coverart}`}
               alt={movie.title}
             />
-            <div onClick={() => deleteTrailer(movie.id)}>
+            <div onClick={() => deleteTrailer(movie)}>
               <p
                 style={{
                   position: "absolute",
