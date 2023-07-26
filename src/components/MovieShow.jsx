@@ -7,6 +7,9 @@ import { MdAdd } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { db } from "../firebase";
+import { arrayUnion, doc, updateDoc } from "firebase/firestore";
+import { selectUser } from "../features/authSlice.js";
 import {
   selectId,
   selectMid,
@@ -14,11 +17,13 @@ import {
   selectDescription,
   selectDate,
   selectLang,
+  selectCover,
   trail,
   movieId,
   mname,
   mdescp,
   mdate,
+  mcover,
   mlang,
 } from "../features/authSlice.js";
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
@@ -28,6 +33,7 @@ const MovieShow = () => {
   const movie_overview = useSelector(selectDescription);
   const movie_date = useSelector(selectDate);
   const movie_lang = useSelector(selectLang);
+  const movie_cover = useSelector(selectCover);
   const [similarResponse, setSimilarResponse] = useState([]);
   const [trailerId, setTrailerId] = useState("");
   const navigate = useNavigate();
@@ -36,6 +42,8 @@ const MovieShow = () => {
   const mov_id = useSelector(selectMid);
   const API_KEY = "51e3d67cbe329bdeb9071d6ccdc4eb6f";
   const url = `/movie/${mov_id}/similar?api_key=${API_KEY}&language=en-US&page=1`;
+
+  const user = useSelector(selectUser);
 
   const dispatch = useDispatch();
 
@@ -67,6 +75,7 @@ const MovieShow = () => {
           dispatch(movieId(trailer?.id));
           dispatch(mdescp(trailer?.overview));
           dispatch(mdate(trailer?.release_date));
+          dispatch(mcover(trailer?.backdrop_path || trailer?.poster_path));
           dispatch(mlang(trailer?.original_language));
         })
         .catch((err) => console.log(err));
@@ -83,10 +92,23 @@ const MovieShow = () => {
     },
   };
 
-  // useEffect(() => {
-  //   fetch_similar();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  //Function to add and update the savedtrailers docs
+  const updateUserSavedTrailers = async () => {
+    const userDocRef = doc(db, "users", `${user?.email}`);
+
+    await updateDoc(userDocRef, {
+      savedTrailers: arrayUnion({
+        id: mov_id,
+        title: movie_title,
+        coverart: movie_cover,
+        release_date: movie_date,
+        overview: movie_overview,
+        language: movie_lang,
+      }),
+    });
+
+    console.log("Saved trailers updated successfully.");
+  };
 
   return (
     <>
@@ -99,7 +121,9 @@ const MovieShow = () => {
             />
           </div>
           <div>
-            <button className="add__list">Add</button>
+            <button className="add__list" onClick={updateUserSavedTrailers}>
+              Add
+            </button>
           </div>
         </div>
         <div className="video_show">
@@ -120,7 +144,7 @@ const MovieShow = () => {
         <p className="movie__date">Language: {movie_lang}</p>
       </div>
 
-      <div className="add_movie">
+      <div className="add_movie" onClick={updateUserSavedTrailers}>
         <p>
           <MdAdd style={{ color: "white" }} className="add_icon" />
         </p>
@@ -158,5 +182,3 @@ const MovieShow = () => {
 };
 
 export default MovieShow;
-
-//"2g811Eo7K8U"
