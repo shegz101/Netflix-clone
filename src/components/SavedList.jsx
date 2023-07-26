@@ -1,12 +1,25 @@
 import React, { useState, useEffect } from "react";
 import "../styles/SavedList.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { selectUser } from "../features/authSlice.js";
+import {
+  trail,
+  movieId,
+  mname,
+  mdescp,
+  mdate,
+  mlang,
+} from "../features/authSlice.js";
+import movieTrailer from "movie-trailer";
 //importing things needed to query the data base
 import { db } from "../firebase";
 import { updateDoc, doc, onSnapshot } from "firebase/firestore";
 
-function SavedList() {
+const SavedList = () => {
+  const [trailerId, setTrailerId] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   //Trailers State Array
   const [trailers, setTrailers] = useState([]);
   // The Image Url
@@ -38,6 +51,29 @@ function SavedList() {
     }
   };
 
+  //function to save retrieve trailer info in order to be able to play it
+  const handleMovieId = (movie) => {
+    if (trailerId) {
+      setTrailerId("");
+    } else {
+      movieTrailer(movie?.name || movie?.title || movie?.original_name || "")
+        .then((url) => {
+          const urlParams = new URLSearchParams(new URL(url).search);
+          dispatch(trail(urlParams.get("v")));
+          setTrailerId(urlParams.get("v"));
+          dispatch(
+            mname(movie?.name || movie?.title || movie?.original_name || "")
+          );
+          dispatch(movieId(movie?.id));
+          dispatch(mdescp(movie?.overview));
+          dispatch(mdate(movie?.release_date));
+          dispatch(mlang(movie?.original_language));
+        })
+        .catch((err) => console.log(err));
+    }
+    navigate("/movieshow");
+  };
+
   return (
     <div className="savedlist-section">
       <p
@@ -51,6 +87,7 @@ function SavedList() {
           <div className="movie__div" key={id}>
             <img
               key={movie?.id}
+              onClick={() => handleMovieId(movie)}
               className="movie__poster"
               style={{
                 height: "210px",
@@ -93,6 +130,6 @@ function SavedList() {
       </div>
     </div>
   );
-}
+};
 
 export default SavedList;
