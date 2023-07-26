@@ -39,6 +39,9 @@ const Card = ({ movie }) => {
         id: movie.id,
         title: movie.title || movie.name || movie.original_name,
         coverart: movie.backdrop_path || movie.poster_path,
+        release_date: movie.release_date,
+        overview: movie.overview,
+        language: movie.original_language,
       }),
     });
 
