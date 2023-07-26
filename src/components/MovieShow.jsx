@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { db } from "../firebase";
-import { arrayUnion, doc, updateDoc } from "firebase/firestore";
+import { arrayUnion, doc, updateDoc, getDoc } from "firebase/firestore";
 import { selectUser } from "../features/authSlice.js";
 import {
   selectId,
@@ -96,18 +96,35 @@ const MovieShow = () => {
   const updateUserSavedTrailers = async () => {
     const userDocRef = doc(db, "users", `${user?.email}`);
 
-    await updateDoc(userDocRef, {
-      savedTrailers: arrayUnion({
-        id: mov_id,
-        title: movie_title,
-        coverart: movie_cover,
-        release_date: movie_date,
-        overview: movie_overview,
-        language: movie_lang,
-      }),
-    });
+    // Fetch the user document to check if the data already exists
+    const userDocSnapshot = await getDoc(userDocRef);
+    const userData = userDocSnapshot.data();
 
-    console.log("Saved trailers updated successfully.");
+    // The movie data to be added
+    const movieData = {
+      id: mov_id,
+      title: movie_title,
+      coverart: movie_cover,
+      release_date: movie_date,
+      overview: movie_overview,
+      language: movie_lang,
+    };
+
+    // Check if the movie data exists in the "savedTrailers" array
+    const isMovieSaved = userData.savedTrailers.some(
+      (trailer) => trailer.id === movieData.id
+    );
+
+    if (isMovieSaved) {
+      // Data already exists in Firebase, show an alert or handle the case as needed
+      alert("Movie data already saved to Firebase!");
+    } else {
+      // Data doesn't exist, add it to the "savedTrailers" array
+      await updateDoc(userDocRef, {
+        savedTrailers: arrayUnion(movieData),
+      });
+      console.log("Saved trailers updated successfully.");
+    }
   };
 
   return (

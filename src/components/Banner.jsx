@@ -15,7 +15,7 @@ import "../styles/Banner.css";
 import axios_fetch from "../api/axios_fetch";
 import request_data from "../api/request_data";
 import { db } from "../firebase";
-import { arrayUnion, doc, updateDoc } from "firebase/firestore";
+import { arrayUnion, doc, updateDoc, getDoc } from "firebase/firestore";
 
 const Banner = () => {
   const [bannermovie, setBannerMovie] = useState([]);
@@ -66,24 +66,39 @@ const Banner = () => {
     fetch_movie();
   }, []);
 
-  //Function to add and update the savedtrailers docs
   const updateUserSavedTrailers = async (movie) => {
     const userDocRef = doc(db, "users", `${user?.email}`);
 
-    await updateDoc(userDocRef, {
-      savedTrailers: arrayUnion({
-        id: movie.id,
-        title: movie.title || movie.name || movie.original_name,
-        coverart: movie.backdrop_path || movie.poster_path,
-        release_date: movie.release_date,
-        overview: movie.overview,
-        language: movie.original_language,
-      }),
-    });
+    // Fetch the user document to check if the data already exists
+    const userDocSnapshot = await getDoc(userDocRef);
+    const userData = userDocSnapshot.data();
 
-    console.log("Saved trailers updated successfully.");
+    // The movie data to be added
+    const movieData = {
+      id: movie.id,
+      title: movie.title || movie.name || movie.original_name,
+      coverart: movie.backdrop_path || movie.poster_path,
+      release_date: movie.release_date,
+      overview: movie.overview,
+      language: movie.original_language,
+    };
+
+    // Check if the movie data exists in the "savedTrailers" array
+    const isMovieSaved = userData.savedTrailers.some(
+      (trailer) => trailer.id === movieData.id
+    );
+
+    if (isMovieSaved) {
+      // Data already exists in Firebase, show an alert or handle the case as needed
+      alert("Movie data already saved to Firebase!");
+    } else {
+      // Data doesn't exist, add it to the "savedTrailers" array
+      await updateDoc(userDocRef, {
+        savedTrailers: arrayUnion(movieData),
+      });
+      console.log("Saved trailers updated successfully.");
+    }
   };
-
   return (
     <header
       className="banner__image"
